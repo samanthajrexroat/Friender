@@ -1,0 +1,20 @@
+nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+
+}
+
+.logoContainer {
+    width: 15rem;
+    margin: 1rem;
+    color: var(--color-bg);
+}
+
+.primary-btn {
+    width: 10rem;
+    margin: 1rem;
+}
+
+
