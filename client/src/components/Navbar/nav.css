@@ -17,4 +17,7 @@ nav {
     margin: 1rem;
 }
 
+.primary-btn:disabled {
+    background: #565e62;
+}
 

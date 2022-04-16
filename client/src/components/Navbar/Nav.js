@@ -2,9 +2,9 @@ import React from "react";
 
 import "./nav.css";
 
-const Nav = () => {
+const Nav = ({ setShowModal, showModal }) => {
   const handleClick = () => {
-    console.log("NEED TO SET UP THIS ONCLICK");
+    setShowModal(true);
   };
 
   return (
@@ -13,7 +13,11 @@ const Nav = () => {
         <h1> Friender </h1>
       </div>
 
-      <button className="primary-btn" onClick={handleClick}>
+      <button
+        className="primary-btn"
+        onClick={handleClick}
+        disabled={showModal}
+      >
         Log in
       </button>
     </nav>
