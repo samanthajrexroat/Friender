@@ -23,6 +23,7 @@ h2 {
     border-radius: 1rem;
     transition: all 400ms ease-in-out;
     color: var(--color-light);
+    
 }
 
 .footerSocial > a {

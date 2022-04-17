@@ -65,7 +65,7 @@ label {
     margin-right: auto;
     max-width: fit-content;
     max-height: fit-content;
-    background: linear-gradient(0deg, rgb(113, 177, 104) 0%, rgb(124, 84, 185) 100%);
+    background: linear-gradient(180deg, rgb(128, 104, 177) 0%, rgb(84, 185, 163) 100%);
     border-radius: 10px;
     padding: 20px;
     box-shadow: rgba(0,0,0,0.35) 0px 5px 15px;

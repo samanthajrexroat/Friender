@@ -2,12 +2,11 @@ nav {
     width: 100%;
     display: flex;
     justify-content: space-between;
-    
-        position: fixed;
-        left: 50%;
-        transform: translateX(-50%);
-        /* bottom: 2rem; */
-
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(to bottom, #ece9e6, #ffffff00);
+    z-index:999;
 }
 h1 {
     font-size: 2.5rem;
