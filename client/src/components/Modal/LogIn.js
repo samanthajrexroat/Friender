@@ -1,6 +1,5 @@
 import React from "react";
 import "./modal.css";
-import Home from "../../pages/Home";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -16,7 +15,7 @@ const LogIn = () => {
         <Link to="/">
           <div className="closeIcon">ⓧ</div>
         </Link>
-        <h2>Sign In</h2>
+        <h2>Log In</h2>
         <form className="logInForm">
           <input
             className="rounded-input"
@@ -49,6 +48,7 @@ const LogIn = () => {
         <Link to="/Profile">
           <button className="secondary-btn">Submit</button>
         </Link>
+        <h6>Not yet a member?</h6>
         <Link to="/SignUp">
           <h6>CREATE AN ACCOUNT</h6>
         </Link>

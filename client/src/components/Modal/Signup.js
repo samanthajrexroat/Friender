@@ -169,7 +169,7 @@ const SignUp = () => {
         </Link>
         <h6>Already have an account?</h6>
         <Link to="/LogIn">
-          <h6>Log In here!</h6>
+          <h6>LOG IN</h6>
         </Link>
       </div>
     </div>

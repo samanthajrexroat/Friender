@@ -11,7 +11,7 @@ const CommentsData = [
   },
   {
     id: 3,
-    name: "Tracye W",
+    name: "Macy E",
     comments: `"Work from home, 3 kids and married.  Its hard to meet new people.  Thanks to Friender I have a whole community of friends!"`,
   },
 ];

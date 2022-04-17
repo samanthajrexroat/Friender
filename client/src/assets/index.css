@@ -19,7 +19,7 @@
     --color-tx-secondary: #b3bdc3;
     --color-light: #9fcce2;
     --color-dark: #11232e;
-    --color-accent: #a0c1a3;
+    --color-accent: linear-gradient(to right, #eb3349, #f45c43);
     
     --container-width-lg: 75%;
     --container-width-md: 82%;
@@ -44,6 +44,7 @@ body {
     height: 80vh;
     background: rgb(34,193,195);
     background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);
+
 }
 
 .container {
@@ -119,11 +120,7 @@ a:hover {
     transition: all 400ms ease-in;
 }
 
-.imageContainer {
-    background-image: url("./images/good-friends.jpg");
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-}
+
 .home {
     position: fixed;
     left: 50%;
