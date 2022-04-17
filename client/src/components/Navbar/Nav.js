@@ -1,24 +1,23 @@
 import React from "react";
 import "./nav.css";
+import { TiThMenuOutline } from "react-icons/ti";
+import { Link } from "react-router-dom";
 
-const Nav = ({ setShowModal, showModal }) => {
+const Nav = ({ setShowSignInModal, showSignInModal }) => {
   const handleClick = () => {
-    setShowModal(true);
+    setShowSignInModal(true);
   };
 
   return (
     <nav>
       <div className="logoContainer">
-        <h1> Friender </h1>
+        <h1>
+          <TiThMenuOutline /> Friender{" "}
+        </h1>
       </div>
-
-      <button
-        className="primary-btn logIn"
-        onClick={handleClick}
-        disabled={showModal}
-      >
-        Log in
-      </button>
+      <Link to="/LogIn" onClick={handleClick} disabled={showSignInModal}>
+        <button className="primary-btn logIn">Log in</button>
+      </Link>
     </nav>
   );
 };

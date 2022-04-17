@@ -1,32 +1,23 @@
 import React from "react";
 import "./modal.css";
+import Home from "../../pages/Home";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
-const Modal = ({ setShowModal, setShowProfile }) => {
+const LogIn = () => {
   const [email, setEmail] = useState(null);
   const [password, setPassword] = useState(null);
   const [confirmPassword, setConfirmPassword] = useState(null);
   console.log(email, password, confirmPassword);
 
-  const handleClick = () => {
-    setShowModal(false);
-  };
-
-  const signUp = true;
-
-  const handleSubmit = event => {
-    event.preventDefault();
-    setShowProfile(true);
-  };
-
   return (
-    <>
-      <div className="signinModal">
-        <div className="closeIcon" onClick={handleClick}>
-          ⓧ
-        </div>
-        <h2>{signUp ? "CREATE ACCOUNT" : "LOG IN"}</h2>
-        <form onSubmit={{ handleSubmit }}>
+    <div className="background">
+      <div className="signInModal">
+        <Link to="/">
+          <div className="closeIcon">ⓧ</div>
+        </Link>
+        <h2>Sign In</h2>
+        <form className="logInForm">
           <input
             type="email"
             id="email"
@@ -51,12 +42,12 @@ const Modal = ({ setShowModal, setShowProfile }) => {
             required={true}
             onChange={e => setConfirmPassword(e.target.value)}
           />
-          <input className="secondary-btn" type="submit" />
         </form>
+        <button className="secondary-btn">Submit</button>
         <h6>CREATE AN ACCOUNT</h6>
       </div>
-    </>
+    </div>
   );
 };
 
-export default Modal;
+export default LogIn;
