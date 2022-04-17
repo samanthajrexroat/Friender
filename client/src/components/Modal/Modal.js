@@ -2,7 +2,7 @@ import React from "react";
 import "./modal.css";
 import { useState } from "react";
 
-const Modal = ({ setShowModal }) => {
+const Modal = ({ setShowModal, setShowProfile }) => {
   const [email, setEmail] = useState(null);
   const [password, setPassword] = useState(null);
   const [confirmPassword, setConfirmPassword] = useState(null);
@@ -11,10 +11,12 @@ const Modal = ({ setShowModal }) => {
   const handleClick = () => {
     setShowModal(false);
   };
+
   const signUp = true;
 
   const handleSubmit = event => {
     event.preventDefault();
+    setShowProfile(true);
   };
 
   return (
@@ -42,14 +44,16 @@ const Modal = ({ setShowModal }) => {
             onChange={e => setPassword(e.target.value)}
           />
           <input
-            type="confirmPassword"
+            type="Password"
             id="confirmPassword"
             name="confirmPassword"
             placeholder="confirm Password"
             required={true}
             onChange={e => setConfirmPassword(e.target.value)}
           />
+          <input className="secondary-btn" type="submit" />
         </form>
+        <h6>CREATE AN ACCOUNT</h6>
       </div>
     </>
   );

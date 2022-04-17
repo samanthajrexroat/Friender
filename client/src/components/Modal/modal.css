@@ -13,3 +13,14 @@
 .closeIcon {
     float: right;
 }
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+input {
+    margin: .8rem;
+   
+    font-size: 15px;
+}
