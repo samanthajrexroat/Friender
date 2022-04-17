@@ -19,6 +19,7 @@ const LogIn = () => {
         <h2>Sign In</h2>
         <form className="logInForm">
           <input
+            className="rounded-input"
             type="email"
             id="email"
             name="email"
@@ -27,6 +28,7 @@ const LogIn = () => {
             onChange={e => setEmail(e.target.value)}
           />
           <input
+            className="rounded-input"
             type="password"
             id="password"
             name="password"
@@ -35,6 +37,7 @@ const LogIn = () => {
             onChange={e => setPassword(e.target.value)}
           />
           <input
+            className="rounded-input"
             type="Password"
             id="confirmPassword"
             name="confirmPassword"
@@ -43,8 +46,12 @@ const LogIn = () => {
             onChange={e => setConfirmPassword(e.target.value)}
           />
         </form>
-        <button className="secondary-btn">Submit</button>
-        <h6>CREATE AN ACCOUNT</h6>
+        <Link to="/Profile">
+          <button className="secondary-btn">Submit</button>
+        </Link>
+        <Link to="/SignUp">
+          <h6>CREATE AN ACCOUNT</h6>
+        </Link>
       </div>
     </div>
   );
