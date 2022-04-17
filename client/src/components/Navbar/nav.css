@@ -2,7 +2,11 @@ nav {
     width: 100%;
     display: flex;
     justify-content: space-between;
-
+    
+        position: fixed;
+        left: 50%;
+        transform: translateX(-50%);
+        /* bottom: 2rem; */
 
 }
 

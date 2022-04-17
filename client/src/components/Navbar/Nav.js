@@ -1,5 +1,4 @@
 import React from "react";
-
 import "./nav.css";
 
 const Nav = ({ setShowModal, showModal }) => {
@@ -14,7 +13,7 @@ const Nav = ({ setShowModal, showModal }) => {
       </div>
 
       <button
-        className="primary-btn"
+        className="primary-btn logIn"
         onClick={handleClick}
         disabled={showModal}
       >

@@ -1,0 +1,44 @@
+footer {
+    margin-left: 4rem;
+    margin-right: 4rem;
+}
+p {
+    font-size: 12px;
+    color: rgb(171, 171, 171);
+}
+
+.commentContainer {
+    margin: 1rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+h2 {
+    
+}
+.commentCard {
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: .8rem;
+    border-radius: 1rem;
+    border: 1px solid transparent;
+    transition: all 400ms ease-in-out;
+    color: var(--color-light);
+}
+.footerSocial > a {
+    margin-top: 2rem;
+    margin: 1rem;
+    gap: 1rem;
+}
+
+@media screen and (max-width: 1024px) {
+    .commentContainer {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .commentContainer {
+        display: none;
+    }
+}

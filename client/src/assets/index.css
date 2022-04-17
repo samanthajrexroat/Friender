@@ -19,7 +19,7 @@
     --color-tx-secondary: #b3bdc3;
     --color-light: #9fcce2;
     --color-dark: #11232e;
-    --color-accent: #ad9486;
+    --color-accent: #f2cf33;
     
 
     --container-width-lg: 75%;
@@ -43,7 +43,8 @@ body {
 }
 .background {
     height: 100vh;
-    background: linear-gradient(rgb(89, 89, 89), rgba(0, 0, 255, 0));
+    background: rgb(34,193,195);
+background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);
 }
 
 .container {
@@ -108,8 +109,14 @@ a:hover {
 }
 
 .secondary-btn {
-    background: var(--color-dark);
-    color: var(--color-bg);
+    background: var(--color-accent);
+    color: var(--color-dark);
+    margin: 1rem;
+    padding: .5rem 1rem;
+    border-radius: 2rem;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 400ms ease-in;
 }
 
 .imageContainer {
@@ -117,7 +124,12 @@ a:hover {
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
-
+.home {
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 25vh;
+}
 
 /* *********************
 *                      *

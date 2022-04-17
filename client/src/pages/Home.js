@@ -4,26 +4,28 @@ import Modal from "../components/Modal/Modal";
 import Nav from "../components/Navbar/Nav";
 import { useState } from "react";
 
-const Home = () => {
+const Homepage = () => {
   const [showModal, setShowModal] = useState(false);
 
-  const authToken = false;
+  const authToken = true;
+
   const handleClick = () => {
     setShowModal(true);
   };
 
   return (
-    <div className="background">
-      <Nav setShowModal={setShowModal} showModal={showModal} />
-      <div className="home">
-        <h1>Let's Connect!</h1>
-        <button className="primary-btn" onClick={handleClick}>
-          {authToken ? "Signout" : "Create Account"}
-        </button>
-        {showModal && <Modal setShowModal={setShowModal} />}
+    <>
+      <div className="background">
+        <Nav setShowModal={setShowModal} showModal={showModal} />
+        <div className="home">
+          <h1>Let's Connect!</h1>
+          <button className="primary-btn" onClick={handleClick}>
+            {authToken ? "Signout" : "Create Account"}
+          </button>
+          {showModal && <Modal setShowModal={setShowModal} />}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
-
-export default Home;
+export default Homepage;
