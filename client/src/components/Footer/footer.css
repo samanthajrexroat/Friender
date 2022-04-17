@@ -17,14 +17,14 @@ h2 {
     
 }
 .commentCard {
-    border: 2px solid black;
+    border: 1px solid rgb(215, 215, 215);
     border-radius: 5px;
     padding: .8rem;
     border-radius: 1rem;
-    border: 1px solid transparent;
     transition: all 400ms ease-in-out;
     color: var(--color-light);
 }
+
 .footerSocial > a {
     margin-top: 2rem;
     margin: 1rem;

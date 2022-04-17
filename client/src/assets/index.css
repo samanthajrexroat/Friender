@@ -19,9 +19,8 @@
     --color-tx-secondary: #b3bdc3;
     --color-light: #9fcce2;
     --color-dark: #11232e;
-    --color-accent: #f2cf33;
+    --color-accent: #a0c1a3;
     
-
     --container-width-lg: 75%;
     --container-width-md: 82%;
     --container-width-sm: 90%;
@@ -42,9 +41,9 @@ body {
     text-align: center;
 }
 .background {
-    height: 100vh;
+    height: 80vh;
     background: rgb(34,193,195);
-background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);
+    background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);
 }
 
 .container {
@@ -92,7 +91,8 @@ a:hover {
 }
 
 .primary-btn {
-    width: max-content;
+    margin: 2rem;
+    /* width: max-content; */
     display: inline-block;
     color: white;
     text-transform: uppercase;
@@ -128,7 +128,7 @@ a:hover {
     position: fixed;
     left: 50%;
     transform: translateX(-50%);
-    top: 25vh;
+    top: 20vh;
 }
 
 /* *********************
