@@ -1,7 +1,7 @@
 const { Schema, model } = require("mongoose");
 
 const userSchema = new Schema(
-	// Other possibilities: Gender, Age, Location, Looking for (not hobbies), picture,
+	// TODO: Confirm reqs on all keys. Add regex if needed. Add reference to hobbies model so they can be mapped on a profile page.
 	{
 		firstName: {
 			type: String,
@@ -23,10 +23,24 @@ const userSchema = new Schema(
 			required: true,
 			trim: true,
 		},
+		gender: {
+			type: String,
+			required: true,
+		},
+		location: {
+			type: String,
+			trim: true,
+		},
+		age: {
+			type: Int,
+		},
 		about: {
 			type: String,
-			required: false,
 			trim: true,
+		},
+		picture: {
+			// TODO:
+			// How do you handle pictures?
 		},
 		friends: [{}],
 		hobbies: [{}],
