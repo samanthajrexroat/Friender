@@ -34,7 +34,7 @@ const userSchema = new Schema(
 			trim: true,
 		},
 		age: {
-			type: Int,
+			type: Number,
 		},
 		about: {
 			type: String,
