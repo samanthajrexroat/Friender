@@ -10,7 +10,7 @@ const LogIn = () => {
   console.log(email, password, confirmPassword);
 
   return (
-    <div className="background">
+    <div className="signUpBackground">
       <div className="signInModal">
         <Link to="/">
           <div className="closeIcon">ⓧ</div>
@@ -34,15 +34,6 @@ const LogIn = () => {
             placeholder="password"
             required={true}
             onChange={e => setPassword(e.target.value)}
-          />
-          <input
-            className="rounded-input"
-            type="Password"
-            id="confirmPassword"
-            name="confirmPassword"
-            placeholder="confirm Password"
-            required={true}
-            onChange={e => setConfirmPassword(e.target.value)}
           />
         </form>
         <Link to="/Profile">
