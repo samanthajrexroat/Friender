@@ -11,19 +11,19 @@ const userSchema = new Schema(
 		lastName: {
 			type: String,
 			required: true,
-            unique: true,
+			unique: true,
 		},
 		email: {
 			type: String,
 			required: true,
 			trim: true,
-            match: [/.+@.+\..+/, 'Must match an email address!']
+			match: [/.+@.+\..+/, "Must match an email address!"],
 		},
 		password: {
 			type: String,
 			required: true,
 			trim: true,
-            minLength: 8,
+			minLength: 8,
 		},
 		gender: {
 			type: String,
@@ -45,17 +45,17 @@ const userSchema = new Schema(
 			// How do you handle pictures?
 		},
 		friends: [
-            {
-                type: Schema.Types.ObjectId,
-                ref: 'User',
-            }
-        ],
+			{
+				type: Schema.Types.ObjectId,
+				ref: "User",
+			},
+		],
 		hobbies: [
-            {
-                type: Schema.Types.ObjectId,
-                ref: 'Hobby',
-            }
-        ],
+			{
+				type: Schema.Types.ObjectId,
+				ref: "Hobby",
+			},
+		],
 	},
 	{
 		toJson: {
@@ -65,18 +65,18 @@ const userSchema = new Schema(
 	}
 );
 
-userSchema.pre('save', async function (next) {
-    if (this.isNew || this.isModified('password')) {
-      const saltRounds = 10;
-      this.password = await bcrypt.hash(this.password, saltRounds);
-    }
-  
-    next();
+userSchema.pre("save", async function (next) {
+	if (this.isNew || this.isModified("password")) {
+		const saltRounds = 10;
+		this.password = await bcrypt.hash(this.password, saltRounds);
+	}
+
+	next();
 });
-  
+
 userSchema.methods.isCorrectPassword = async function (password) {
-    return bcrypt.compare(password, this.password);
-  };
+	return bcrypt.compare(password, this.password);
+};
 
 const User = model("User", userSchema);
 
