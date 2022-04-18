@@ -5,15 +5,31 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 const SignUp = () => {
-  const [firstName, setFirstName] = useState(null);
-  const [lastName, setLastName] = useState(null);
-  const [email, setEmail] = useState(null);
-  const [description, setDescription] = useState(null);
-  const [city, setCity] = useState(null);
-  const [age, setAge] = useState(null);
-  const [password, setPassword] = useState(null);
-  const [confirmPassword, setConfirmPassword] = useState(null);
-  console.log(email, password, confirmPassword);
+  const [formData, setFormData] = useState({
+    user_id: "",
+    firstName: "",
+    lastName: "",
+    email: "",
+    description: "",
+    city: "",
+    age: "",
+    password: "",
+    confirmPassword: "",
+    matches: [],
+  });
+
+  const handleChange = e => {
+    console.log("e", e);
+    const value =
+      e.target.type === "checkbox" ? e.target.checked : e.target.value;
+    const name = e.target.name;
+    console.log("value" + value, "name" + name);
+
+    setFormData(prevState => ({
+      ...prevState,
+      [name]: value,
+    }));
+  };
 
   return (
     <div className="background">
@@ -34,7 +50,8 @@ const SignUp = () => {
                   name="firstName"
                   placeholder="First Name"
                   required={true}
-                  onChange={e => setFirstName(e.target.value)}
+                  value={formData.firstName}
+                  onChange={handleChange}
                 />
               </label>
 
@@ -47,7 +64,8 @@ const SignUp = () => {
                   name="lastName"
                   placeholder="Last Name"
                   required={true}
-                  onChange={e => setLastName(e.target.value)}
+                  value={formData.lastName}
+                  onChange={handleChange}
                 />
               </label>
               <label>
@@ -60,7 +78,8 @@ const SignUp = () => {
                   name="email"
                   placeholder="E-Mail"
                   required={true}
-                  onChange={e => setEmail(e.target.value)}
+                  value={formData.email}
+                  onChange={handleChange}
                 />
               </label>
               <label>
@@ -73,7 +92,8 @@ const SignUp = () => {
                   name="City"
                   placeholder="City"
                   required={true}
-                  onChange={e => setCity(e.target.value)}
+                  value={formData.city}
+                  onChange={handleChange}
                 />
               </label>
               <label>
@@ -86,7 +106,8 @@ const SignUp = () => {
                   name="Age"
                   placeholder="Age"
                   required={true}
-                  onChange={e => setAge(e.target.value)}
+                  value={formData.age}
+                  onChange={handleChange}
                 />
               </label>
               <label className="radio-inline">
@@ -124,7 +145,8 @@ const SignUp = () => {
                 name="description"
                 placeholder="Tell us about yourself!"
                 required={true}
-                onChange={e => setDescription(e.target.value)}
+                value={formData.description}
+                onChange={handleChange}
               />
               <label>
                 Password
@@ -135,7 +157,8 @@ const SignUp = () => {
                   name="password"
                   placeholder="password"
                   required={true}
-                  onChange={e => setPassword(e.target.value)}
+                  value={formData.password}
+                  onChange={handleChange}
                 />
               </label>
               <label>
@@ -147,19 +170,26 @@ const SignUp = () => {
                   name="confirmPassword"
                   placeholder="confirm Password"
                   required={true}
-                  onChange={e => setConfirmPassword(e.target.value)}
+                  value={formData.confirmPassword}
+                  onChange={handleChange}
                 />
               </label>
               <label>
                 Upload a Photo
-                <input
-                  className="fullWidth"
-                  type="file"
-                  id="Photo"
-                  name="Photo"
-                  placeholder="Photo"
-                  required={true}
-                />
+                <section>
+                  <label htmlFor="about">Profile</label>
+                  <input
+                    type="url"
+                    name="url"
+                    id="url"
+                    onChange={handleChange}
+                    value={formData.url}
+                    required={true}
+                  />
+                  <div className="photo-container">
+                    <img src={formData.url} alt="profile pic" />
+                  </div>
+                </section>
               </label>
             </div>
           </form>
