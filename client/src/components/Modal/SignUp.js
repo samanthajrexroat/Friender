@@ -32,8 +32,8 @@ const SignUp = () => {
   };
 
   return (
-    <div className="background">
-      <div className="signUpModal">
+    <div className=" signUpBackground">
+      <div className="signUpContainer signUpModal">
         <Link to="/">
           <div className="closeIcon">ⓧ</div>
         </Link>
@@ -113,30 +113,36 @@ const SignUp = () => {
               <label className="radio-inline">
                 {" "}
                 Gender
-                <input
-                  className="rounded-input"
-                  type="radio"
-                  id="Sex"
-                  name="Sex"
-                  placeholder="Male"
-                />
-                Male
-                <input
-                  className="rounded-input"
-                  type="radio"
-                  id="Sex"
-                  name="Sex"
-                  placeholder="Male"
-                />
-                Female
-                <input
-                  className="rounded-input"
-                  type="radio"
-                  id="Sex"
-                  name="Sex"
-                  placeholder="Male"
-                />
-                Other
+                <label>
+                  <input
+                    className="rounded-input"
+                    type="radio"
+                    id="Male"
+                    name="Male"
+                    placeholder="Male"
+                  />
+                  Male
+                </label>
+                <label>
+                  <input
+                    className="rounded-input"
+                    type="radio"
+                    id="Female"
+                    name="Female"
+                    placeholder="Female"
+                  />
+                  Female
+                </label>
+                <label>
+                  <input
+                    className="rounded-input"
+                    type="radio"
+                    id="Other"
+                    name="Other"
+                    placeholder="Other"
+                  />
+                  Other
+                </label>
               </label>
               <textarea
                 className="fullWidth rounded-input"
@@ -176,20 +182,18 @@ const SignUp = () => {
               </label>
               <label>
                 Upload a Photo
-                <section>
-                  <label htmlFor="about">Profile</label>
-                  <input
-                    type="url"
-                    name="url"
-                    id="url"
-                    onChange={handleChange}
-                    value={formData.url}
-                    required={true}
-                  />
-                  <div className="photo-container">
-                    <img src={formData.url} alt="profile pic" />
-                  </div>
-                </section>
+                <input
+                  className="rounded-input"
+                  type="url"
+                  name="url"
+                  id="url"
+                  onChange={handleChange}
+                  value={formData.url}
+                  required={true}
+                />
+                <div className="photo-container">
+                  <img src={formData.url} alt="profile pic" />
+                </div>
               </label>
             </div>
           </form>
