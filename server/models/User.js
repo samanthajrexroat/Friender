@@ -1,4 +1,5 @@
 const { Schema, model } = require("mongoose");
+const bcrypt = require('bcrypt');
 
 const userSchema = new Schema(
 	// TODO: Confirm reqs on all keys. Add regex if needed. Add reference to hobbies model so they can be mapped on a profile page.
@@ -28,7 +29,7 @@ const userSchema = new Schema(
 		},
 		gender: {
 			type: String,
-			required: true,
+			// required: true,
 		},
 		city: {
 			type: String,
