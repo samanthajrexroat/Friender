@@ -7,9 +7,9 @@ const typeDefs = gql`
 		lastName: String
 		email: String
 		gender: String
-		location: String
+		city: String
 		age: Int
-		about: String
+		description: String
 		hobbies: [Hobby]!
 	}
 	type Hobby {
@@ -30,10 +30,10 @@ const typeDefs = gql`
 			lastName: String!
 			email: String!
 			password: String!
-			location: String
+			city: String
 			age: Int
 			gender: String
-			about: String
+			description: String
 		): User
 		createHobby(hobbyName: String!, hobbyAbout: String): Hobby
 	}
