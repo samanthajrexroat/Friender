@@ -25,8 +25,17 @@ const typeDefs = gql`
 	}
 	type Mutation {
 		# TODO:	add in picture once we know how to do so.
-		addUser(firstName: String!, lastName: String!, email: String!, password: String!, location: String, age: Int, gender: String, about: String): User
-		addHobby(hobbyName: String!, hobbyAbout: String): Hobby
+		createUser(
+			firstName: String!
+			lastName: String!
+			email: String!
+			password: String!
+			location: String
+			age: Int
+			gender: String
+			about: String
+		): User
+		createHobby(hobbyName: String!, hobbyAbout: String): Hobby
 	}
 `;
 
