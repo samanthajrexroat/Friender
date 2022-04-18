@@ -9,6 +9,12 @@ const hobbySchema = new Schema({
 	hobbyAbout: {
 		type: String,
 	},
+	hobbyFan: [
+		{
+			type: Schema.Types.ObjectId,
+			ref: "User",
+		},
+	],
 });
 
 const Hobby = model("Hobby", hobbySchema);
