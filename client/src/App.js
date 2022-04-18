@@ -1,7 +1,7 @@
 import Home from "./pages/Home";
 import Nav from "./components/Navbar/Nav";
 import LogIn from "./components/Modal/LogIn";
-import SignUp from "./components/Modal/SignUps";
+import SignUp from "./components/Modal/SignUp";
 import Footer from "./components/Footer/Footer";
 import Profile from "./pages/Profile/Profile";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
