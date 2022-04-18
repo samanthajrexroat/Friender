@@ -16,6 +16,7 @@ const typeDefs = gql`
 		_id: ID
 		hobbyName: String
 		hobbyAbout: String
+		hobbyFan: [User]
 	}
 	type Query {
 		users: [User]!
