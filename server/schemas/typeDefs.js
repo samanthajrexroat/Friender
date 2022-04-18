@@ -17,6 +17,18 @@ const typeDefs = gql`
 		hobbyName: String
 		hobbyAbout: String
 	}
+	type Query {
+		users: [User]!
+		user: (userId: ID!): User
+		hobbies: [Hobby]!
+		hobby: (hobbyId: ID!): Hobby
+	}
+	type Mutation {
+		# TODO:	add in picture once we know how to do so.
+		addUser(firstName: String!, lastName: String!, email: String!, password: String!, location: String, age: Int, gender: String, about: String)
+		addHobby (hobbyName: String!, hobbyAbout: String)
+
+	}
 `;
 
 module.exports = typeDefs;
