@@ -29,14 +29,14 @@ const userSchema = new Schema(
 			type: String,
 			required: true,
 		},
-		location: {
+		city: {
 			type: String,
 			trim: true,
 		},
 		age: {
 			type: Number,
 		},
-		about: {
+		description: {
 			type: String,
 			trim: true,
 		},

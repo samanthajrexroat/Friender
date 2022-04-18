@@ -16,8 +16,8 @@ const resolvers = {
 		},
 	},
 	Mutation: {
-		createUser: async (parent, { firstName, lastName, email, password, location, age, gender, about, picture }) => {
-			return User.create({ firstName, lastName, email, password, location, age, gender, about, picture });
+		createUser: async (parent, { firstName, lastName, email, password, city, age, gender, description, picture }) => {
+			return User.create({ firstName, lastName, email, password, city, age, gender, description, picture });
 		},
 		createHobby: async (parent, { hobbyName, hobbyAbout }) => {
 			return Hobby.create({ hobbyName, hobbyAbout });
