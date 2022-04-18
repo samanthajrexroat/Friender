@@ -8,4 +8,8 @@ export const QUERY_USERS = gql`
             lastName
         }
     }
+`;
+
+export const QUERY_USER = gql`
+    
 `
