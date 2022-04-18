@@ -22,6 +22,7 @@ const resolvers = {
 		createHobby: async (parent, { hobbyName, hobbyAbout }) => {
 			return Hobby.create({ hobbyName, hobbyAbout });
 		},
+		// TODO: addHobby, addFriend mutations for adding hobbies and friends to user key arrays
 	},
 };
 
