@@ -38,6 +38,15 @@ const resolvers = {
 
 			// TODO: add authentication here
 		},
+		addFriend: async (parent, { userId, friendId }, context) => {
+			try {
+				if (userId) {
+					return User.findOneAndUpdate({ _id: userId }, { $push: { friends: friendId } }, { new: true }).populate("friends");
+				}
+			} catch (error) {
+				throw error;
+			}
+		},
 	},
 };
 

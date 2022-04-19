@@ -1,5 +1,5 @@
 const { Schema, model } = require("mongoose");
-const bcrypt = require('bcrypt');
+const bcrypt = require("bcrypt");
 
 const userSchema = new Schema(
 	// TODO: Confirm reqs on all keys. Add regex if needed. Add reference to hobbies model so they can be mapped on a profile page.
@@ -18,7 +18,7 @@ const userSchema = new Schema(
 			type: String,
 			required: true,
 			trim: true,
-            unique: true,
+			unique: true,
 			match: [/.+@.+\..+/, "Must match an email address!"],
 		},
 		password: {
