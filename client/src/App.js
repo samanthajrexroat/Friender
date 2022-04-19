@@ -15,6 +15,13 @@ import Footer from "./components/Footer/Footer";
 import Profile from "./pages/Profile/Profile";
 import EditProfile from "./pages/Profile/EditProfile";
 
+
+
+
+
+
+
+
 // Main GraphQL endpoint
 const httpLink = createHttpLink({
   uri: '/graphql',
