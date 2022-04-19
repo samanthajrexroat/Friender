@@ -174,64 +174,120 @@ const SignUp = () => {
                   value={formData.description}
                   onChange={handleChange}
                 />
+              </label>
+              <label>
+                Age
+                <input
+                  className="rounded-input"
+                  type="number"
+                  id="age"
+                  name="age"
+                  placeholder="Age"
+                  required={true}
+                  value={formData.age}
+                  onChange={handleChange}
+                />
+              </label>
+              <label className="radio-inline">
+                Gender
                 <label>
-                  Password
                   <input
                     className="rounded-input"
-                    type="password"
-                    id="password"
-                    name="password"
-                    placeholder="password"
-                    required={true}
-                    value={formData.password}
-                    onChange={handleChange}
+                    type="radio"
+                    id="male"
+                    name="gender"
+                    placeholder="Male"
                   />
+                  Male
                 </label>
                 <label>
-                  Confirm Password
                   <input
                     className="rounded-input"
-                    type="Password"
-                    id="confirmPassword"
-                    name="confirmPassword"
-                    placeholder="confirm Password"
-                    required={true}
-                    value={formData.confirmPassword}
-                    onChange={handleChange}
+                    type="radio"
+                    id="female"
+                    name="gender"
+                    placeholder="Female"
                   />
+                  Female
                 </label>
                 <label>
-                  Upload a Photo
                   <input
                     className="rounded-input"
-                    type="url"
-                    name="url"
-                    id="url"
-                    onChange={handleChange}
-                    value={formData.url}
-                    required={true}
+                    type="radio"
+                    id="other"
+                    name="gender"
+                    placeholder="Other"
                   />
-                  <div className="photo-container">
-                    <img src={formData.url} alt="profile pic" />
-                  </div>
+                  Other
                 </label>
-              </div>
-            </form>
-          </div>
-          <Link to="/Profile">
-            <button className="secondary-btn">Submit</button>
-          </Link>
-          <h6>Already have an account?</h6>
-          <Link to="/LogIn">
-            <h6>LOG IN</h6>
-          </Link>
-          <br />
-          <h6 className="text-light">
-            By clicking submit you agree to Friender's® terms of service
-          </h6>
+              </label>
+              <textarea
+                className="fullWidth rounded-input"
+                type="textarea"
+                id="description"
+                name="description"
+                placeholder="Tell us about yourself!"
+                required={true}
+                value={formData.description}
+                onChange={handleChange}
+              />
+              <label>
+                Password
+                <input
+                  className="rounded-input"
+                  type="password"
+                  id="password"
+                  name="password"
+                  placeholder="password"
+                  required={true}
+                  value={formData.password}
+                  onChange={handleChange}
+                />
+              </label>
+              <label>
+                Confirm Password
+                <input
+                  className="rounded-input"
+                  type="Password"
+                  id="confirmPassword"
+                  name="confirmPassword"
+                  placeholder="confirm Password"
+                  required={true}
+                  value={formData.confirmPassword}
+                  onChange={handleChange}
+                />
+              </label>
+              <label>
+                Upload a Photo
+                <input
+                  className="rounded-input"
+                  type="url"
+                  name="url"
+                  id="url"
+                  onChange={handleChange}
+                  value={formData.url}
+                  required={true}
+                />
+                <div className="photo-container">
+                  <img src={formData.url} alt="profile pic" />
+                </div>
+              </label>
+            </div>
+          </form>
         </div>
+        <Link to="/Profile">
+          <button className="secondary-btn">Submit</button>
+        </Link>
+        <h6>Already have an account?</h6>
+        <Link to="/LogIn">
+          <h6>LOG IN</h6>
+        </Link>
+        <br />
+        <h6 className="text-light">
+          By clicking submit you agree to Friender's® terms of service
+        </h6>
       </div>
-    </>
+    </div>
   );
 };
 

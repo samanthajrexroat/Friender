@@ -1,6 +1,6 @@
 .profileBackground {
     min-height: 1000px;
-    background: linear-gradient(to right, #ed4264, #ffedbc);
+    background: linear-gradient(to top, #ed4264, #f8d576);
 }
 
 .profileContainer {
@@ -18,7 +18,7 @@
     text-align: left;
     padding: 1rem;
     border-radius: 1rem;
-    background: linear-gradient(to right, #ece9e6, #ffffff);
+    background: linear-gradient(90deg, #ece9e6, #ffffff);
     box-shadow: rgba(0,0,0,0.35) 0px 5px 15px;
 }
 
