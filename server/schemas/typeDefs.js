@@ -44,6 +44,7 @@ const typeDefs = gql`
 			gender: String
 			description: String
 		): User
+		login(email: String!, password: String!): Auth
 		createHobby(hobbyName: String!, hobbyAbout: String): Hobby
 		addHobby(userId: ID!, hobbyId: ID!): User
 		addFriend(userId: ID!, friendId: ID!): User
