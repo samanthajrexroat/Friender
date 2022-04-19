@@ -1,7 +1,6 @@
 import React from "react";
 import "./profile.css";
 import CommentsData from "./sampleProfile";
-import { AiFillEdit } from "react-icons/ai";
 import { Link } from "react-router-dom";
 
 const Profile = () => {
@@ -14,7 +13,9 @@ const Profile = () => {
               <div className="profileCard">
                 <h2>{firstName}</h2>
                 <div className="profileImage">
-                  <img src={photo} alt={firstName} className="profileImage" />
+                  <div className="image">
+                    <img src={photo} alt={firstName} className="profileImage" />
+                  </div>
                 </div>
                 <h4>{city}</h4>
                 <h5>{gender}</h5>
@@ -29,10 +30,10 @@ const Profile = () => {
                 </div>
                 <div>
                   <Link to="/AddHobbies">
-                    <button className="secondary-btn">Add hobbies</button>
+                    <button className="sm-btn">Add hobbies</button>
                   </Link>
                   <Link to="/EditProfile">
-                    <button className="secondary-btn">edit profile</button>
+                    <button className="sm-btn">edit profile</button>
                   </Link>
                 </div>
               </div>
@@ -40,8 +41,6 @@ const Profile = () => {
           }
         )}
       </div>
-
-      <h2>Search</h2>
     </div>
   );
 };

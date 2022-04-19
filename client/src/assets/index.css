@@ -20,7 +20,10 @@
     --color-light: #9fcce2;
     --color-dark: #11232e;
     --color-accent: linear-gradient(to right, #eb3349, #f45c43);
-    
+    --color-accent-secondary: linear-gradient(90deg, #FC466B 0%, #fd5c63 100%);
+   
+
+  
     --container-width-lg: 75%;
     --container-width-md: 82%;
     --container-width-sm: 90%;
@@ -93,7 +96,7 @@ a:hover {
 
 .primary-btn {
     margin: 2rem;
-    /* width: max-content; */
+    
     display: inline-block;
     color: white;
     text-transform: uppercase;
@@ -109,6 +112,28 @@ a:hover {
     background: var(--color-light);
 }
 
+
+/* .primary-btn {background-image: linear-gradient(to right, #fc00ff 0%, #00dbde  51%, #fc00ff  100%)}
+.primary-btn {
+   margin: 10px;
+   padding: 10px;
+   text-align: center;
+   text-transform: uppercase;
+   transition: 0.5s;
+   background-size: 200% auto;
+   color: white;            
+   
+   border-radius: 20px;
+   display: block;
+ }
+
+ .primary-btn:hover {
+   background-position: right center; /* change the direction of the change here */
+   /* color: #fff;
+   text-decoration: none;
+ } */ 
+
+
 .secondary-btn {
     background: var(--color-accent);
     color: var(--color-dark);
@@ -118,6 +143,18 @@ a:hover {
     text-transform: uppercase;
     cursor: pointer;
     transition: all 400ms ease-in;
+}
+.sm-btn {
+    
+    background: var(--color-accent-secondary);
+    color: white;
+    margin: 1rem;
+    padding: .5rem 1rem;
+    border-radius: 2rem;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 400ms ease-in;
+    font-size: 50%;
 }
 
 
