@@ -3,6 +3,9 @@ import "./modal.css";
 import Home from "../../pages/Home";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useMutation } from "@apollo/client";
+import { CREATE_USER } from "../../utils/mutations";
+import Auth from '../../utils/auth';
 
 const SignUp = () => {
   const [formData, setFormData] = useState({
@@ -16,6 +19,7 @@ const SignUp = () => {
     confirmPassword: "",
     matches: [],
   });
+  const [createUser, { error, data }] = useMutation(CREATE_USER);
 
   const handleChange = e => {
     console.log("e", e);
@@ -30,6 +34,21 @@ const SignUp = () => {
     }));
   };
 
+  const handleFormSubmit = async (event => {
+    event.preventDefault();
+    console.log(formData);
+
+    try {
+      const { data } = await createUser({
+        variables: { ...formData },
+      });
+
+      Auth.login(data.createUser.token);
+    } catch (e) {
+      console.error(e);
+    }
+  })
+
   return (
     <>
       <div className=" signUpBackground">
@@ -39,7 +58,7 @@ const SignUp = () => {
           </Link>
           <h2>Sign Up</h2>
           <div className="formWrapper">
-            <form className="signUpForm">
+            <form className="signUpForm" onSubmit={handleFormSubmit}>
               <div className="block">
                 <label>
                   First Name

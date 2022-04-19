@@ -1,0 +1,46 @@
+.profileBackground {
+    min-height: 100vh;
+    background: linear-gradient(to right, #ed4264, #ffedbc);
+}
+
+.profileContainer{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 15vh;
+    top: 175px;
+    margin: 3rem;
+}
+
+.profileCard {
+    max-width: 350px;
+    text-align: left;
+    padding: 1rem;
+    border-radius: 1rem;
+    background: linear-gradient(to right, #ece9e6, #ffffff);
+    box-shadow: rgba(0,0,0,0.35) 0px 5px 15px;
+}
+
+.profileImage {
+    max-width: 319px;
+    overflow: hidden;
+    border-radius: 1rem;
+}
+
+.hobbiesContainer {
+    margin-top: 1rem;
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.hobbiesList {
+    text-align: center;
+    margin: .1rem;
+    max-width: fit-content;
+    padding: .3rem;
+    border-radius: .7rem;
+    background: linear-gradient(to top, #005c97, #363795);
+    box-shadow: rgba(0,0,0,0.35) 0px 5px 15px;
+    color:#ece9e6
+}
