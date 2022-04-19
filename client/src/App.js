@@ -4,6 +4,7 @@ import LogIn from "./components/Modal/LogIn";
 import SignUp from "./components/Modal/SignUp";
 import Footer from "./components/Footer/Footer";
 import Profile from "./pages/Profile/Profile";
+import EditProfile from "./pages/Profile/EditProfile";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
           <Route path="/LogIn" element={<LogIn />}></Route>
           <Route path="/SignUp" element={<SignUp />}></Route>
           <Route path="/profile" element={<Profile />}></Route>
+          <Route path="/EditProfile" element={<EditProfile />}></Route>
         </Routes>
         <Footer />
       </Router>

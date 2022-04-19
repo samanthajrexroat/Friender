@@ -20,6 +20,7 @@
     box-shadow: rgba(0,0,0,0.35) 0px 5px 15px;
 }
 
+
 .signUpBackground {
     height: 100vh;
     background: rgb(34,193,195);
@@ -129,6 +130,28 @@ textarea{
     width: 20rem;
     height: 6rem;
 }
+.text-white {
+    color: rgb(205, 204, 204);
+}
+
+.editProfileModal {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 20vh;
+    top: 175px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 175px;
+    max-width: fit-content;
+    max-height: fit-content;
+    background: linear-gradient(to bottom, #1f4037, #99f2c8);;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: rgba(0,0,0,0.35) 0px 5px 15px;
+    overflow: auto;
+}
+
 
 /* *********************
 *                      *
@@ -137,9 +160,14 @@ textarea{
 ********************* */
 @media screen and (max-width: 1024px) {
     .signUpForm {
-        display: column
-   
+        display: grid;
     }
+    .block {
+        display: flex;
+        flex-direction: column;
+        text-align: right;
+    }
+    
 }
 
 
@@ -149,7 +177,13 @@ textarea{
 *                     *
 ******************** */
 @media screen and (max-width: 600px) {
-    .container {
-        width: var(--container-width-sm);
+    .signUpForm {
+        display: grid;
+       
+    }
+    .block {
+        display: flex;
+        flex-direction: column;
+        text-align: right;
     }
 }
