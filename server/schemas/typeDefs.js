@@ -36,6 +36,7 @@ const typeDefs = gql`
 			about: String
 		): User
 		createHobby(hobbyName: String!, hobbyAbout: String): Hobby
+		addHobby(userId: ID!, hobbyId: ID!): User
 	}
 `;
 
