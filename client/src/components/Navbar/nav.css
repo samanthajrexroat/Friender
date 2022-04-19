@@ -1,61 +1,71 @@
 nav {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    position: fixed;
-    left: 50%;
-    transform: translateX(-50%);
-    background: linear-gradient(to bottom, #ece9e6, #ffffff00);
-    z-index:999;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(to bottom, #ece9e6, #ffffff00);
+  z-index: 999;
 }
 h1 {
-    font-size: 2.5rem;
+  font-size: 2.5rem;
 }
 .inline {
-    display: flex;
-    justify-content: left;
-    align-items: center;
+  display: flex;
+  justify-content: left;
+  align-items: center;
 }
 
 .rounded-btn {
-    padding:8px;
-    border-radius: 10px;
-    background: linear-gradient(60deg, #ff8102, #f28226e6)
+  padding: 8px;
+  border-radius: 10px;
+  background: linear-gradient(60deg, #ff8102, #f28226e6);
 }
 
-    .btn-grad {background-image: linear-gradient(to right, #912f7f 0%, #fc00ac  51%, #d10f73  100%)}
-    .btn-grad {
-       margin: 1px;
-       padding: 9px;
-       text-align: center;
-       text-transform: uppercase;
-       transition: 0.5s;
-       background-size: 200% auto;
-       color: white;            
-       /* box-shadow: 0 0 20px #eee; */
-       border-radius: 12px;
-       display: block;
-     }
-
-     .btn-grad:hover {
-       background-position: right center; /* change the direction of the change here */
-       color: #fff;
-       text-decoration: none;
-     }
-    
-    
-
-.logoContainer {
-    width: 15rem;
-    margin: 1rem;
-    color: var(--color-bg);
+.btn-grad {
+  background-image: linear-gradient(
+    to right,
+    #912f7f 0%,
+    #fc00ac 51%,
+    #d10f73 100%
+  );
 }
+.btn-grad {
+  margin: 1px;
+  padding: 9px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  /* box-shadow: 0 0 20px #eee; */
+  border-radius: 12px;
+  display: block;
+}
+
+.btn-grad:hover {
+  background-position: right center; /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+}
+
+.btn-grad:hover {
+  background-position: right center; /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+}
+
+/* .logoContainer {
+  width: 15rem;
+  margin: 1rem;
+  color: var(--color-bg);
+} */
 
 .primary-btn {
-    margin: 2rem;
+  margin: 2rem;
 }
 
 .primary-btn:disabled {
-    background: #565e62;
+  background: #565e62;
 }
-
