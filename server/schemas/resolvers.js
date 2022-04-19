@@ -25,8 +25,10 @@ const resolvers = {
 	},
 	Mutation: {
 		// TODO: Add photo
-		createUser: async (parent, { firstName, lastName, email, password, city, age, gender, description }) => {
-			return User.create({ firstName, lastName, email, password, city, age, gender, description });
+		createUser: async (parent, args) => {
+			const user = await User.create(args);
+			const token = signToken(user);
+			return { token, user };
 		},
 		login: async (parent, { email, password}) => {
 			const user = await User.findOne({ email });

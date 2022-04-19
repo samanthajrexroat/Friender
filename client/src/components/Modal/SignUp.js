@@ -41,13 +41,13 @@ const SignUp = () => {
 
   const handleFormSubmit = async event => {
     event.preventDefault();
-    
+    console.log(formData)
 
     try {
       const { data } = await createUser({
         variables: { ...formData },
       });
-
+      console.log(data)
       Auth.login(data.createUser.token);
     } catch (e) {
       console.error(JSON.stringify(e));
@@ -227,7 +227,7 @@ const SignUp = () => {
                   </div>
                 </label>
               </div>
-                  {/* <Link to="/Profile"> */}
+          {/* <Link to="/Profile"> */}
             <button className="secondary-btn" type="submit">Submit</button>
           {/* </Link> */}
             </form>
