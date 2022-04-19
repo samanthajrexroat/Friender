@@ -18,6 +18,12 @@ const typeDefs = gql`
 		hobbyAbout: String
 		hobbyFan: [User]
 	}
+
+	type Auth {
+		token: ID!
+		user: User
+	}
+	
 	type Query {
 		users: [User]!
 		user(userId: ID!): User

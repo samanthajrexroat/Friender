@@ -1,4 +1,6 @@
+const { AuthenticationError } = require("apollo-server-express");
 const { User, Hobby } = require("../models");
+const { signToken } = require('../utils/auth');
 
 const resolvers = {
 	Query: {
@@ -18,6 +20,23 @@ const resolvers = {
 	Mutation: {
 		createUser: async (parent, { firstName, lastName, email, password, city, age, gender, description, picture }) => {
 			return User.create({ firstName, lastName, email, password, city, age, gender, description, picture });
+		},
+		login: async (parent, { email, password}) => {
+			const user = await User.findOne({ email });
+
+			if (!user) {
+				throw new AuthenticationError("No user found with this email address")
+			}
+
+			const correctPw = await user.isCorrectPassword(password);
+
+			if (!correctPw) {
+				throw new AuthenticationError('Incorrect credentials');
+			}
+
+			const token = signToken(user);
+
+			return { token, user };
 		},
 		createHobby: async (parent, { hobbyName, hobbyAbout }) => {
 			return Hobby.create({ hobbyName, hobbyAbout });

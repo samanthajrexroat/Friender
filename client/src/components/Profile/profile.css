@@ -1,29 +1,28 @@
 .profileBackground {
-    min-height: 1000px;
-    background: linear-gradient(to top, #ed4264, #f8d576);
+    min-height: 100vh;
+    background: linear-gradient(to right, #ed4264, #ffedbc);
 }
 
-.profileContainer {
+.profileContainer{
     position: absolute;
-    left: 8.5rem;
+    left: 50%;
     transform: translateX(-50%);
     top: 15vh;
     top: 175px;
     margin: 3rem;
-    overflow: auto;
 }
 
 .profileCard {
-    width: 300px;
+    max-width: 350px;
     text-align: left;
     padding: 1rem;
     border-radius: 1rem;
-    background: linear-gradient(90deg, #ece9e6, #ffffff);
+    background: linear-gradient(to right, #ece9e6, #ffffff);
     box-shadow: rgba(0,0,0,0.35) 0px 5px 15px;
 }
 
 .profileImage {
-    width: 270px;
+    max-width: 319px;
     overflow: hidden;
     border-radius: 1rem;
 }
