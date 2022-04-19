@@ -1,6 +1,6 @@
 import React from "react";
 import "./modal.css";
-import Home from "../../pages/Home";
+// import Home from "../../pages/Home";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useMutation } from "@apollo/client";
@@ -14,20 +14,25 @@ const SignUp = () => {
     email: "",
     description: "",
     city: "",
-    age: "",
+    age: null,
     password: "",
     confirmPassword: "",
     matches: [],
   });
   const [createUser, { error, data }] = useMutation(CREATE_USER);
-
+  if (error) {
+    console.log(JSON.stringify(error))
+  }
   const handleChange = e => {
-    console.log("e", e);
-    const value =
+    // console.log("e", e);
+    let value =
       e.target.type === "checkbox" ? e.target.checked : e.target.value;
     const name = e.target.name;
-    console.log("value" + value, "name" + name);
 
+    if (name === "age") {
+      value = parseInt(value)
+    };
+    // console.log("value" + value, "name" + name);
     setFormData(prevState => ({
       ...prevState,
       [name]: value,
@@ -36,7 +41,7 @@ const SignUp = () => {
 
   const handleFormSubmit = async event => {
     event.preventDefault();
-    console.log(formData);
+    
 
     try {
       const { data } = await createUser({
@@ -45,7 +50,7 @@ const SignUp = () => {
 
       Auth.login(data.createUser.token);
     } catch (e) {
-      console.error(e);
+      console.error(JSON.stringify(e));
     }
   };
 
@@ -58,6 +63,12 @@ const SignUp = () => {
           </Link>
           <h2>Sign Up</h2>
           <div className="formWrapper">
+            { data ? (
+              <p>
+                Success! You may head{' '}
+                <Link to="/profile">to your profile!</Link>
+              </p>
+            ) : (
             <form className="signUpForm" onSubmit={handleFormSubmit}>
               <div className="block">
                 <label>
@@ -209,18 +220,26 @@ const SignUp = () => {
                     id="url"
                     onChange={handleChange}
                     value={formData.url}
-                    required={true}
+                    // required={true}
                   />
                   <div className="photo-container">
                     <img src={formData.url} alt="profile pic" />
                   </div>
                 </label>
               </div>
+                  {/* <Link to="/Profile"> */}
+            <button className="secondary-btn" type="submit">Submit</button>
+          {/* </Link> */}
             </form>
+            )}
+
+            {error && (
+              <div className="primary-btn">
+                {error.message}
+              </div>
+            )}
           </div>
-          <Link to="/Profile">
-            <button className="secondary-btn">Submit</button>
-          </Link>
+      
           <h6>Already have an account?</h6>
           <Link to="/LogIn">
             <h6>LOG IN</h6>
