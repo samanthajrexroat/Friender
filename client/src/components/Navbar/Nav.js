@@ -2,7 +2,7 @@ import React from "react";
 import "./nav.css";
 // import { TiThMenuOutline } from "react-icons/ti";
 import { Link } from "react-router-dom";
-import Search from "../../utils/search";
+
 
 
 
@@ -11,9 +11,7 @@ const Nav = () => {
 
 
 
-return (
-        <Search />
-    );
+
 
   // return (
   //   <nav>

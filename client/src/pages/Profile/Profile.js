@@ -2,6 +2,19 @@ import React from "react";
 import "./profile.css";
 import CommentsData from "./sampleProfile";
 import { Link } from "react-router-dom";
+import Search from "../../utils/search";
+
+
+
+
+// const posts = [
+//     { id: '1', name: 'This first post is about React' },
+//     { id: '2', name: 'This next post is about Preact' },
+//     { id: '3', name: 'We have yet another React post!' },
+//     { id: '4', name: 'This is the fourth and final post' },
+// ];
+
+
 
 
 const Profile = () => {
@@ -11,7 +24,18 @@ const Profile = () => {
 
 
     <div className="profileBackground">
+      <div>
+            <Search />
+            {/* <ul>
+                {posts.map((post) => (
+                    <li key={post.id}>{post.name}</li>
+                ))}
+            </ul> */}
+        </div>
       <div className="profileContainer">
+
+        
+
         {CommentsData.map(
           ({ firstName, city, gender, age, description, photo, hobbies }) => {
             return (
@@ -47,6 +71,8 @@ const Profile = () => {
         )}
       </div>
     </div>
+
+    
   );
 };
 

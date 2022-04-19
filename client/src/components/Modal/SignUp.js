@@ -34,7 +34,7 @@ const SignUp = () => {
     }));
   };
 
-  const handleFormSubmit = async (event => {
+  const handleFormSubmit = async (event) => {
     event.preventDefault();
     console.log(formData);
 
@@ -47,7 +47,7 @@ const SignUp = () => {
     } catch (e) {
       console.error(e);
     }
-  })
+  };
 
   return (
     <>
@@ -164,6 +164,7 @@ const SignUp = () => {
                     Other
                   </label>
                 </label>
+                <label>
                 <textarea
                   className="fullWidth rounded-input"
                   type="textarea"
@@ -174,63 +175,63 @@ const SignUp = () => {
                   value={formData.description}
                   onChange={handleChange}
                 />
-              </label>
-              <label>
-                Age
-                <input
-                  className="rounded-input"
-                  type="number"
-                  id="age"
-                  name="age"
-                  placeholder="Age"
+                </label>
+                <label>
+                  Age
+                  <input
+                    className="rounded-input"
+                    type="number"
+                    id="age"
+                    name="age"
+                    placeholder="Age"
+                    required={true}
+                    value={formData.age}
+                    onChange={handleChange}
+                  />
+                </label>
+                <span className="radio-inline">
+                 Gender
+                  <label>
+                    <input
+                      className="rounded-input"
+                      type="radio"
+                      id="male"
+                      name="gender"
+                      placeholder="Male"
+                    />
+                    Male
+                  </label>
+                  <label>
+                    <input
+                      className="rounded-input"
+                      type="radio"
+                      id="female"
+                      name="gender"
+                      placeholder="Female"
+                    />
+                    Female
+                  </label>
+                  <label>
+                    <input
+                      className="rounded-input"
+                      type="radio"
+                      id="other"
+                      name="gender"
+                      placeholder="Other"
+                    />
+                    Other
+                  </label>
+                </span>
+                <textarea
+                  className="fullWidth rounded-input"
+                  type="textarea"
+                  id="description"
+                  name="description"
+                  placeholder="Tell us about yourself!"
                   required={true}
-                  value={formData.age}
+                  value={formData.description}
                   onChange={handleChange}
                 />
-              </label>
-              <label className="radio-inline">
-                Gender
-                <label>
-                  <input
-                    className="rounded-input"
-                    type="radio"
-                    id="male"
-                    name="gender"
-                    placeholder="Male"
-                  />
-                  Male
-                </label>
-                <label>
-                  <input
-                    className="rounded-input"
-                    type="radio"
-                    id="female"
-                    name="gender"
-                    placeholder="Female"
-                  />
-                  Female
-                </label>
-                <label>
-                  <input
-                    className="rounded-input"
-                    type="radio"
-                    id="other"
-                    name="gender"
-                    placeholder="Other"
-                  />
-                  Other
-                </label>
-              </label>
-              <textarea
-                className="fullWidth rounded-input"
-                type="textarea"
-                id="description"
-                name="description"
-                placeholder="Tell us about yourself!"
-                required={true}
-                value={formData.description}
-                onChange={handleChange}
-              />
               <label>
                 Password
                 <input
@@ -272,7 +273,7 @@ const SignUp = () => {
                   <img src={formData.url} alt="profile pic" />
                 </div>
               </label>
-            </div>
+          </div>
           </form>
         </div>
         <Link to="/Profile">
@@ -286,8 +287,9 @@ const SignUp = () => {
         <h6 className="text-light">
           By clicking submit you agree to Friender's® terms of service
         </h6>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

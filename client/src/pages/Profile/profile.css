@@ -1,47 +1,59 @@
 .profileBackground {
-    min-height: 1000px;
-    background: linear-gradient(to top, #ed4264, #f8d576);
+  min-height: 1000px;
+  background: linear-gradient(to top, #ed4264, #f8d576);
 }
 
 .profileContainer {
-    position: absolute;
-    left: 8.5rem;
-    transform: translateX(-50%);
-    top: 15vh;
-    top: 175px;
-    margin: 3rem;
-    overflow: auto;
+  position: absolute;
+  left: 8.5rem;
+  transform: translateX(-50%);
+  top: 15vh;
+  top: 175px;
+  margin: 3rem;
+  overflow: auto;
 }
 
 .profileCard {
-    width: 300px;
-    text-align: left;
-    padding: 1rem;
-    border-radius: 1rem;
-    background: linear-gradient(90deg, #ece9e6, #ffffff);
-    box-shadow: rgba(0,0,0,0.35) 0px 5px 15px;
+  width: 300px;
+  text-align: left;
+  padding: 1rem;
+  border-radius: 1rem;
+  background: linear-gradient(90deg, #ece9e6, #ffffff);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 .profileImage {
-    width: 270px;
-    overflow: hidden;
-    border-radius: 1rem;
+  width: 270px;
+  overflow: hidden;
+  border-radius: 1rem;
 }
 
 .hobbiesContainer {
-    margin-top: 1rem;
-    align-items: center;
-    display: flex;
-    flex-wrap: wrap;
+  margin-top: 1rem;
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .hobbiesList {
-    text-align: center;
-    margin: .1rem;
-    max-width: fit-content;
-    padding: .3rem;
-    border-radius: .7rem;
-    background: linear-gradient(to top, #005c97, #363795);
-    box-shadow: rgba(0,0,0,0.35) 0px 5px 15px;
-    color:#ece9e6
+  text-align: center;
+  margin: 0.1rem;
+  max-width: fit-content;
+  padding: 0.3rem;
+  border-radius: 0.7rem;
+  background: linear-gradient(to top, #005c97, #363795);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  color: #ece9e6;
+}
+
+.visually-hidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 15rem;
+  margin: 1rem;
+  color: var(--color-bg);
 }
