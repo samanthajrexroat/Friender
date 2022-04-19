@@ -1,5 +1,11 @@
+
+/* *************
+*              *
+*    SIGNUP    *
+*              *
+************* */
 .signInModal {
-    position: fixed;
+    position: absolute;
     left: 50%;
     transform: translateX(-50%);
     top: 20vh;
@@ -12,6 +18,22 @@
     border-radius: 10px;
     padding: 40px;
     box-shadow: rgba(0,0,0,0.35) 0px 5px 15px;
+}
+
+.signUpBackground {
+    height: 100vh;
+    background: rgb(34,193,195);
+    background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);
+}
+
+.signUpContainer {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 15vh;
+    top: 175px;
+    margin: 3rem;
+    overflow: auto;
 }
 
 .closeIcon {
@@ -27,6 +49,10 @@ input {
     margin: .8rem;
     font-size: 15px;
 }
+textarea {
+    width: 100%;
+    box-sizing: border-box;
+}
 
 .formWrapper {
     display: grid;
@@ -38,6 +64,9 @@ input {
     grid-gap: 10px;
     padding:10px;
     border-radius:10px;
+}
+.text-light{
+    color:rgb(104, 104, 104)
 }
 .rounded-input {
     padding:8px;
@@ -55,22 +84,48 @@ input {
 label {
     font-size: 10px;
 }
+
+/* **************
+*               *
+*    SIGNIN     *
+*               *
+************** */
+.signUpModal, .signUpBackground {
+    float: none;
+    padding: 20px;
+    vertical-align: top;
+}
+
+
 .signUpModal {
-    position: fixed;
+    position: absolute;
     left: 50%;
     transform: translateX(-50%);
     top: 20vh;
     top: 175px;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 175px;
     max-width: fit-content;
     max-height: fit-content;
     background: linear-gradient(180deg, rgb(128, 104, 177) 0%, rgb(84, 185, 163) 100%);
     border-radius: 10px;
     padding: 20px;
     box-shadow: rgba(0,0,0,0.35) 0px 5px 15px;
+    overflow: auto;
 }
+
+div.signUpBackground {
+    
+    height: 1100px;
+    background: rgb(34,193,195);
+    background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);
+
+}
+
 textarea{
+    grid-column-start: 1;
+    grid-column-end: 2;
     width: 20rem;
     height: 6rem;
 }

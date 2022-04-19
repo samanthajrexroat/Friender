@@ -1,19 +1,20 @@
 .profileBackground {
-    min-height: 100vh;
+    min-height: 1000px;
     background: linear-gradient(to right, #ed4264, #ffedbc);
 }
 
-.profileContainer{
+.profileContainer {
     position: absolute;
-    left: 50%;
+    left: 8.5rem;
     transform: translateX(-50%);
     top: 15vh;
     top: 175px;
     margin: 3rem;
+    overflow: auto;
 }
 
 .profileCard {
-    max-width: 350px;
+    width: 300px;
     text-align: left;
     padding: 1rem;
     border-radius: 1rem;
@@ -22,7 +23,7 @@
 }
 
 .profileImage {
-    max-width: 319px;
+    width: 270px;
     overflow: hidden;
     border-radius: 1rem;
 }

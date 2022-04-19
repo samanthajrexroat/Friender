@@ -31,153 +31,160 @@ const SignUp = () => {
   };
 
   return (
-    <div className="background">
-      <div className="signUpModal">
-        <Link to="/">
-          <div className="closeIcon">ⓧ</div>
-        </Link>
-        <h2>Sign Up</h2>
-        <div className="formWrapper">
-          <form className="signUpForm">
-            <div className="block">
-              <label>
-                First Name
-                <input
-                  className="rounded-input"
-                  type="text"
-                  id="firstName"
-                  name="firstName"
-                  placeholder="First Name"
-                  required={true}
-                  value={formData.firstName}
-                  onChange={handleChange}
-                />
-              </label>
-
-              <label>
-                Last Name
-                <input
-                  className="rounded-input"
-                  type="text"
-                  id="lastName"
-                  name="lastName"
-                  placeholder="Last Name"
-                  required={true}
-                  value={formData.lastName}
-                  onChange={handleChange}
-                />
-              </label>
-              <label>
-                {" "}
-                E-Mail
-                <input
-                  className="rounded-input"
-                  type="email"
-                  id="email"
-                  name="email"
-                  placeholder="E-Mail"
-                  required={true}
-                  value={formData.email}
-                  onChange={handleChange}
-                />
-              </label>
-              <label>
-                {" "}
-                City
-                <input
-                  className="rounded-input"
-                  type="City"
-                  id="City"
-                  name="City"
-                  placeholder="City"
-                  required={true}
-                  value={formData.city}
-                  onChange={handleChange}
-                />
-              </label>
-              <label>
-                {" "}
-                Age
-                <input
-                  className="rounded-input"
-                  type="number"
-                  id="Age"
-                  name="Age"
-                  placeholder="Age"
-                  required={true}
-                  value={formData.age}
-                  onChange={handleChange}
-                />
-              </label>
-              <label className="radio-inline">
-                {" "}
-                Gender
-                <input
-                  className="rounded-input"
-                  type="radio"
-                  id="Sex"
-                  name="Sex"
-                  placeholder="Male"
-                />
-                Male
-                <input
-                  className="rounded-input"
-                  type="radio"
-                  id="Sex"
-                  name="Sex"
-                  placeholder="Male"
-                />
-                Female
-                <input
-                  className="rounded-input"
-                  type="radio"
-                  id="Sex"
-                  name="Sex"
-                  placeholder="Male"
-                />
-                Other
-              </label>
-              <textarea
-                className="fullWidth rounded-input"
-                type="textarea"
-                id="description"
-                name="description"
-                placeholder="Tell us about yourself!"
-                required={true}
-                value={formData.description}
-                onChange={handleChange}
-              />
-              <label>
-                Password
-                <input
-                  className="rounded-input"
-                  type="password"
-                  id="password"
-                  name="password"
-                  placeholder="password"
-                  required={true}
-                  value={formData.password}
-                  onChange={handleChange}
-                />
-              </label>
-              <label>
-                Confirm Password
-                <input
-                  className="rounded-input"
-                  type="Password"
-                  id="confirmPassword"
-                  name="confirmPassword"
-                  placeholder="confirm Password"
-                  required={true}
-                  value={formData.confirmPassword}
-                  onChange={handleChange}
-                />
-              </label>
-              <label>
-                Upload a Photo
-                <section>
-                  <label htmlFor="about">Profile</label>
+    <>
+      <div className=" signUpBackground">
+        <div className="signUpContainer signUpModal">
+          <Link to="/">
+            <div className="closeIcon">ⓧ</div>
+          </Link>
+          <h2>Sign Up</h2>
+          <div className="formWrapper">
+            <form className="signUpForm">
+              <div className="block">
+                <label>
+                  First Name
                   <input
+                    className="rounded-input"
+                    type="text"
+                    id="firstName"
+                    name="firstName"
+                    placeholder="First Name"
+                    required={true}
+                    value={formData.firstName}
+                    onChange={handleChange}
+                  />
+                </label>
+
+                <label>
+                  Last Name
+                  <input
+                    className="rounded-input"
+                    type="text"
+                    id="lastName"
+                    name="lastName"
+                    placeholder="Last Name"
+                    required={true}
+                    value={formData.lastName}
+                    onChange={handleChange}
+                  />
+                </label>
+
+                <label>
+                  {" "}
+                  E-Mail
+                  <input
+                    className="rounded-input"
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="E-Mail"
+                    required={true}
+                    value={formData.email}
+                    onChange={handleChange}
+                  />
+                </label>
+                <label>
+                  {" "}
+                  City
+                  <input
+                    className="rounded-input"
+                    type="City"
+                    id="City"
+                    name="City"
+                    placeholder="City"
+                    required={true}
+                    value={formData.city}
+                    onChange={handleChange}
+                  />
+                </label>
+                <label>
+                  {" "}
+                  Age
+                  <input
+                    className="rounded-input"
+                    type="number"
+                    id="Age"
+                    name="Age"
+                    placeholder="Age"
+                    required={true}
+                    value={formData.age}
+                    onChange={handleChange}
+                  />
+                </label>
+                <label className="radio-inline">
+                  {" "}
+                  Gender
+                  <label>
+                    <input
+                      className="rounded-input"
+                      type="radio"
+                      id="Male"
+                      name="Male"
+                      placeholder="Male"
+                    />
+                    Male
+                  </label>
+                  <label>
+                    <input
+                      className="rounded-input"
+                      type="radio"
+                      id="Female"
+                      name="Female"
+                      placeholder="Female"
+                    />
+                    Female
+                  </label>
+                  <label>
+                    <input
+                      className="rounded-input"
+                      type="radio"
+                      id="Other"
+                      name="Other"
+                      placeholder="Other"
+                    />
+                    Other
+                  </label>
+                </label>
+                <textarea
+                  className="fullWidth rounded-input"
+                  type="textarea"
+                  id="description"
+                  name="description"
+                  placeholder="Tell us about yourself!"
+                  required={true}
+                  value={formData.description}
+                  onChange={handleChange}
+                />
+                <label>
+                  Password
+                  <input
+                    className="rounded-input"
+                    type="password"
+                    id="password"
+                    name="password"
+                    placeholder="password"
+                    required={true}
+                    value={formData.password}
+                    onChange={handleChange}
+                  />
+                </label>
+                <label>
+                  Confirm Password
+                  <input
+                    className="rounded-input"
+                    type="Password"
+                    id="confirmPassword"
+                    name="confirmPassword"
+                    placeholder="confirm Password"
+                    required={true}
+                    value={formData.confirmPassword}
+                    onChange={handleChange}
+                  />
+                </label>
+                <label>
+                  Upload a Photo
+                  <input
+                    className="rounded-input"
                     type="url"
                     name="url"
                     id="url"
@@ -188,20 +195,24 @@ const SignUp = () => {
                   <div className="photo-container">
                     <img src={formData.url} alt="profile pic" />
                   </div>
-                </section>
-              </label>
-            </div>
-          </form>
+                </label>
+              </div>
+            </form>
+          </div>
+          <Link to="/Profile">
+            <button className="secondary-btn">Submit</button>
+          </Link>
+          <h6>Already have an account?</h6>
+          <Link to="/LogIn">
+            <h6>LOG IN</h6>
+          </Link>
+          <br />
+          <h6 className="text-light">
+            By clicking submit you agree to Friender's® terms of service
+          </h6>
         </div>
-        <Link to="/Profile">
-          <button className="secondary-btn">Submit</button>
-        </Link>
-        <h6>Already have an account?</h6>
-        <Link to="/LogIn">
-          <h6>LOG IN</h6>
-        </Link>
       </div>
-    </div>
+    </>
   );
 };
 

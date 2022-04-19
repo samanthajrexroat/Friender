@@ -43,8 +43,7 @@ const userSchema = new Schema(
 			trim: true,
 		},
 		photo: {
-			// TODO:
-			// How do you handle pictures?
+			type: String,
 		},
 		friends: [
 			{
