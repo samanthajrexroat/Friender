@@ -5,12 +5,10 @@
 
 .profileContainer {
   position: absolute;
-  left: 8.5rem;
+  left: 50%;
   transform: translateX(-50%);
-  top: 15vh;
+  top: 20vh;
   top: 175px;
-  margin: 3rem;
-  overflow: auto;
 }
 
 .profileCard {
