@@ -20,6 +20,10 @@
     box-shadow: rgba(0,0,0,0.35) 0px 5px 15px;
 }
 
+.dropdown-menu {
+    overflow: scroll;
+    margin-left: 10px
+}
 
 .signUpBackground {
     height: 100vh;
@@ -51,13 +55,14 @@ input {
     font-size: 15px;
 }
 textarea {
-    width: 100%;
-    box-sizing: border-box;
+    width: 100%
+    /* box-sizing: border-box; */
 }
 
 .formWrapper {
     display: grid;
-    grid-template-columns: repeat(1fr, 2fr);
+    grid-template-columns: 1fr, 2fr;
+
 }
 
 .text-light{
@@ -76,6 +81,8 @@ textarea {
     text-align: right;
     
 }
+
+select,
 label {
     font-size: 10px;
 }
