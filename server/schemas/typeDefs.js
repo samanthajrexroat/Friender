@@ -10,6 +10,7 @@ const typeDefs = gql`
 		city: String
 		age: Int
 		description: String
+		friends: [User]!
 		hobbies: [Hobby]!
 	}
 	type Hobby {
@@ -45,6 +46,7 @@ const typeDefs = gql`
 		): User
 		createHobby(hobbyName: String!, hobbyAbout: String): Hobby
 		addHobby(userId: ID!, hobbyId: ID!): User
+		addFriend(userId: ID!, friendId: ID!): User
 	}
 `;
 
