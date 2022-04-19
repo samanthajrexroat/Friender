@@ -56,11 +56,11 @@ h1 {
   text-decoration: none;
 }
 
-/* .logoContainer {
+.logoContainer {
   width: 15rem;
   margin: 1rem;
   color: var(--color-bg);
-} */
+}
 
 .primary-btn {
   margin: 2rem;
