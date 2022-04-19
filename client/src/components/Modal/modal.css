@@ -65,6 +65,9 @@ textarea {
     padding:10px;
     border-radius:10px;
 }
+.text-light{
+    color:rgb(104, 104, 104)
+}
 .rounded-input {
     padding:8px;
     border-radius:10px;
@@ -121,6 +124,8 @@ div.signUpBackground {
 }
 
 textarea{
+    grid-column-start: 1;
+    grid-column-end: 2;
     width: 20rem;
     height: 6rem;
 }
