@@ -13,13 +13,14 @@
 	"license": "ISC",
 	"dependencies": {
 		"apollo-server-express": "^3.6.1",
-		"express": "^4.17.2",
 		"bcrypt": "^5.0.0",
-		"jsonwebtoken": "^8.5.1",
+		"express": "^4.17.2",
 		"graphql": "^16.2.0",
+		"jsonwebtoken": "^8.5.1",
 		"mongoose": "^6.1.6"
 	},
 	"devDependencies": {
+		"@faker-js/faker": "^6.1.2",
 		"nodemon": "^2.0.3"
 	}
 }

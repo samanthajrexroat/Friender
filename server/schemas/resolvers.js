@@ -23,6 +23,21 @@ const resolvers = {
 			return Hobby.create({ hobbyName, hobbyAbout });
 		},
 		// TODO: addHobby, addFriend mutations for adding hobbies and friends to user key arrays
+		addHobby: async (parent, { userId, hobbyId }, context) => {
+			try {
+				console.log(userId, "test 1");
+				if (userId) {
+					console.log(userId, "test 2");
+					return User.findOneAndUpdate({ _id: userId }, { $push: { hobbies: hobbyId } }, { new: true }).populate("hobbies");
+					// console.log(hobbyId, userId);
+					// return updatedUser;
+				}
+			} catch (error) {
+				throw error;
+			}
+
+			// TODO: add authentication here
+		},
 	},
 };
 
