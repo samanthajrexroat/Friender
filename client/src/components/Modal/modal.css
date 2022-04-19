@@ -59,13 +59,7 @@ textarea {
     display: grid;
     grid-template-columns: repeat(1fr, 2fr);
 }
-.signUpForm {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 10px;
-    padding:10px;
-    border-radius:10px;
-}
+
 .text-light{
     color:rgb(104, 104, 104)
 }
@@ -127,7 +121,7 @@ div.signUpBackground {
 textarea{
     grid-column-start: 1;
     grid-column-end: 2;
-    width: 20rem;
+    /* width: 20rem; */
     height: 6rem;
 }
 .text-white {
