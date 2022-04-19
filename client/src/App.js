@@ -6,8 +6,14 @@ import Footer from "./components/Footer/Footer";
 import Profile from "./pages/Profile/Profile";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
+
+
+
+
 function App() {
   return (
+   
+
     <div className="App">
       <Router>
         <Nav />

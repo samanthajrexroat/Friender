@@ -1,61 +1,63 @@
-@import url('https://fonts.googleapis.com/css2?family=Readex+Pro:wght@200;300;400;500;600;700&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Readex+Pro:wght@200;300;400;500;600;700&display=swap");
 
 * {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    outline: 0;
-    box-sizing: border-box;
-    list-style: none;
-    text-decoration: none;
-    font-family: 'Readex Pro', sans-serif;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+  font-family: "Readex Pro", sans-serif;
 }
 
 :root {
-    --color-bg: #eefbfb;
-    --color-bg-secondary: #12232e;
-    --color-tx-primary: #32404b;
-    --color-tx-secondary: #b3bdc3;
-    --color-light: #9fcce2;
-    --color-dark: #11232e;
-    --color-accent: linear-gradient(to right, #eb3349, #f45c43);
-    --color-accent-secondary: linear-gradient(90deg, #FC466B 0%, #fd5c63 100%);
-   
+  --color-bg: #eefbfb;
+  --color-bg-secondary: #12232e;
+  --color-tx-primary: #32404b;
+  --color-tx-secondary: #b3bdc3;
+  --color-light: #9fcce2;
+  --color-dark: #11232e;
+  --color-accent: linear-gradient(to right, #eb3349, #f45c43);
+  --color-accent-secondary: linear-gradient(90deg, #fc466b 0%, #fd5c63 100%);
 
-  
-    --container-width-lg: 75%;
-    --container-width-md: 82%;
-    --container-width-sm: 90%;
+  --container-width-lg: 75%;
+  --container-width-md: 82%;
+  --container-width-sm: 90%;
 
-    --transition: all 400ms ease;
+  --transition: all 400ms ease;
 }
 
-html, body {
-    scroll-behavior: smooth;
+html,
+body {
+  scroll-behavior: smooth;
 }
 ::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 
 body {
-    color: var(--color-primary);
-    line-height: 1.5;
-    text-align: center;
+  color: var(--color-primary);
+  line-height: 1.5;
+  text-align: center;
 }
 .background {
-    height: 80vh;
-    background: rgb(34,193,195);
-    background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);
-
+  height: 80vh;
+  background: rgb(34, 193, 195);
+  background: linear-gradient(
+      0deg,
+      rgba(34, 193, 195, 1) 0%,
+      rgba(253, 187, 45, 1) 100%
+    ),
+    url("./images/good-friends.jpg");
 }
 
-.container {
-    width: var(--container-width-lg);
-    margin: 0 auto;
+.contain er {
+  width: var(--container-width-lg);
+  margin: 0 auto;
 }
 h1 {
-    color: var(--color-dark)
+  color: var(--color-dark);
 }
 
 h1,
@@ -63,23 +65,22 @@ h2,
 h3,
 h4,
 h5 {
-    font-family: 'Readex Pro', sans-serif;
-    font-weight: 500;
+  font-family: "Readex Pro", sans-serif;
+  font-weight: 500;
 }
 
 h1 {
-    font-weight: 2.5rem;
+  font-weight: 2.5rem;
 }
 
 section {
-    margin-top: 6rem;
+  margin-top: 6rem;
 }
 
 .blur {
-    filter: blur(1px);
-    -webkit-filter: blur(1px);
+  filter: blur(1px);
+  -webkit-filter: blur(1px);
 }
-
 
 /* ************************
 *                         *
@@ -87,31 +88,30 @@ section {
 *                         *
 ************************ */
 a {
-    transition: var(--transition);
+  transition: var(--transition);
 }
 
 a:hover {
-    color: var(--color-light);
+  color: var(--color-light);
 }
 
 .primary-btn {
-    margin: 2rem;
-    
-    display: inline-block;
-    color: white;
-    text-transform: uppercase;
-    font-size: 15px;
-    padding: .5rem 1rem;
-    border-radius: 2rem;
-    cursor: pointer;
-    transition: all 400ms ease-in;
-    background: var(--color-dark);
-} 
-.primary-btn:hover {
-    color: var(--color-dark);
-    background: var(--color-light);
-}
+  margin: 2rem;
 
+  display: inline-block;
+  color: white;
+  text-transform: uppercase;
+  font-size: 15px;
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  cursor: pointer;
+  transition: all 400ms ease-in;
+  background: var(--color-dark);
+}
+.primary-btn:hover {
+  color: var(--color-dark);
+  background: var(--color-light);
+}
 
 /* .primary-btn {background-image: linear-gradient(to right, #fc00ff 0%, #00dbde  51%, #fc00ff  100%)}
 .primary-btn {
@@ -129,40 +129,37 @@ a:hover {
 
  .primary-btn:hover {
    background-position: right center; /* change the direction of the change here */
-   /* color: #fff;
+/* color: #fff;
    text-decoration: none;
- } */ 
-
+ } */
 
 .secondary-btn {
-    background: var(--color-accent);
-    color: var(--color-dark);
-    margin: 1rem;
-    padding: .5rem 1rem;
-    border-radius: 2rem;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: all 400ms ease-in;
+  background: var(--color-accent);
+  color: var(--color-dark);
+  margin: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 400ms ease-in;
 }
 .sm-btn {
-    
-    background: var(--color-accent-secondary);
-    color: white;
-    margin: 1rem;
-    padding: .5rem 1rem;
-    border-radius: 2rem;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: all 400ms ease-in;
-    font-size: 50%;
+  background: var(--color-accent-secondary);
+  color: white;
+  margin: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 400ms ease-in;
+  font-size: 50%;
 }
 
-
 .home {
-    position: fixed;
-    left: 50%;
-    transform: translateX(-50%);
-    top: 20vh;
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 20vh;
 }
 
 /* *********************
@@ -171,13 +168,13 @@ a:hover {
 *                      *
 ********************* */
 @media screen and (max-width: 1024px) {
-    .container {
-        width: var(--container-width-md);
-    }
+  .container {
+    width: var(--container-width-md);
+  }
 }
 
 section {
-    margin-top: 6rem;
+  margin-top: 6rem;
 }
 
 /* ********************
@@ -186,11 +183,11 @@ section {
 *                     *
 ******************** */
 @media screen and (max-width: 600px) {
-    .container {
-        width: var(--container-width-sm);
-    }
+  .container {
+    width: var(--container-width-sm);
+  }
 }
 
 section > h2 {
-    margin-bottom: 2rem;
+  margin-bottom: 2rem;
 }

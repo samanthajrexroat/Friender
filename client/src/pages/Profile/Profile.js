@@ -3,8 +3,13 @@ import "./profile.css";
 import CommentsData from "./sampleProfile";
 import { Link } from "react-router-dom";
 
+
 const Profile = () => {
   return (
+
+
+
+
     <div className="profileBackground">
       <div className="profileContainer">
         {CommentsData.map(
