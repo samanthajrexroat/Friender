@@ -24,17 +24,10 @@ const Profile = () => {
 
 
     <div className="profileBackground">
-      <div>
-            <Search />
-            {/* <ul>
-                {posts.map((post) => (
-                    <li key={post.id}>{post.name}</li>
-                ))}
-            </ul> */}
-        </div>
+     
       <div className="profileContainer">
 
-        
+        <Search />
 
         {CommentsData.map(
           ({ firstName, city, gender, age, description, photo, hobbies }) => {
