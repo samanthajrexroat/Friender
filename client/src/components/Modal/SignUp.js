@@ -5,7 +5,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useMutation } from "@apollo/client";
 import { CREATE_USER } from "../../utils/mutations";
-import Auth from '../../utils/auth';
+import Auth from "../../utils/auth";
 
 const SignUp = () => {
   const [formData, setFormData] = useState({
@@ -34,7 +34,7 @@ const SignUp = () => {
     }));
   };
 
-  const handleFormSubmit = async (event) => {
+  const handleFormSubmit = async event => {
     event.preventDefault();
     console.log(formData);
 
@@ -103,13 +103,12 @@ const SignUp = () => {
                   />
                 </label>
                 <label>
-                  {" "}
                   City
                   <input
                     className="rounded-input"
-                    type="City"
-                    id="City"
-                    name="City"
+                    type="text"
+                    id="city"
+                    name="city"
                     placeholder="City"
                     required={true}
                     value={formData.city}
@@ -117,13 +116,12 @@ const SignUp = () => {
                   />
                 </label>
                 <label>
-                  {" "}
                   Age
                   <input
                     className="rounded-input"
                     type="number"
-                    id="Age"
-                    name="Age"
+                    id="age"
+                    name="age"
                     placeholder="Age"
                     required={true}
                     value={formData.age}
@@ -165,128 +163,72 @@ const SignUp = () => {
                   </label>
                 </label>
                 <label>
-                <textarea
-                  className="fullWidth rounded-input"
-                  type="textarea"
-                  id="description"
-                  name="description"
-                  placeholder="Tell us about yourself!"
-                  required={true}
-                  value={formData.description}
-                  onChange={handleChange}
-                />
-                </label>
-                <label>
-                  Age
-                  <input
-                    className="rounded-input"
-                    type="number"
-                    id="age"
-                    name="age"
-                    placeholder="Age"
+                  <textarea
+                    className="fullWidth rounded-input"
+                    type="textarea"
+                    id="description"
+                    name="description"
+                    placeholder="Tell us about yourself!"
                     required={true}
-                    value={formData.age}
+                    value={formData.description}
                     onChange={handleChange}
                   />
                 </label>
-                <span className="radio-inline">
-                 Gender
-                  <label>
-                    <input
-                      className="rounded-input"
-                      type="radio"
-                      id="male"
-                      name="gender"
-                      placeholder="Male"
-                    />
-                    Male
-                  </label>
-                  <label>
-                    <input
-                      className="rounded-input"
-                      type="radio"
-                      id="female"
-                      name="gender"
-                      placeholder="Female"
-                    />
-                    Female
-                  </label>
-                  <label>
-                    <input
-                      className="rounded-input"
-                      type="radio"
-                      id="other"
-                      name="gender"
-                      placeholder="Other"
-                    />
-                    Other
-                  </label>
-                </span>
-                <textarea
-                  className="fullWidth rounded-input"
-                  type="textarea"
-                  id="description"
-                  name="description"
-                  placeholder="Tell us about yourself!"
-                  required={true}
-                  value={formData.description}
-                  onChange={handleChange}
-                />
-              <label>
-                Password
-                <input
-                  className="rounded-input"
-                  type="password"
-                  id="password"
-                  name="password"
-                  placeholder="password"
-                  required={true}
-                  value={formData.password}
-                  onChange={handleChange}
-                />
-              </label>
-              <label>
-                Confirm Password
-                <input
-                  className="rounded-input"
-                  type="Password"
-                  id="confirmPassword"
-                  name="confirmPassword"
-                  placeholder="confirm Password"
-                  required={true}
-                  value={formData.confirmPassword}
-                  onChange={handleChange}
-                />
-              </label>
-              <label>
-                Upload a Photo
-                <input
-                  className="rounded-input"
-                  type="url"
-                  name="url"
-                  id="url"
-                  onChange={handleChange}
-                  value={formData.url}
-                  required={true}
-                />
-                <div className="photo-container">
-                  <img src={formData.url} alt="profile pic" />
-                </div>
-              </label>
+                <label>
+                  Password
+                  <input
+                    className="rounded-input"
+                    type="password"
+                    id="password"
+                    name="password"
+                    placeholder="password"
+                    required={true}
+                    value={formData.password}
+                    onChange={handleChange}
+                  />
+                </label>
+                <label>
+                  Confirm Password
+                  <input
+                    className="rounded-input"
+                    type="Password"
+                    id="confirmPassword"
+                    name="confirmPassword"
+                    placeholder="confirm Password"
+                    required={true}
+                    value={formData.confirmPassword}
+                    onChange={handleChange}
+                  />
+                </label>
+                <label>
+                  Upload a Photo
+                  <input
+                    className="rounded-input"
+                    type="url"
+                    name="url"
+                    id="url"
+                    onChange={handleChange}
+                    value={formData.url}
+                    required={true}
+                  />
+                  <div className="photo-container">
+                    <img src={formData.url} alt="profile pic" />
+                  </div>
+                </label>
+              </div>
+            </form>
           </div>
-          </form>
-        </div>
-        <Link to="/Profile">
-          <button className="secondary-btn">Submit</button>
-        </Link>
-        <h6>Already have an account?</h6>
-        <Link to="/LogIn">
-          <h6>LOG IN</h6>
-        </Link>
-        <br />
-        <h6 className="text-light">
-          By clicking submit you agree to Friender's® terms of service
-        </h6>
+          <Link to="/Profile">
+            <button className="secondary-btn">Submit</button>
+          </Link>
+          <h6>Already have an account?</h6>
+          <Link to="/LogIn">
+            <h6>LOG IN</h6>
+          </Link>
+          <br />
+          <h6 className="text-light">
+            By clicking submit you agree to Friender's® terms of service
+          </h6>
         </div>
       </div>
     </>
