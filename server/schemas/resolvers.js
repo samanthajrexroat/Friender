@@ -16,10 +16,17 @@ const resolvers = {
 		hobby: async (parent, { hobbyId }) => {
 			return Hobby.findOne({ _id: hobbyId });
 		},
+		me: async (parent, args, context) => {
+			if (context.user) {
+				return User.findOne({ _id: context.user._id }).populate('hobbies');
+			}
+			throw new AuthenticationError('You need to be logged in!');
+		},
 	},
 	Mutation: {
-		createUser: async (parent, { firstName, lastName, email, password, city, age, gender, description, picture }) => {
-			return User.create({ firstName, lastName, email, password, city, age, gender, description, picture });
+		// TODO: Add photo
+		createUser: async (parent, { firstName, lastName, email, password, city, age, gender, description }) => {
+			return User.create({ firstName, lastName, email, password, city, age, gender, description });
 		},
 		login: async (parent, { email, password}) => {
 			const user = await User.findOne({ email });
