@@ -9,6 +9,10 @@ const LogIn = (props) => {
  const [formState, setFormState] = useState({ email: '', password: '' });
  const [login, { error, data }] = useMutation(LOGIN_USER);
 
+ if (error) {
+   console.log(JSON.stringify(error));
+ }
+
   const handleChange = (event) => {
     const { name, value } = event.target;
   
@@ -25,10 +29,10 @@ const LogIn = (props) => {
       const { data } = await login({
         variables: { ...formState },
       });
-
+      alert(JSON.stringify(data))
       Auth.login(data.login.token);
     } catch (e) {
-      console.error(e);
+      console.error(JSON.stringify(e));
     };
 
     setFormState({
@@ -71,6 +75,13 @@ const LogIn = (props) => {
             required={true}
             onChange={handleChange}
           />
+          <Link to="/me">
+            <button className="secondary-btn" type="submit">Submit</button>
+          </Link>
+          <h6>Not yet a member?</h6>
+          <Link to="/SignUp">
+            <h6>CREATE AN ACCOUNT</h6>
+          </Link>
         </form>
         )}
 
@@ -79,13 +90,6 @@ const LogIn = (props) => {
             {error.message}
           </div>
         )}
-        <Link to="/me">
-          <button className="secondary-btn" type="submit">Submit</button>
-        </Link>
-        <h6>Not yet a member?</h6>
-        <Link to="/SignUp">
-          <h6>CREATE AN ACCOUNT</h6>
-        </Link>
       </div>
     </div>
   );

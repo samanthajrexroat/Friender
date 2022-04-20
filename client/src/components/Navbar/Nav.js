@@ -3,15 +3,15 @@ import "./nav.css";
 import { TiThMenuOutline } from "react-icons/ti";
 import { Link } from "react-router-dom";
 
+import Auth from "../../utils/auth";
 
 
 
 const Nav = () => {
-  const authToken = true;
-
-
-
-
+  const logout = (event) => {
+    event.preventDefault();
+    Auth.logout();
+  };
 
   return (
     <nav>
@@ -30,11 +30,27 @@ const Nav = () => {
         </div> */}
       </div>
 
-      <Link to="/LogIn">
-        <button className="primary-btn logIn">
-          {authToken ? "Signout" : "Log In"}
-        </button>
-      </Link>
+      {Auth.loggedIn() ? (
+        <>
+          <Link className="primary-btn me" to="/me">
+            View My Profile
+          </Link>
+          <button className="primary-btn logout" onClick={logout} to="/">
+            Logout
+          </button>
+        </>
+
+      ): (
+        <>
+        <Link className="btn btn-lg btn-primary m-2" to="/LogIn">
+          LogIn
+        </Link>
+        <Link className="btn btn-lg btn-light m-2" to="/SignUp">
+          Signup
+        </Link>
+      </>
+      )}
+   
     </nav>
    );
 };
