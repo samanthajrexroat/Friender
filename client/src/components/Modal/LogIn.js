@@ -5,10 +5,11 @@ import { Link } from "react-router-dom";
 import { useMutation } from "@apollo/client";
 import { LOGIN_USER } from "../../utils/mutations";
 import Auth from "../../utils/auth";
+
 const LogIn = (props) => {
  const [formState, setFormState] = useState({ email: '', password: '' });
  const [login, { error, data }] = useMutation(LOGIN_USER);
-
+  
  if (error) {
    console.log(JSON.stringify(error));
  }
@@ -24,13 +25,13 @@ const LogIn = (props) => {
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    // console.log(formState);
+    console.log(formState);
     try {
       const { data } = await login({
         variables: { ...formState },
       });
-      alert(JSON.stringify(data))
       Auth.login(data.login.token);
+      // alert(JSON.stringify(data))
     } catch (e) {
       console.error(JSON.stringify(e));
     };
@@ -75,9 +76,7 @@ const LogIn = (props) => {
             required={true}
             onChange={handleChange}
           />
-          <Link to="/me">
-            <button className="secondary-btn" type="submit">Submit</button>
-          </Link>
+          <button className="secondary-btn" type="submit">Submit</button>
           <h6>Not yet a member?</h6>
           <Link to="/SignUp">
             <h6>CREATE AN ACCOUNT</h6>

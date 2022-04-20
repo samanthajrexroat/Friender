@@ -13,7 +13,7 @@ const resolvers = {
     // hobbies: async () => {
     //   return Hobby.find();
     // },
-    // hobby: async (parent, { hobbyId }) => {
+    // hobby: async (parent, { hobbyId }) => 
     //   return Hobby.findOne({ _id: hobbyId });
     // },
     me: async (parent, args, context) => {

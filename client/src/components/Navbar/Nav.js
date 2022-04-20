@@ -1,17 +1,23 @@
 import React from "react";
 import "./nav.css";
 import { TiThMenuOutline } from "react-icons/ti";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import Auth from "../../utils/auth";
 
 
 
+
 const Nav = () => {
+    // const authToken = true;
   const logout = (event) => {
     event.preventDefault();
+    console.log("cookie here!!!")
     Auth.logout();
+    console.log("cookie gone!!!")
   };
+
+  let navigate = useNavigate();
 
   return (
     <nav>
@@ -35,9 +41,15 @@ const Nav = () => {
           <Link className="primary-btn me" to="/me">
             View My Profile
           </Link>
-          <button className="primary-btn logout" onClick={logout} to="/">
+          <Link to="/">
+            <button className="primary-btn logout" onClick={()=>{
+              Auth.logout()
+              navigate("/", {replace: true })
+            }} >
             Logout
-          </button>
+            </button>
+          </Link>
+
         </>
 
       ): (
@@ -50,6 +62,12 @@ const Nav = () => {
         </Link>
       </>
       )}
+{/* 
+      <Link to="/LogIn">
+        <button className="primary-btn logIn">
+          {authToken ? "Signout" : "Log In"}
+        </button>
+      </Link> */}
    
     </nav>
    );
