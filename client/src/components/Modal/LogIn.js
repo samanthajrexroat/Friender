@@ -2,13 +2,40 @@ import React from "react";
 import "./modal.css";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useMutation } from "@apollo/client";
+import { LOGIN_USER } from "../../utils/mutations";
+import Auth from "../../utils/auth";
+const LogIn = (props) => {
+ const [formState, setFormState] = useState({ email: '', password: '' });
+ const [login, { error, data }] = useMutation(LOGIN_USER);
 
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+  
+    setFormState({
+      ...formState,
+      [name]: value,
+    });
+  };
 
-const LogIn = () => {
-  const [email, setEmail] = useState(null);
-  const [password, setPassword] = useState(null);
-  console.log(email, password);
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+    // console.log(formState);
+    try {
+      const { data } = await login({
+        variables: { ...formState },
+      });
 
+      Auth.login(data.login.token);
+    } catch (e) {
+      console.error(e);
+    };
+
+    setFormState({
+      email: '',
+      password: '',
+    })
+  }
 
   return (
     <div className="signUpBackground">
@@ -17,15 +44,22 @@ const LogIn = () => {
           <div className="closeIcon">ⓧ</div>
         </Link>
         <h2>Log In</h2>
-        <form className="logInForm">
+        {data ? (
+               <p>
+               Success! You may now head{' '}
+               <Link to="/me">to your profile.</Link>
+             </p>
+        ) : (
+        <form className="logInForm" onSubmit={handleFormSubmit}>
           <input
             className="rounded-input"
             type="email"
             id="email"
             name="email"
             placeholder="email"
+            value={formState.email}
             required={true}
-            onChange={e => setEmail(e.target.value)}
+            onChange={handleChange}
           />
           <input
             className="rounded-input"
@@ -33,12 +67,20 @@ const LogIn = () => {
             id="password"
             name="password"
             placeholder="password"
+            value={formState.password}
             required={true}
-            onChange={e => setPassword(e.target.value)}
+            onChange={handleChange}
           />
         </form>
-        <Link to="/Profile">
-          <button className="secondary-btn">Submit</button>
+        )}
+
+        {error && (
+          <div className="my-3 p-3 bg-danger text-white">
+            {error.message}
+          </div>
+        )}
+        <Link to="/me">
+          <button className="secondary-btn" type="submit">Submit</button>
         </Link>
         <h6>Not yet a member?</h6>
         <Link to="/SignUp">
