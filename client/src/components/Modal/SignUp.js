@@ -21,8 +21,7 @@ const SignUp = () => {
     matches: [],
   });
 
-  const [createUser, { error, data }] = useMutation(CREATE_USER) ;
-
+  const [createUser, { error, data }] = useMutation(CREATE_USER);
 
   if (error) {
     console.log(JSON.stringify(error));
@@ -37,6 +36,7 @@ const SignUp = () => {
     if (name === "age") {
       value = parseInt(value);
     }
+
     // console.log("value" + value, "name" + name);
     setFormData(prevState => ({
       ...prevState,
@@ -44,14 +44,20 @@ const SignUp = () => {
     }));
   };
 
-  const handleFormSubmit = async (event) => {
+  /////////////////////////////////////////////
+  //                                         //
+  //    PASSWORD / CONFIRM PASSWORD CHECK    //
+  //                                         //
+  /////////////////////////////////////////////
+
+  const handleFormSubmit = async event => {
     event.preventDefault();
 
     try {
       const { data } = await createUser({
         variables: { ...formData },
       });
-      alert(JSON.stringify(data))
+      alert(JSON.stringify(data));
       Auth.login(data.createUser.token);
     } catch (e) {
       console.error(JSON.stringify(e));
@@ -202,7 +208,7 @@ const SignUp = () => {
                     onChange={handleChange}
                   />
                 </label>
-                <label>
+                {/* <label>
                   Confirm Password
                   <input
                     className="rounded-input"
@@ -214,7 +220,7 @@ const SignUp = () => {
                     value={formData.confirmPassword}
                     onChange={handleChange}
                   />
-                </label>
+                </label> */}
                 <label>
                   Upload a Photo
                   <input

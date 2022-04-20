@@ -11,6 +11,7 @@ import Home from "./pages/Home";
 import Nav from "./components/Navbar/Nav";
 import LogIn from "./components/Modal/LogIn";
 import SignUp from "./components/Modal/SignUp";
+import Hobbies from "./components/Modal/Hobbies";
 import Footer from "./components/Footer/Footer";
 import Profile from "./pages/Profile/Profile";
 import EditProfile from "./pages/Profile/EditProfile";
@@ -49,6 +50,7 @@ function App() {
             <Route path="/me" element={<Profile />}></Route>
             <Route path="/profile:_id" element={<Profile />}></Route>
             <Route path="/EditProfile" element={<EditProfile />}></Route>
+            <Route path="/AddHobbies" element={<Hobbies />}></Route>
           </Routes>
           <Footer />
         </Router>

@@ -7,9 +7,6 @@ import { useQuery } from "@apollo/client";
 import { QUERY_USER, QUERY_ME } from "../../utils/queries";
 import Auth from "../../utils/auth";
 
-
-
-
 // const posts = [
 //     { id: '1', name: 'This first post is about React' },
 //     { id: '2', name: 'This next post is about Preact' },
@@ -17,18 +14,15 @@ import Auth from "../../utils/auth";
 //     { id: '4', name: 'This is the fourth and final post' },
 // ];
 
-
-
-
 const Profile = () => {
   const { userId } = useParams();
 
   const { loading, data } = useQuery(userId ? QUERY_USER : QUERY_ME, {
     variables: { userId: userId },
   });
-  
+
   const user = data?.me || data?.user || {};
-  
+
   if (Auth.loggedIn() && Auth.getProfile().data._id === userId) {
     return <Navigate to="/me" />;
   }
@@ -47,45 +41,39 @@ const Profile = () => {
   }
 
   return (
-
     <div className="profileBackground">
-     
       <div className="profileContainer">
-
         <Search />
 
-          
-            <div className="profileCard">
-              <h2>{user.firstName}</h2>
-              <div className="profileImage">
-                {/* <div className="image">
+        <div className="profileCard">
+          <h2>{user.firstName}</h2>
+          <div className="profileImage">
+            {/* <div className="image">
                   <img src={photo} alt={firstName} className="profileImage" />
                 </div> */}
-              </div>
-              <h4>{user.city}</h4>
-              {/* <h5>{gender}</h5> */}
-              <h5>{user.age}</h5>
-              <h5>{user.description}</h5>
-              {/* <div>
+          </div>
+          <h4>{user.city}</h4>
+          {/* <h5>{gender}</h5> */}
+          <h5>{user.age}</h5>
+          <h5>{user.description}</h5>
+          {/* <div>
                 <h5 className="hobbiesContainer">
                   {hobbies.map(hobby => (
                     <div className="hobbiesList">{hobby}</div>
                   ))}
                 </h5>
               </div> */}
-              <div>
-                <Link to="/AddHobbies">
-                  <button className="sm-btn">Add hobbies</button>
-                </Link>
-                <Link to="/EditProfile">
-                  <button className="sm-btn">edit profile</button>
-                </Link>
-              </div>
-            </div>
+          <div>
+            <Link to="/AddHobbies">
+              <button className="sm-btn">Add hobbies</button>
+            </Link>
+            <Link to="/EditProfile">
+              <button className="sm-btn">edit profile</button>
+            </Link>
+          </div>
+        </div>
       </div>
     </div>
-
-    
   );
 };
 
