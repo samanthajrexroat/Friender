@@ -21,8 +21,7 @@ const SignUp = () => {
     matches: [],
   });
 
-  const [createUser, { error, data }] = useMutation(CREATE_USER) ;
-
+  const [createUser, { error, data }] = useMutation(CREATE_USER);
 
   if (error) {
     console.log(JSON.stringify(error));
@@ -37,6 +36,7 @@ const SignUp = () => {
     if (name === "age") {
       value = parseInt(value);
     }
+
     // console.log("value" + value, "name" + name);
     setFormData(prevState => ({
       ...prevState,
@@ -44,14 +44,30 @@ const SignUp = () => {
     }));
   };
 
-  const handleFormSubmit = async (event) => {
+  /////////////////////////////////////////////
+  //                                         //
+  //    PASSWORD / CONFIRM PASSWORD CHECK    //
+  //                                         //
+  /////////////////////////////////////////////
+
+  const handleFormSubmit = async event => {
     event.preventDefault();
+
+    const { name, value } = event.target;
+    this.setState(
+      {
+        [name]: value,
+      },
+      () => {
+        if (name == "password" || name == "password_re") this.checkPassword();
+      }
+    );
 
     try {
       const { data } = await createUser({
         variables: { ...formData },
       });
-      alert(JSON.stringify(data))
+      alert(JSON.stringify(data));
       Auth.login(data.createUser.token);
     } catch (e) {
       console.error(JSON.stringify(e));
@@ -199,7 +215,7 @@ const SignUp = () => {
                     placeholder="password"
                     required={true}
                     value={formData.password}
-                    onChange={handleChange}
+                    onChange={event => this.handleChange(event)}
                   />
                 </label>
                 <label>
@@ -212,7 +228,7 @@ const SignUp = () => {
                     placeholder="confirm Password"
                     // required={true}
                     value={formData.confirmPassword}
-                    onChange={handleChange}
+                    onChange={event => this.handleChange(event)}
                   />
                 </label>
                 <label>
