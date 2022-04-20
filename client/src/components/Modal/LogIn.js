@@ -6,8 +6,7 @@ import { Link } from "react-router-dom";
 const LogIn = () => {
   const [email, setEmail] = useState(null);
   const [password, setPassword] = useState(null);
-  const [confirmPassword, setConfirmPassword] = useState(null);
-  console.log(email, password, confirmPassword);
+  console.log(email, password);
 
   return (
     <div className="signUpBackground">
