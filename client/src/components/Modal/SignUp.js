@@ -20,11 +20,14 @@ const SignUp = () => {
     // confirmPassword: "",
     matches: [],
   });
-  const [createUser, { error, data }] = useMutation(CREATE_USER);
-  console.log(data);
+
+  const [createUser, { error, data }] = useMutation(CREATE_USER) ;
+
+
   if (error) {
     console.log(JSON.stringify(error));
   }
+
   const handleChange = e => {
     console.log("e", e);
     let value =
@@ -34,21 +37,21 @@ const SignUp = () => {
     if (name === "age") {
       value = parseInt(value);
     }
-    console.log("value" + value, "name" + name);
+    // console.log("value" + value, "name" + name);
     setFormData(prevState => ({
       ...prevState,
       [name]: value,
     }));
   };
 
-  const handleFormSubmit = async event => {
+  const handleFormSubmit = async (event) => {
     event.preventDefault();
 
     try {
       const { data } = await createUser({
         variables: { ...formData },
       });
-
+      alert(JSON.stringify(data))
       Auth.login(data.createUser.token);
     } catch (e) {
       console.error(JSON.stringify(e));

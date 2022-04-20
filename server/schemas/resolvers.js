@@ -29,7 +29,7 @@ const resolvers = {
       parent,
       { firstName, lastName, email, password, city, age, description }
     ) => {
-      return User.create({
+      const newUser = await User.create({
         firstName,
         lastName,
         email,
@@ -39,7 +39,14 @@ const resolvers = {
         //  gender,
         description,
       });
+
+      const token = await signToken(newUser);
+
+      return { newUser, token };
+
+
     },
+
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
 
@@ -57,6 +64,7 @@ const resolvers = {
 
       return { token, user };
     },
+    
     createHobby: async (parent, { hobbyName, hobbyAbout }) => {
       return Hobby.create({ hobbyName, hobbyAbout });
     },
