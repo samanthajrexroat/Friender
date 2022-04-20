@@ -3,10 +3,12 @@ import "./modal.css";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
+
 const LogIn = () => {
   const [email, setEmail] = useState(null);
   const [password, setPassword] = useState(null);
   console.log(email, password);
+
 
   return (
     <div className="signUpBackground">
