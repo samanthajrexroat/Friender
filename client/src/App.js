@@ -3,8 +3,8 @@ import {
   InMemoryCache,
   ApolloProvider,
   createHttpLink,
-} from '@apollo/client';
-import { setContext } from '@apollo/client/link/context';
+} from "@apollo/client";
+import { setContext } from "@apollo/client/link/context";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 import Home from "./pages/Home";
@@ -15,26 +15,18 @@ import Footer from "./components/Footer/Footer";
 import Profile from "./pages/Profile/Profile";
 import EditProfile from "./pages/Profile/EditProfile";
 
-
-
-
-
-
-
-
 // Main GraphQL endpoint
 const httpLink = createHttpLink({
-  uri: '/graphql',
+  uri: "/graphql",
 });
 
 const authLink = setContext((_, { headers }) => {
-  
-  const token = localStorage.getItem('id_token');
+  const token = localStorage.getItem("id_token");
 
   return {
     headers: {
       ...headers,
-      authorization: token ? `Bearer ${token}` : '',
+      authorization: token ? `Bearer ${token}` : "",
     },
   };
 });
@@ -43,10 +35,6 @@ const client = new ApolloClient({
   link: authLink.concat(httpLink),
   cache: new InMemoryCache(),
 });
-
-
-
-
 
 function App() {
   return (
@@ -59,7 +47,7 @@ function App() {
             <Route path="/LogIn" element={<LogIn />}></Route>
             <Route path="/SignUp" element={<SignUp />}></Route>
             <Route path="/me" element={<Profile />}></Route>
-            <Route path="/profile/:_id" element={<Profile />}></Route>
+            <Route path="/profile:_id" element={<Profile />}></Route>
             <Route path="/EditProfile" element={<EditProfile />}></Route>
           </Routes>
           <Footer />
