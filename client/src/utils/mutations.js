@@ -9,9 +9,8 @@ export const CREATE_USER = gql`
     $city: String!
     # $gender: String!
     $age: Int
-    $password: String!
-  ) # $confirmPassword: String
-  {
+    $password: String! # $confirmPassword: String
+  ) {
     createUser(
       firstName: $firstName
       lastName: $lastName
@@ -22,7 +21,7 @@ export const CREATE_USER = gql`
       password: $password
       age: $age
     ) {
-      token 
+      token
       user {
         _id
         email

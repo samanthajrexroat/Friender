@@ -3,34 +3,27 @@ import "./modal.css";
 // import Home from "../../pages/Home";
 // import { useState } from "react";
 import { Link } from "react-router-dom";
+import useState from "react";
+import { ADD_HOBBY } from "../../utils/mutations";
+import { useMutation } from "@apollo/client";
 
-const Hobbies = () => {
-  //   const { userId } = useParams();
+const Hobbies = ({ userId }) => {
+  const [hobby, setHobby] = useState("");
+  const [addHobby] = useMutation(ADD_HOBBY);
 
-  //   const { loading, data } = useQuery(userId ? QUERY_USER : QUERY_ME, {
-  //     variables: { userId: userId },
-  //   });
+  const handleFormSubmit = async event => {
+    event.preventDefault();
+    console.log("submitted");
 
-  //   const user = data?.me || data?.user || {};
+    try {
+      const data = await addHobby({
+        variables: { userId, hobby },
+      });
 
-  //   if (Auth.loggedIn() && Auth.getProfile().data._id === userId) {
-  //     return <Navigate to="/me" />;
-  //   }
-
-  //   if (loading) {
-  //     return <div>Loading...</div>;
-  //   }
-
-  //   if (!user?._id) {
-  //     return (
-  //       <h4>
-  //         You need to be logged in to see this. Use the navigation links above to
-  //         sign up or log in!
-  //       </h4>
-  //     );
-  //   }
-
-  const submit = e => {
+      setHobby("");
+    } catch (err) {
+      console.error(err);
+    }
     alert("Hobby added");
   };
 
@@ -41,19 +34,21 @@ const Hobbies = () => {
           <div className="closeIcon">ⓧ</div>
         </Link>
         <h2>Add A Hobby</h2>
-        <p>one are a time</p>
-        <form className="logInForm" onClick={submit()}>
+        <p>one at a time</p>
+        <form className="logInForm" onSubmit={handleFormSubmit}>
           <input
             className="rounded-input"
-            type="hobby"
+            type="text"
             id="hobby"
             name="hobby"
             placeholder="Hobby"
+            value={hobby}
+            onChange={event => setHobby(event.target.value)}
             required={true}
           />
           <Link to="/AddHobbies">
             <button className="secondary-btn" type="submit">
-              Submit
+              Add Hobby
             </button>
           </Link>
         </form>
