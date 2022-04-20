@@ -33,11 +33,11 @@ export const QUERY_ME = gql`
             firstName
             lastName
             email
-            gender
+            # gender
             city
             age
             description
-            hobbies
+            # hobbies
         }
     }
 `

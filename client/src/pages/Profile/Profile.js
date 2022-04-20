@@ -1,6 +1,6 @@
 import React from "react";
 import "./profile.css";
-import CommentsData from "./sampleProfile";
+
 import { Link, Navigate, useParams } from "react-router-dom";
 import Search from "../../utils/search";
 import { useQuery } from "@apollo/client";
@@ -21,15 +21,15 @@ import Auth from "../../utils/auth";
 
 
 const Profile = () => {
-  const { _id: userParam } = useParams();
+  const { userId } = useParams();
 
-  const { loading, data } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
-    variables: { _id: userParam },
+  const { loading, data } = useQuery(userId ? QUERY_USER : QUERY_ME, {
+    variables: { userId: userId },
   });
-
+  
   const user = data?.me || data?.user || {};
-
-  if (Auth.loggedIn() && Auth.users().data._id === userParam) {
+  
+  if (Auth.loggedIn() && Auth.getProfile().data._id === userId) {
     return <Navigate to="/me" />;
   }
 
@@ -48,48 +48,40 @@ const Profile = () => {
 
   return (
 
-
-
-
     <div className="profileBackground">
      
       <div className="profileContainer">
 
         <Search />
 
-        {CommentsData.map(
-          ({ firstName, city, gender, age, description, photo, hobbies }) => {
-            return (
-              <div className="profileCard">
-                <h2>{firstName}</h2>
-                <div className="profileImage">
-                  <div className="image">
-                    <img src={photo} alt={firstName} className="profileImage" />
-                  </div>
-                </div>
-                <h4>{city}</h4>
-                <h5>{gender}</h5>
-                <h5>{age}</h5>
-                <h5>{description}</h5>
-                <div>
-                  <h5 className="hobbiesContainer">
-                    {hobbies.map(hobby => (
-                      <div className="hobbiesList">{hobby}</div>
-                    ))}
-                  </h5>
-                </div>
-                <div>
-                  <Link to="/AddHobbies">
-                    <button className="sm-btn">Add hobbies</button>
-                  </Link>
-                  <Link to="/EditProfile">
-                    <button className="sm-btn">edit profile</button>
-                  </Link>
-                </div>
+          
+            <div className="profileCard">
+              <h2>{user.firstName}</h2>
+              <div className="profileImage">
+                {/* <div className="image">
+                  <img src={photo} alt={firstName} className="profileImage" />
+                </div> */}
               </div>
-            );
-          }
-        )}
+              <h4>{user.city}</h4>
+              {/* <h5>{gender}</h5> */}
+              <h5>{user.age}</h5>
+              <h5>{user.description}</h5>
+              {/* <div>
+                <h5 className="hobbiesContainer">
+                  {hobbies.map(hobby => (
+                    <div className="hobbiesList">{hobby}</div>
+                  ))}
+                </h5>
+              </div> */}
+              <div>
+                <Link to="/AddHobbies">
+                  <button className="sm-btn">Add hobbies</button>
+                </Link>
+                <Link to="/EditProfile">
+                  <button className="sm-btn">edit profile</button>
+                </Link>
+              </div>
+            </div>
       </div>
     </div>
 
