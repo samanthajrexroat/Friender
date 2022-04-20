@@ -125,6 +125,47 @@ div.signUpBackground {
 
 }
 
+.hobbyModal {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 175px;
+    background: linear-gradient(0deg, rgb(128, 104, 177) 0%, rgb(84, 185, 163) 100%);
+    border-radius: 10px;
+    padding: 40px;
+    box-shadow: rgba(0,0,0,0.35) 0px 5px 15px;
+    justify-items: center;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+}
+
+.hobbiesContainer {
+    /* margin-top: 1rem;
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap; */
+    max-height: 200px;
+    overflow: scroll;
+  }
+
+
+ 
+  
+
+.hobbyCard {
+    margin: .1rem;
+    display: inline-block;
+    color: white;
+    text-transform: uppercase;
+    font-size: 15px;
+    padding: 0.25rem .5rem;
+    border-radius: 2rem;
+    cursor: pointer;
+    transition: all 400ms ease-in;
+    background: var(--color-dark);
+}
+
 textarea{
     grid-column-start: 1;
     grid-column-end: 2;
