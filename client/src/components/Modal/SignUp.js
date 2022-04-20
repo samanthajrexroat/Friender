@@ -53,16 +53,6 @@ const SignUp = () => {
   const handleFormSubmit = async event => {
     event.preventDefault();
 
-    const { name, value } = event.target;
-    this.setState(
-      {
-        [name]: value,
-      },
-      () => {
-        if (name == "password" || name == "password_re") this.checkPassword();
-      }
-    );
-
     try {
       const { data } = await createUser({
         variables: { ...formData },
@@ -215,10 +205,10 @@ const SignUp = () => {
                     placeholder="password"
                     required={true}
                     value={formData.password}
-                    onChange={event => this.handleChange(event)}
+                    onChange={handleChange}
                   />
                 </label>
-                <label>
+                {/* <label>
                   Confirm Password
                   <input
                     className="rounded-input"
@@ -228,9 +218,9 @@ const SignUp = () => {
                     placeholder="confirm Password"
                     // required={true}
                     value={formData.confirmPassword}
-                    onChange={event => this.handleChange(event)}
+                    onChange={handleChange}
                   />
-                </label>
+                </label> */}
                 <label>
                   Upload a Photo
                   <input
