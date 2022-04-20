@@ -39,7 +39,7 @@ const SignUp = () => {
     }));
   };
 
-  const handleFormSubmit = async event => {
+  const handleFormSubmit = async (event) => {
     event.preventDefault();
 
     try {
