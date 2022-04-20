@@ -18,7 +18,8 @@ const resolvers = {
     // },
     me: async (parent, args, context) => {
       if (context.user) {
-        return User.findOne({ _id: context.user._id }).populate("hobbies");
+        return User.findOne({ _id: context.user._id })
+          // .populate("hobbies");
       }
       throw new AuthenticationError("You need to be logged in!");
     },
@@ -29,7 +30,7 @@ const resolvers = {
       parent,
       { firstName, lastName, email, password, city, age, description }
     ) => {
-      const newUser = await User.create({
+      const user = await User.create({
         firstName,
         lastName,
         email,
@@ -40,9 +41,9 @@ const resolvers = {
         description,
       });
 
-      const token = await signToken(newUser);
+      const token = await signToken(user);
 
-      return { newUser, token };
+      return { user, token };
 
 
     },
