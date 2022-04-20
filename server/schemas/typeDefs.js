@@ -54,6 +54,7 @@ const typeDefs = gql`
 		removeUser(userId: ID!): User
 		removeHobby(userId: ID!, hobbyId: ID!): User
 		removeFriend(userId: ID!, friendId: ID!): User
+		updateUser(userId: ID!, firstName: String, lastName: String, email: String, city: String, age: Int, description: String): Auth
 	}
 `;
 
