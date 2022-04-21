@@ -17,6 +17,7 @@ const SignUp = () => {
     // gender: "",
     age: !null,
     password: "",
+    photo: "",
     // confirmPassword: "",
     matches: [],
   });
@@ -241,13 +242,14 @@ const SignUp = () => {
                 <label htmlFor="url">Profile Photo</label>
                         <input
                             type="url"
-                            name="url"
-                            id="url"
+                            name="photo"
+                            id="photo"
                             onChange={handleChange}
                             // required={true}
+                            value={formData.photo}
                         />
                         <div className="photo-container">
-                            {formData.url && <img src={formData.url} alt="profile pic preview"/>}
+                            {formData.photo && <img src={formData.photo} alt="profile pic preview"/>}
                         </div>
 
 

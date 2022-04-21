@@ -53,3 +53,17 @@
   margin: 1rem;
   color: var(--color-bg);
 }
+
+.img-container {
+  /* height: 50vh;
+  width: 50vh; */
+  border: 20px;
+  overflow: hidden;
+  margin: 10px;
+  max-width: 260px;
+  max-height: 195px;
+}
+/* 
+.img-container img {
+  width: 100%;
+} */
