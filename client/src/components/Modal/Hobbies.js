@@ -9,9 +9,9 @@ import LogIn from "./LogIn";
 
 
 const Hobbies = () => {
-  const { loading, data } = useQuery(QUERY_HOBBIES);
-  const hobbies = data?.hobbies || [];
-  const [searchTerm, setSearchTerm] = useState("");
+	const { loading, data } = useQuery(QUERY_HOBBIES);
+	const hobbies = data?.hobbies || [];
+	const [searchTerm, setSearchTerm] = useState("");
 
   const userId = Auth.getProfile().data._id;
 

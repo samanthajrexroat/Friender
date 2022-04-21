@@ -1,13 +1,13 @@
 import { gql } from "@apollo/client";
 
 export const QUERY_USERS = gql`
-  query users {
-    users {
-      _id
-      firstName
-      lastName
-    }
-  }
+	query users {
+		users {
+			_id
+			firstName
+			lastName
+		}
+	}
 `;
 
 export const QUERY_USER = gql`
@@ -25,6 +25,7 @@ export const QUERY_USER = gql`
           _id
           hobbyName
       }
+      photo
     }
   }
 `;
@@ -44,15 +45,16 @@ export const QUERY_ME = gql`
           _id
           hobbyName
       }
+      photo
     }
   }
 `;
 
 export const QUERY_HOBBIES = gql`
-  query hobbies {
-    hobbies {
-      _id
-      hobbyName
-    }
-  }
+	query hobbies {
+		hobbies {
+			_id
+			hobbyName
+		}
+	}
 `;
