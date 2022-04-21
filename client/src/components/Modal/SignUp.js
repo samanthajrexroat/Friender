@@ -216,30 +216,38 @@ const SignUp = () => {
                   </div>
                 </label> */}
 
-								<label htmlFor="url">Profile Photo</label>
-								<input type="url" name="photo" id="photo" onChange={handleChange} required={true} />
-								<div className="photo-container">{formData.photo && <img src={formData.photo} alt="profile pic preview" />}</div>
-							</div>
-							{/* <Link to="/Profile"> */}
-							<button className="secondary-btn" type="submit">
-								Submit
-							</button>
-							{/* </Link> */}
-						</form>
-					)}
+                  
 
-					{error && <div className="primary-btn">{error.message}</div>}
-				</div>
+                <label htmlFor="url">Profile Photo</label>
+                        <input
+                            type="url"
+                            name="url"
+                            id="url"
+                            onChange={handleChange}
+                            // required={true}
+                            value={formData.url}
+                        />
+                        <div className="profile">
+                            {formData.url && <img src={formData.url} alt="profile pic preview"/>}
+                        </div>
 
-				<h6>Already have an account?</h6>
-				<Link to="/LogIn">
-					<h6>LOG IN</h6>
-				</Link>
-				<br />
-				<h6 className="text-light">By clicking submit you agree to Friender's® terms of service</h6>
-			</div>
-		</div>
-	);
-};
 
-export default SignUp;
+
+
+
+
+
+
+
+              </div>
+              {/* <Link to="/Profile"> */}
+              <button className="secondary-btn" type="submit">
+                Submit
+              </button>
+              {/* </Link> */}
+            </form>
+          )}
+
+          {error && <div className="primary-btn">{error.message}</div>}
+        </div>
+
