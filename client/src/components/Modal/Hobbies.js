@@ -1,62 +1,79 @@
 import React from "react";
 import "./modal.css";
+import HobbyData from "./HobbyData";
 // import Home from "../../pages/Home";
 // import { useState } from "react";
 import { Link } from "react-router-dom";
 
+import { useState } from "react";
+// import { ADD_HOBBY } from "../../utils/mutations";
+// import { useMutation } from "@apollo/client";
+
 const Hobbies = () => {
-  //   const { userId } = useParams();
+  // const [hobby, setHobby] = useState("");
+  // console.log(hobby);
 
-  //   const { loading, data } = useQuery(userId ? QUERY_USER : QUERY_ME, {
-  //     variables: { userId: userId },
-  //   });
+  // let searchInput = e => {
+  //   setHobby(e.target.value);
+  // };
 
-  //   const user = data?.me || data?.user || {};
-
-  //   if (Auth.loggedIn() && Auth.getProfile().data._id === userId) {
-  //     return <Navigate to="/me" />;
-  //   }
-
-  //   if (loading) {
-  //     return <div>Loading...</div>;
-  //   }
-
-  //   if (!user?._id) {
-  //     return (
-  //       <h4>
-  //         You need to be logged in to see this. Use the navigation links above to
-  //         sign up or log in!
-  //       </h4>
-  //     );
-  //   }
-
-  const submit = e => {
-    alert("Hobby added");
-  };
+  const [searchTerm, setSearchTerm] = useState("");
 
   return (
     <div className="profileBackground">
-      <div className="signInModal">
+      <div className="hobbyModal">
         <Link to="/me">
           <div className="closeIcon">ⓧ</div>
         </Link>
-        <h2>Add A Hobby</h2>
-        <p>one are a time</p>
-        <form className="logInForm" onClick={submit()}>
+        <h2>Search for a Hobby</h2>
+        <h5 className="hobbiesContainer" key={HobbyData.id}>
+          {HobbyData.filter(val => {
+            if (searchTerm === "") {
+              return val;
+            } else if (
+              val.hobby.toLowerCase().includes(searchTerm.toLowerCase())
+            ) {
+              return val;
+            }
+          }).map(({ id, hobby }) => {
+            return (
+              <div className="hobbyCard" key={id} value={id} name={hobby}>
+                {hobby}
+              </div>
+            );
+          })}
+        </h5>
+
+        <form className="logInForm">
           <input
             className="rounded-input"
-            type="hobby"
-            id="hobby"
+            type="text"
+            id="hobbyInput"
             name="hobby"
-            placeholder="Hobby"
+            placeholder="Search for a Hobby"
             required={true}
+            // onChange={e => setHobby(e.target.value)}
+            onChange={event => {
+              setSearchTerm(event.target.value);
+            }}
           />
           <Link to="/AddHobbies">
             <button className="secondary-btn" type="submit">
-              Submit
+              Search Hobbies
             </button>
           </Link>
         </form>
+        <p>
+          Dont see your hobby? <br />
+          <a
+            href="mailto:AddHobby@Friender.com"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Email us
+          </a>
+          ! We will add it!
+        </p>
       </div>
     </div>
   );

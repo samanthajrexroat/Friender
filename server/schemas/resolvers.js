@@ -66,9 +66,7 @@ const resolvers = {
 
 		addHobby: async (parent, { userId, hobbyId }, context) => {
 			try {
-				console.log(userId, "test 1");
 				if (userId) {
-					console.log(userId, "test 2");
 					return User.findOneAndUpdate({ _id: userId }, { $push: { hobbies: hobbyId } }, { new: true }).populate("hobbies");
 					// console.log(hobbyId, userId);
 					// return updatedUser;
@@ -116,6 +114,30 @@ const resolvers = {
 			try {
 				if (userId) {
 					return User.findByIdAndUpdate({ _id: userId }, { $pull: { friends: friendId } }, { new: true }).populate("friends");
+				}
+			} catch (error) {
+				throw error;
+			}
+		},
+		updateUser: async (parent, { userId, firstName, lastName, email, city, age, description }, context) => {
+			try {
+				if (userId) {
+					const user = await User.findByIdAndUpdate(
+						{ _id: userId },
+						{ $set: { firstName: firstName, lastName: lastName, email: email, city: city, age: age, description: description } },
+						{ new: true }
+					);
+					const token = await signToken(user);
+
+					return { user, token };
+
+					// return User.findByIdAndUpdate(
+					// 	{ _id: userId },
+					// 	{ $set: { firstName: firstName, lastName: lastName, email: email, city: city, age: age, description: description } },
+					// 	{ new: true }
+					// )
+					// 	.populate("friends")
+					// 	.populate("hobbies");
 				}
 			} catch (error) {
 				throw error;

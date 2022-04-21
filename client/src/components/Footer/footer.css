@@ -43,3 +43,20 @@ h2 {
         display: none;
     }
 }
+
+.social {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    background: linear-gradient(to top, #ece9e6, #ffffff);
+    /* border: 1px solid black; */
+    max-height: fit-content;
+}
+
+.footerInline {
+    display: flex;
+
+    align-items: flex-start;
+    justify-content: space-evenly;
+}
