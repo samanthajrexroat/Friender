@@ -26,13 +26,6 @@
   border-radius: 1rem;
 }
 
-.hobbiesContainer {
-  margin-top: 1rem;
-  align-items: center;
-  display: flex;
-  flex-wrap: wrap;
-}
-
 .hobbiesList {
   text-align: center;
   margin: 0.1rem;
