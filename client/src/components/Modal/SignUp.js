@@ -233,7 +233,7 @@ const SignUp = () => {
                     // required={true}
                   />
                   <div className="photo-container">
-                    <img src={formData.url} alt="profile pic" />
+                      {formData.url && <img src={formData.url} alt="profile pic" />}
                   </div>
                 </label>
               </div>

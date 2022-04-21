@@ -43,6 +43,7 @@ const Profile = () => {
   return (
     <div className="profileBackground">
       <div className="profileContainer">
+        
         <Search />
 
         <div className="profileCard">
