@@ -19,11 +19,7 @@
     padding: 40px;
     box-shadow: rgba(0,0,0,0.35) 0px 5px 15px;
 }
-/* fuck git */
-.dropdown-menu {
-    overflow: scroll;
-    margin-left: 10px
-}
+
 
 .signUpBackground {
     height: 100vh;
@@ -141,10 +137,7 @@ div.signUpBackground {
 }
 
 .hobbiesContainer {
-    /* margin-top: 1rem;
-    align-items: center;
-    display: flex;
-    flex-wrap: wrap; */
+    padding: 20px;
     max-height: 200px;
     overflow: scroll;
   }
