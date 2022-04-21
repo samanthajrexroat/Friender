@@ -122,13 +122,22 @@ const resolvers = {
 		updateUser: async (parent, { userId, firstName, lastName, email, city, age, description }, context) => {
 			try {
 				if (userId) {
-					return User.findByIdAndUpdate(
+					const user = await User.findByIdAndUpdate(
 						{ _id: userId },
 						{ $set: { firstName: firstName, lastName: lastName, email: email, city: city, age: age, description: description } },
 						{ new: true }
-					)
-						.populate("friends")
-						.populate("hobbies");
+					);
+					const token = await signToken(user);
+
+					return { user, token };
+
+					// return User.findByIdAndUpdate(
+					// 	{ _id: userId },
+					// 	{ $set: { firstName: firstName, lastName: lastName, email: email, city: city, age: age, description: description } },
+					// 	{ new: true }
+					// )
+					// 	.populate("friends")
+					// 	.populate("hobbies");
 				}
 			} catch (error) {
 				throw error;
