@@ -51,7 +51,7 @@ const Profile = () => {
 
 					<div className="profile">
 						<div className="img-container">
-							<img src={user.photo} alt={"photo of " + user.firstName} />
+							<img src={user.photo} alt={"photo of " + user.firstName } />
 						</div>
 					</div>
 

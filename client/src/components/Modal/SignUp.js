@@ -241,10 +241,11 @@ const SignUp = () => {
                 <label htmlFor="url">Profile Photo</label>
                         <input
                             type="url"
-                            name="url"
-                            id="url"
+                            name="photo"
+                            id="photo"
                             onChange={handleChange}
-                            required={true}
+                            // required={true}
+                            value={formData.url}
                         />
                         <div className="photo-container">
                             {formData.url && <img src={formData.url} alt="profile pic preview"/>}
