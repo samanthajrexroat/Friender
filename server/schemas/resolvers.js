@@ -30,7 +30,7 @@ const resolvers = {
 	},
 	Mutation: {
 		// TODO: Add photo
-		createUser: async (parent, { firstName, lastName, email, password, city, age, description }) => {
+		createUser: async (parent, { firstName, lastName, email, password, city, age, description, photo }) => {
 			const user = await User.create({
 				firstName,
 				lastName,
@@ -40,6 +40,7 @@ const resolvers = {
 				age,
 				//  gender,
 				description,
+				photo,
 			});
 
 			const token = await signToken(user);
@@ -71,7 +72,7 @@ const resolvers = {
 
 		addHobby: async (parent, { userId, hobbyId }, context) => {
 			try {
-				if (userId) {
+				if (context.user) {
 					return User.findOneAndUpdate({ _id: userId }, { $push: { hobbies: hobbyId } }, { new: true }).populate("hobbies");
 					// console.log(hobbyId, userId);
 					// return updatedUser;
