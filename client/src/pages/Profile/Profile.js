@@ -2,9 +2,9 @@ import React from "react";
 import "./profile.css";
 
 import { Link, Navigate, useParams } from "react-router-dom";
-import Search from "../../utils/search";
+
 import { useQuery } from "@apollo/client";
-import { QUERY_USER, QUERY_ME } from "../../utils/queries";
+import { QUERY_USER, QUERY_ME, QUERY_HOBBY_FANS } from "../../utils/queries";
 import Auth from "../../utils/auth";
 import LogIn from "../../components/Modal/LogIn";
 import SearchResults from "./SearchResults";
@@ -64,8 +64,21 @@ const Profile = () => {
           <h5>{user.description}</h5>
           <div>
             <h5 className="hobbiesContainer">
+
+{/* WHEN  I click on the hobby, it should kick off a function that 
+displays other hobbyFans in that array,*/}
+
+
+
               {user.hobbies.map(hobby => (
-                <div className="hobbiesList">{hobby.hobbyName}</div>
+                <div 
+					className="hobbiesList" 
+					key={_id}
+					value={_id}
+					onClick={}
+				>
+					{hobby.hobbyName}
+				</div>
               ))}
             </h5>
           </div>
