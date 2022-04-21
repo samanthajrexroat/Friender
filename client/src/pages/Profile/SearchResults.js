@@ -7,14 +7,6 @@ import { useQuery } from "@apollo/client";
 import { QUERY_USER, QUERY_ME } from "../../utils/queries";
 import Auth from "../../utils/auth";
 import LogIn from "../../components/Modal/LogIn";
-import SearchResults from "./SearchResults";
-
-// const posts = [
-//     { id: '1', name: 'This first post is about React' },
-//     { id: '2', name: 'This next post is about Preact' },
-//     { id: '3', name: 'We have yet another React post!' },
-//     { id: '4', name: 'This is the fourth and final post' },
-// ];
 
 const Profile = () => {
   const { userId } = useParams();
@@ -58,6 +50,7 @@ const Profile = () => {
               <img src={user.photo} alt={"photo of " + user.firstName} />
             </div>
           </div>
+
           <h4>{user.city}</h4>
           {/* <h5>{gender}</h5> */}
           <h5>{user.age}</h5>
@@ -79,7 +72,6 @@ const Profile = () => {
           </div>
         </div>
       </div>
-      <SearchResults />
     </div>
   );
 };
