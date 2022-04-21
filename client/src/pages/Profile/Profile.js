@@ -6,6 +6,7 @@ import Search from "../../utils/search";
 import { useQuery } from "@apollo/client";
 import { QUERY_USER, QUERY_ME } from "../../utils/queries";
 import Auth from "../../utils/auth";
+import LogIn from "../../components/Modal/LogIn";
 
 // const posts = [
 //     { id: '1', name: 'This first post is about React' },
@@ -33,10 +34,13 @@ const Profile = () => {
 
   if (!user?._id) {
     return (
-      <h4>
-        You need to be logged in to see this. Use the navigation links above to
-        sign up or log in!
-      </h4>
+      <>
+        <h4 className="logInError ">
+          You need to be logged in to see this. Use the navigation links above
+          to sign up or log in!
+        </h4>
+        <LogIn />
+      </>
     );
   }
 
