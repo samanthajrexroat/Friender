@@ -42,8 +42,20 @@ export const LOGIN_USER = gql`
   }
 `;
 
-// export const ADD_HOBBY = gql`
-//   mutation addHobby($userId: ID!)
-// `
+export const ADD_HOBBY = gql`
+  mutation addHobby($userId: ID!, $hobbyId: ID! ) {
+    addHobby(userId: $userId, hobbyId: $hobbyId) {
+      _id
+      hobbyName
+    }
+  }
+`
 
-// 62608db166df9f12dec0e8dd
+export const REMOVE_HOBBY = gql`
+  mutation removeHobby($userId: ID!, $hobbyId: ID! ) {
+    removeHobby(userId: $userId, hobbyId: $hobbyId) {
+      _id
+      hobbyName
+    }
+  }
+`
