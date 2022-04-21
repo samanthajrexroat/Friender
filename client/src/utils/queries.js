@@ -58,3 +58,22 @@ export const QUERY_HOBBIES = gql`
 		}
 	}
 `;
+
+export const QUERY_HOBBY_FANS = gql`
+    query hobbyFans($hobbyId: ID!) {
+        hobbyFans(hobbyId: $hobbyId) {
+            _id
+            firstName
+            lastName
+            email
+            city
+            age
+            description
+            photo
+            hobbies {
+                _id
+                hobbyName
+            }
+        }
+    }
+`
