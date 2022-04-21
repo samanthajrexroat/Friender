@@ -1,14 +1,39 @@
-import React from "react";
+import React, { useState } from "react";
 import "./modal.css";
-import { useQuery } from "@apollo/client";
+import { useQuery, useMutation } from "@apollo/client";
 import { QUERY_HOBBIES } from "../../utils/queries";
+import { ADD_HOBBY } from "../../utils/mutations";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import Auth from "../../utils/auth";
+import LogIn from "./LogIn";
+
 
 const Hobbies = () => {
   const { loading, data } = useQuery(QUERY_HOBBIES);
   const hobbies = data?.hobbies || [];
   const [searchTerm, setSearchTerm] = useState("");
+
+  const userId = Auth.getProfile().data._id;
+
+  const [addHobby, { error }] = useMutation(ADD_HOBBY);
+
+  if (error) {
+    console.log(JSON.stringify(error));
+  }
+
+  const handleClick = async (hobbyId) => { 
+   try {
+     const {data} = await addHobby({
+       variables: { userId, hobbyId },
+     });
+   } catch (error) {
+     console.error(JSON.stringify(error));
+   }
+  }
+
+ 
+
+  
 
   return (
     <div className="profileBackground">
@@ -16,11 +41,13 @@ const Hobbies = () => {
         <Link to="/me">
           <div className="closeIcon">ⓧ</div>
         </Link>
+
+      {Auth.loggedIn() ? (
+        <>
         <h2>Search for a Hobby</h2>
-        {loading ? (
-          <div>Loading...</div>
-        ) : (
-          <h5 className="hobbiesContainer" key={hobbies.id}>
+        
+        {loading ?  <div> Loading...</div>  : (
+          <h5 className="hobbiesContainer" >
             {hobbies
               .filter(val => {
                 if (searchTerm === "") {
@@ -31,13 +58,14 @@ const Hobbies = () => {
                   return val;
                 }
               })
-              .map(({ id, hobbyName }) => {
+              .map(({ _id, hobbyName }) => {
                 return (
                   <div
                     className="hobbyCard"
-                    key={id}
-                    value={id}
+                    key={_id}
+                    value={_id}
                     name={hobbyName}
+                    onClick= {()=>{handleClick(_id)}}
                   >
                     {hobbyName}
                   </div>
@@ -75,9 +103,26 @@ const Hobbies = () => {
           </a>
           ! We will add it!
         </p>
+        {error && (
+            <div className="col-12 my-3 bg-danger text-white p-3">
+              {error.message}
+            </div>
+          )}
+        </>
+      ) : (
+        <>
+        <h4 className="logInError ">
+          You need to be logged in to see this. Use the navigation links above
+          to sign up or log in!
+        </h4>
+        <LogIn />
+        </>   
+
+      )
+      }
       </div>
     </div>
-  );
-};
+  )
+}
 
 export default Hobbies;

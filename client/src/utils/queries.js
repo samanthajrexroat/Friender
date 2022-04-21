@@ -21,7 +21,10 @@ export const QUERY_USER = gql`
       city
       age
       description
-      hobbies
+      hobbies {
+          _id
+          hobbyName
+      }
     }
   }
 `;
@@ -37,7 +40,10 @@ export const QUERY_ME = gql`
       city
       age
       description
-      # hobbies
+      hobbies {
+          _id
+          hobbyName
+      }
     }
   }
 `;

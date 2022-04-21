@@ -64,13 +64,13 @@ const Profile = () => {
           {/* <h5>{gender}</h5> */}
           <h5>{user.age}</h5>
           <h5>{user.description}</h5>
-          {/* <div>
+          <div>
                 <h5 className="hobbiesContainer">
-                  {hobbies.map(hobby => (
-                    <div className="hobbiesList">{hobby}</div>
+                  {user.hobbies.map(hobby => (
+                    <div className="hobbiesList">{hobby.hobbyName}</div>
                   ))}
                 </h5>
-              </div> */}
+              </div>
           <div>
             <Link to="/AddHobbies">
               <button className="sm-btn">Add hobbies</button>
