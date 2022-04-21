@@ -1,22 +1,13 @@
 import React from "react";
 import "./modal.css";
-import HobbyData from "./HobbyData";
-// import Home from "../../pages/Home";
-// import { useState } from "react";
+import { useQuery } from "@apollo/client";
+import { QUERY_HOBBIES } from "../../utils/queries";
 import { Link } from "react-router-dom";
-
 import { useState } from "react";
-// import { ADD_HOBBY } from "../../utils/mutations";
-// import { useMutation } from "@apollo/client";
 
 const Hobbies = () => {
-  // const [hobby, setHobby] = useState("");
-  // console.log(hobby);
-
-  // let searchInput = e => {
-  //   setHobby(e.target.value);
-  // };
-
+  const { loading, data } = useQuery(QUERY_HOBBIES);
+  const hobbies = data?.hobbies || [];
   const [searchTerm, setSearchTerm] = useState("");
 
   return (
@@ -26,24 +17,34 @@ const Hobbies = () => {
           <div className="closeIcon">ⓧ</div>
         </Link>
         <h2>Search for a Hobby</h2>
-        <h5 className="hobbiesContainer" key={HobbyData.id}>
-          {HobbyData.filter(val => {
-            if (searchTerm === "") {
-              return val;
-            } else if (
-              val.hobby.toLowerCase().includes(searchTerm.toLowerCase())
-            ) {
-              return val;
-            }
-          }).map(({ id, hobby }) => {
-            return (
-              <div className="hobbyCard" key={id} value={id} name={hobby}>
-                {hobby}
-              </div>
-            );
-          })}
-        </h5>
-
+        {loading ? (
+          <div>Loading...</div>
+        ) : (
+          <h5 className="hobbiesContainer" key={hobbies.id}>
+            {hobbies
+              .filter(val => {
+                if (searchTerm === "") {
+                  return val;
+                } else if (
+                  val.hobbyName.toLowerCase().includes(searchTerm.toLowerCase())
+                ) {
+                  return val;
+                }
+              })
+              .map(({ id, hobbyName }) => {
+                return (
+                  <div
+                    className="hobbyCard"
+                    key={id}
+                    value={id}
+                    name={hobbyName}
+                  >
+                    {hobbyName}
+                  </div>
+                );
+              })}
+          </h5>
+        )}
         <form className="logInForm">
           <input
             className="rounded-input"
@@ -57,9 +58,9 @@ const Hobbies = () => {
               setSearchTerm(event.target.value);
             }}
           />
-          <Link to="/AddHobbies">
+          <Link to="/Me">
             <button className="secondary-btn" type="submit">
-              Search Hobbies
+              BACK TO PROFILE
             </button>
           </Link>
         </form>
