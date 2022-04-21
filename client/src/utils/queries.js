@@ -11,37 +11,43 @@ export const QUERY_USERS = gql`
 `;
 
 export const QUERY_USER = gql`
-	query user($userId: ID!) {
-		user(userId: $userId) {
-			_id
-			firstName
-			lastName
-			email
-			gender
-			city
-			age
-			description
-			hobbies
-			photo
-		}
-	}
+  query user($userId: ID!) {
+    user(userId: $userId) {
+      _id
+      firstName
+      lastName
+      email
+      gender
+      city
+      age
+      description
+      hobbies {
+          _id
+          hobbyName
+      }
+      photo
+    }
+  }
 `;
 
 export const QUERY_ME = gql`
-	query me {
-		me {
-			_id
-			firstName
-			lastName
-			email
-			# gender
-			city
-			age
-			description
-			# hobbies
-			photo
-		}
-	}
+  query me {
+    me {
+      _id
+      firstName
+      lastName
+      email
+      # gender
+      city
+      age
+      description
+      hobbies {
+          _id
+          hobbyName
+      }
+      photo
+    }
+  }
 `;
 
 export const QUERY_HOBBIES = gql`

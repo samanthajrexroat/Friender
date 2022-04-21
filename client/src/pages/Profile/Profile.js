@@ -55,29 +55,29 @@ const Profile = () => {
 						</div>
 					</div>
 
-					<h4>{user.city}</h4>
-					{/* <h5>{gender}</h5> */}
-					<h5>{user.age}</h5>
-					<h5>{user.description}</h5>
-					{/* <div>
+          <h4>{user.city}</h4>
+          {/* <h5>{gender}</h5> */}
+          <h5>{user.age}</h5>
+          <h5>{user.description}</h5>
+          <div>
                 <h5 className="hobbiesContainer">
-                  {hobbies.map(hobby => (
-                    <div className="hobbiesList">{hobby}</div>
+                  {user.hobbies.map(hobby => (
+                    <div className="hobbiesList">{hobby.hobbyName}</div>
                   ))}
                 </h5>
-              </div> */}
-					<div>
-						<Link to="/AddHobbies">
-							<button className="sm-btn">Add hobbies</button>
-						</Link>
-						<Link to="/EditProfile">
-							<button className="sm-btn">edit profile</button>
-						</Link>
-					</div>
-				</div>
-			</div>
-		</div>
-	);
+          </div>
+          <div>
+            <Link to="/AddHobbies">
+              <button className="sm-btn">Add hobbies</button>
+            </Link>
+            <Link to="/EditProfile">
+              <button className="sm-btn">edit profile</button>
+            </Link>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default Profile;
