@@ -244,7 +244,8 @@ const SignUp = () => {
                             name="url"
                             id="url"
                             onChange={handleChange}
-                            required={true}
+                            // required={true}
+                            value={formData.url}
                         />
                         <div className="photo-container">
                             {formData.url && <img src={formData.url} alt="profile pic preview"/>}
