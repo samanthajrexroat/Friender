@@ -37,7 +37,7 @@ const Hobbies = () => {
             }
           }).map(({ id, hobby }) => {
             return (
-              <div className="hobbyCard" key={id} value={hobby} name={hobby}>
+              <div className="hobbyCard" key={id} value={id} name={hobby}>
                 {hobby}
               </div>
             );
