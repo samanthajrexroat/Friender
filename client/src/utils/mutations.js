@@ -42,3 +42,9 @@ export const LOGIN_USER = gql`
     }
   }
 `;
+
+// export const ADD_HOBBY = gql`
+//   mutation addHobby($userId: ID!)
+// `
+
+// 62608db166df9f12dec0e8dd
