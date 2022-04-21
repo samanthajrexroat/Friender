@@ -25,7 +25,12 @@
   overflow: hidden;
   border-radius: 1rem;
 }
-
+.logInError {
+  padding-top: 80px;
+  /* margin-top: 100px; */
+  background: #cc1439;
+  z-index: 1;
+}
 .hobbiesList {
   text-align: center;
   margin: 0.1rem;

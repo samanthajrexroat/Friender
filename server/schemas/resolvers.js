@@ -22,6 +22,11 @@ const resolvers = {
 			}
 			throw new AuthenticationError("You need to be logged in!");
 		},
+		hobbyFans: async (parent, { hobbyId }) => {
+			if (hobbyId) {
+				return await User.find({ hobbies: hobbyId }).populate("hobbies").populate("friends");
+			}
+		},
 	},
 	Mutation: {
 		// TODO: Add photo
