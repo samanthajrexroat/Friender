@@ -11,7 +11,7 @@ const typeDefs = gql`
 		# gender: String
 		age: Int
 		password: String
-
+		photo: String
 		friends: [User]!
 		hobbies: [Hobby]!
 	}
@@ -47,6 +47,7 @@ const typeDefs = gql`
 			age: Int
 			# gender: String
 			description: String
+			photo: String
 		): Auth
 		login(email: String!, password: String!): Auth
 		createHobby(hobbyName: String!, hobbyAbout: String): Hobby
