@@ -221,7 +221,7 @@ const SignUp = () => {
                     onChange={handleChange}
                   />
                 </label> */}
-                <label>
+                {/* <label>
                   Upload a Photo
                   <input
                     className="rounded-input"
@@ -233,9 +233,31 @@ const SignUp = () => {
                     // required={true}
                   />
                   <div className="photo-container">
-                      {formData.url && <img src={formData.url} alt="profile pic" />}
+                       <img src={formData.url} alt="profile pic" />
                   </div>
-                </label>
+                </label> */}
+                  
+
+                <label htmlFor="url">Profile Photo</label>
+                        <input
+                            type="url"
+                            name="url"
+                            id="url"
+                            onChange={handleChange}
+                            required={true}
+                        />
+                        <div className="photo-container">
+                            {formData.url && <img src={formData.url} alt="profile pic preview"/>}
+                        </div>
+
+
+
+
+
+
+
+
+
               </div>
               {/* <Link to="/Profile"> */}
               <button className="secondary-btn" type="submit">

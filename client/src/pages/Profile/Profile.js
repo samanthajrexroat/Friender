@@ -43,16 +43,19 @@ const Profile = () => {
   return (
     <div className="profileBackground">
       <div className="profileContainer">
-        
         <Search />
 
         <div className="profileCard">
           <h2>{user.firstName}</h2>
-          <div className="profileImage">
-            {/* <div className="image">
-                  <img src={photo} alt={firstName} className="profileImage" />
-                </div> */}
-          </div>
+
+
+          <div className="profile">
+                <div className="img-container">
+                    <img src={user.url} alt={"photo of " + user.first_name}/>
+                </div>
+            </div>
+
+
           <h4>{user.city}</h4>
           {/* <h5>{gender}</h5> */}
           <h5>{user.age}</h5>
