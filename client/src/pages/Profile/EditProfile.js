@@ -2,17 +2,25 @@ import React from "react";
 import "../../components/Modal/modal.css";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useQuery } from "@apollo/client";
+import { QUERY_USER, QUERY_ME } from "../../utils/queries";
 
 const EditProfile = () => {
+  // const { userId } = useParams();
+
+  const { loading, data } = useQuery(QUERY_ME);
+
+  const user = data?.me || data?.user || {};
+
   const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    description: "",
-    city: "",
-    age: "",
+    firstName: user.firstName,
+    lastName: user.lastName,
+    email: user.email,
+    description: user.description,
+    city: user.city,
+    age: user.age,
     password: "",
-    confirmPassword: "",
+
     matches: [],
   });
 
@@ -22,17 +30,38 @@ const EditProfile = () => {
       e.target.type === "checkbox" ? e.target.checked : e.target.value;
     const name = e.target.name;
     console.log("value" + value, "name" + name);
-
     setFormData(prevState => ({
       ...prevState,
       [name]: value,
     }));
   };
 
+  // const editFormHandler = async function(event) {
+  //   event.preventDefault();
+
+  //   const title = document.querySelector('input[name="post-title"]').value;
+  //   const body = document.querySelector('textarea[name="post-body"]').value;
+  //   // const date = document.querySelector('textarea[name="post-body"]').value);
+
+  //   await fetch(`/api/post/${postId}`, {
+  //     method: 'PUT',
+  //     body: JSON.stringify({
+  //       title,
+  //       body,
+  //       // date,
+  //     }),
+  //     headers: {
+  //       'Content-Type': 'application/json'
+  //     }
+  //   });
+
+  //   document.location.replace('/dashboard');
+  // };
+
   return (
     <div className="profileBackground">
       <div className="signUpContainer editProfileModal">
-        <Link to="/profile">
+        <Link to="/me">
           <div className="closeIcon text-white">ⓧ</div>
         </Link>
         <h2 className="text-white">Edit Profile</h2>
@@ -166,8 +195,8 @@ const EditProfile = () => {
             </div>
           </form>
         </div>
-        <Link to="/Profile">
-          <button className="secondary-btn">SAVE</button>
+        <Link to="/me">
+          <button className="secondary-btn">Edit Profile</button>
         </Link>
       </div>
     </div>
