@@ -96,14 +96,13 @@ a:hover {
 }
 
 .primary-btn {
-  margin: 2rem;
-
+  margin-right: 15px;
   display: inline-block;
   color: white;
   text-transform: uppercase;
-  font-size: 15px;
-  padding: 0.5rem 1rem;
-  border-radius: 2rem;
+  font-size: 12px;
+  padding: 5px 15px;
+  border-radius: 15px;
   cursor: pointer;
   transition: all 400ms ease-in;
   background: var(--color-dark);
