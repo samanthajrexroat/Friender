@@ -1,41 +1,8 @@
 import React from "react";
 import "./profile.css";
 
-import { Link, Navigate, useParams } from "react-router-dom";
-import Search from "../../utils/search";
-import { useQuery } from "@apollo/client";
-import { QUERY_HOBBY_FANS } from "../../utils/queries";
-import Auth from "../../utils/auth";
-import LogIn from "../../components/Modal/LogIn";
-
 const Profile = () => {
-  const { userId } = useParams();
-
-  const { loading, data } = useQuery(userId ? QUERY_USER : QUERY_ME, {
-    variables: { userId: userId },
-  });
-
-  const user = data?.me || data?.user || {};
-
-  if (Auth.loggedIn() && Auth.getProfile().data._id === userId) {
-    return <Navigate to="/me" />;
-  }
-
-  if (loading) {
-    return <div>Loading...</div>;
-  }
-
-  if (!user?._id) {
-    return (
-      <>
-        <h4 className="logInError ">
-          You need to be logged in to see this. Use the navigation links above
-          to sign up or log in!
-        </h4>
-        <LogIn />
-      </>
-    );
-  }
+ 
 
   return (
     <div className="profileBackground">
@@ -76,4 +43,4 @@ const Profile = () => {
   );
 };
 
-export default Profile;
+export default 
