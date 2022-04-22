@@ -43,4 +43,4 @@ const Profile = () => {
   );
 };
 
-export default 
+
