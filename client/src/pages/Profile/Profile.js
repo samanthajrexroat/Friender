@@ -46,31 +46,32 @@ const Profile = () => {
   return (
     <div className="profileBackground">
       <div className="profileContainer">
-        <div>
-          <div className="profileCard">
-            <h2>{user.firstName}</h2>
+        <div className="profileCard">
+          <h2>{user.firstName}</h2>
 
-            <div className="profile">
-              <div className="img-container profileImage ">
-                <img src={user.photo} alt={"photo of " + user.firstName} />
-              </div>
-            </div>
-            <h4>{user.city}</h4>
-
-            <h5>{user.age}</h5>
-            <h5>{user.description}</h5>
-            <UserHobbies />
-            <div>
-              <p>Add Hobbies to Search for Friends!</p>
-              <Link to="/AddHobbies">
-                <button className="sm-btn">Add hobbies</button>
-              </Link>
-              <Link to="/EditProfile">
-                <button className="sm-btn">edit profile</button>
-              </Link>
+          <div className="profile">
+            <div className="img-container profileImage ">
+              <img src={user.photo} alt={"photo of " + user.firstName} />
             </div>
           </div>
+          <h4>{user.city}</h4>
+
+          <h5>{user.age}</h5>
+          <h5>{user.description}</h5>
         </div>
+      </div>
+
+      <div className="userHobbiesContainer">
+        <div>
+          <p>Add Hobbies to Search for Friends!</p>
+          <Link to="/AddHobbies">
+            <button className="sm-btn">Add hobbies</button>
+          </Link>
+          <Link to="/EditProfile">
+            <button className="sm-btn">edit profile</button>
+          </Link>
+        </div>
+        <UserHobbies />
       </div>
     </div>
   );
