@@ -88,3 +88,15 @@ export const REMOVE_HOBBY = gql`
 		}
 	}
 `;
+
+export const UPDATE_USER = gql`
+	mutation updateUser($userId: ID!, $firstName: String!, $lastName: String!, $email: String!, $city: String!, $age: Int, $description: String!) {
+		updateUser(userId: $userId, firstName: $firstName, lastName: $lastName, email: $email, city: $city, age: $age, description: $description) {
+			token
+			user {
+				_id
+				email
+			}
+		}
+	}
+`;

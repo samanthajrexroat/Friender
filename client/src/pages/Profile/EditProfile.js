@@ -1,61 +1,94 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "../../components/Modal/modal.css";
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useQuery } from "@apollo/client";
-import { QUERY_USER, QUERY_ME } from "../../utils/queries";
+import { useMutation } from "@apollo/client";
+import { QUERY_ME } from "../../utils/queries";
+import { UPDATE_USER } from "../../utils/mutations";
+import Auth from "../../utils/auth";
 
 const EditProfile = () => {
 	// const { userId } = useParams();
+	console.log("line 12");
+	const { loading, error: queryerror, data } = useQuery(QUERY_ME);
+	if (queryerror) {
+		console.log(JSON.stringify(queryerror));
+	}
+	console.log("line 17");
+	const user = data?.me || null;
 
-	const { loading, data } = useQuery(QUERY_ME);
-
-	const user = data?.me || data?.user || {};
-
+	const [updateUser, { error, data: updateddata }] = useMutation(UPDATE_USER);
+	if (error) {
+		console.log(JSON.stringify(error));
+	}
+	console.log("line 24");
 	const [formData, setFormData] = useState({
-		firstName: user.firstName,
-		lastName: user.lastName,
-		email: user.email,
-		description: user.description,
-		city: user.city,
-		age: user.age,
-		password: "",
-		photo: user.photo,
-		matches: [],
+		firstName: "",
+		lastName: "",
+		email: "",
+		description: "",
+		city: "",
+		age: "",
+		photo: "",
 	});
+	const [modifiableData, setModifiableData] = useState({
+		firstName: "",
+		lastName: "",
+		email: "",
+		description: "",
+		city: "",
+		age: "",
+		photo: "",
+	});
+	useEffect(() => {
+		if (user) {
+			setFormData({
+				firstName: user.firstName,
+				lastName: user.lastName,
+				email: user.email,
+				description: user.description,
+				city: user.city,
+				age: user.age,
+				photo: user.photo,
+			});
+			setModifiableData({
+				firstName: user.firstName,
+				lastName: user.lastName,
+				email: user.email,
+				description: user.description,
+				city: user.city,
+				age: user.age,
+				photo: user.photo,
+			});
+		}
+	}, []);
+
+	if (error) {
+		console.log(JSON.stringify(error));
+	}
 
 	const handleChange = (e) => {
 		console.log("e", e);
 		const value = e.target.type === "checkbox" ? e.target.checked : e.target.value;
 		const name = e.target.name;
 		console.log("value" + value, "name" + name);
-		setFormData((prevState) => ({
-			...prevState,
-			[name]: value,
-		}));
+		setModifiableData({ ...modifiableData, [name]: value });
 	};
 
-	// const editFormHandler = async function(event) {
-	//   event.preventDefault();
-
-	//   const title = document.querySelector('input[name="post-title"]').value;
-	//   const body = document.querySelector('textarea[name="post-body"]').value;
-	//   // const date = document.querySelector('textarea[name="post-body"]').value);
-
-	//   await fetch(`/api/post/${postId}`, {
-	//     method: 'PUT',
-	//     body: JSON.stringify({
-	//       title,
-	//       body,
-	//       // date,
-	//     }),
-	//     headers: {
-	//       'Content-Type': 'application/json'
-	//     }
-	//   });
-
-	//   document.location.replace('/dashboard');
-	// };
+	const handleFormSubmit = async (event) => {
+		event.preventDefault();
+		console.log(user._id);
+		try {
+			console.log("hello there");
+			const { data } = await updateUser({
+				variables: { ...modifiableData, userId: user._id },
+			});
+			alert(JSON.stringify(data));
+			Auth.login(data.updateUser.token);
+		} catch (e) {
+			console.error(JSON.stringify(e));
+		}
+	};
 
 	return (
 		<div className="profileBackground">
@@ -65,7 +98,7 @@ const EditProfile = () => {
 				</Link>
 				<h2 className="text-white">Edit Profile</h2>
 				<div className="formWrapper">
-					<form className="signUpForm">
+					<form className="signUpForm" onSubmit={handleFormSubmit}>
 						<div className="block">
 							<label>
 								First Name
@@ -76,7 +109,7 @@ const EditProfile = () => {
 									name="firstName"
 									placeholder="First Name"
 									required={true}
-									value={formData.firstName}
+									value={modifiableData.firstName}
 									onChange={handleChange}
 								/>
 							</label>
@@ -89,7 +122,7 @@ const EditProfile = () => {
 									name="lastName"
 									placeholder="Last Name"
 									required={true}
-									value={formData.lastName}
+									value={modifiableData.lastName}
 									onChange={handleChange}
 								/>
 							</label>
@@ -103,7 +136,7 @@ const EditProfile = () => {
 									name="email"
 									placeholder="E-Mail"
 									required={true}
-									value={formData.email}
+									value={modifiableData.email}
 									onChange={handleChange}
 								/>
 							</label>
@@ -116,7 +149,7 @@ const EditProfile = () => {
 									name="city"
 									placeholder="City"
 									required={true}
-									value={formData.city}
+									value={modifiableData.city}
 									onChange={handleChange}
 								/>
 							</label>
@@ -129,7 +162,7 @@ const EditProfile = () => {
 									name="age"
 									placeholder="Age"
 									required={true}
-									value={formData.age}
+									value={modifiableData.age}
 									onChange={handleChange}
 								/>
 							</label>
@@ -155,22 +188,22 @@ const EditProfile = () => {
 								name="description"
 								placeholder="Tell us about yourself!"
 								required={true}
-								value={formData.description}
+								value={modifiableData.description}
 								onChange={handleChange}
 							/>
 							<label>
 								Upload a Photo
-								<input className="rounded-input" type="url" name="photo" id="photo" onChange={handleChange} value={formData.photo} required={true} />
+								<input className="rounded-input" type="url" name="photo" id="photo" onChange={handleChange} value={modifiableData.photo} />
 								<div className="photo-container">
-									<img src={formData.photo} alt="profile pic" />
+									<img src={modifiableData.photo} alt="profile pic" />
 								</div>
 							</label>
 						</div>
+						<button className="secondary-btn" type="submit">
+							Edit Profile
+						</button>
 					</form>
 				</div>
-				<Link to="/me">
-					<button className="secondary-btn">Edit Profile</button>
-				</Link>
 			</div>
 		</div>
 	);
