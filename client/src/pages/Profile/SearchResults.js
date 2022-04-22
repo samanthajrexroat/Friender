@@ -2,78 +2,18 @@ import React from "react";
 import "./profile.css";
 
 import { Link, Navigate, useParams } from "react-router-dom";
-import Search from "../../utils/search";
 import { useQuery } from "@apollo/client";
-import { QUERY_USER, QUERY_ME } from "../../utils/queries";
+import { QUERY_HOBBY_FANS } from "../../utils/queries";
 import Auth from "../../utils/auth";
 import LogIn from "../../components/Modal/LogIn";
 
-const Profile = () => {
-  const { userId } = useParams();
+const SearchResults = ({ UserHobbies }) => {
+  console.log(UserHobbies);
+  // const { userId } = useParams();
 
-  const { loading, data } = useQuery(userId ? QUERY_USER : QUERY_ME, {
-    variables: { userId: userId },
-  });
+  const { loading, data } = useQuery(QUERY_HOBBY_FANS);
 
-  const user = data?.me || data?.user || {};
-
-  if (Auth.loggedIn() && Auth.getProfile().data._id === userId) {
-    return <Navigate to="/me" />;
-  }
-
-  if (loading) {
-    return <div>Loading...</div>;
-  }
-
-  if (!user?._id) {
-    return (
-      <>
-        <h4 className="logInError ">
-          You need to be logged in to see this. Use the navigation links above
-          to sign up or log in!
-        </h4>
-        <LogIn />
-      </>
-    );
-  }
-
-  return (
-    <div className="profileBackground">
-      <div className="profileContainer">
-        {/* <Search /> */}
-
-        <div className="profileCard">
-          <h2>{user.firstName}</h2>
-
-          <div className="profile">
-            <div className="img-container">
-              <img src={user.photo} alt={"photo of " + user.firstName} />
-            </div>
-          </div>
-
-          <h4>{user.city}</h4>
-          {/* <h5>{gender}</h5> */}
-          <h5>{user.age}</h5>
-          <h5>{user.description}</h5>
-          <div>
-            <h5 className="hobbiesContainer">
-              {user.hobbies.map(hobby => (
-                <div className="hobbiesList">{hobby.hobbyName}</div>
-              ))}
-            </h5>
-          </div>
-          <div>
-            <Link to="/AddHobbies">
-              <button className="sm-btn">Add hobbies</button>
-            </Link>
-            <Link to="/EditProfile">
-              <button className="sm-btn">edit profile</button>
-            </Link>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
+  return <div>hello Sam</div>;
 };
 
-export default Profile;
+export default SearchResults;

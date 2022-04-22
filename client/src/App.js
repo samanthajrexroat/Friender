@@ -16,6 +16,7 @@ import Footer from "./components/Footer/Footer";
 import Profile from "./pages/Profile/Profile";
 import EditProfile from "./pages/Profile/EditProfile";
 // import UserHobbies from "./components/Modal/UserHobbies";
+import SearchResults from "./pages/Profile/SearchResults";
 
 // Main GraphQL endpoint
 const httpLink = createHttpLink({
@@ -53,6 +54,7 @@ function App() {
             <Route path="/EditProfile" element={<EditProfile />}></Route>
             <Route path="/AddHobbies" element={<Hobbies />}></Route>
             {/* <Route path="/UserHobbies" element={<UserHobbies />}></Route> */}
+            <Route path="/searchresults" element={<SearchResults />}></Route>
           </Routes>
           <Footer />
         </Router>
