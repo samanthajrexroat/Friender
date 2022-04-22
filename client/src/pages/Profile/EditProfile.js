@@ -28,7 +28,7 @@ const EditProfile = () => {
 		email: "",
 		description: "",
 		city: "",
-		age: "",
+		age: !null,
 		photo: "",
 	});
 	const [modifiableData, setModifiableData] = useState({
@@ -37,7 +37,7 @@ const EditProfile = () => {
 		email: "",
 		description: "",
 		city: "",
-		age: "",
+		age: !null,
 		photo: "",
 	});
 	useEffect(() => {
