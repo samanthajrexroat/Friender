@@ -64,13 +64,12 @@ const Profile = () => {
 						Friends of mine:
 						{user.friends.map((friend) => (
 							<div
-								id={friend._id}
 								value={friend._id}
 								// className="hobbyCard"
 								// onClick={handleClick}
 							>
-								{friend._id}
 								{friend.firstName}
+								{/* {friend.lastName} */}
 							</div>
 						))}
 					</h5>
