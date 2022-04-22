@@ -1,13 +1,11 @@
 import React from "react";
 import "./profile.css";
-
 import { Link, Navigate, useParams } from "react-router-dom";
-// import Search from "../../utils/search";
+
 import { useQuery } from "@apollo/client";
 import { QUERY_USER, QUERY_ME } from "../../utils/queries";
 import Auth from "../../utils/auth";
-import LogIn from "../../components/Modal/LogIn";
-// import SearchResults from "./SearchResults";
+
 import UserHobbies from "../../components/Modal/UserHobbies";
 
 // const posts = [
