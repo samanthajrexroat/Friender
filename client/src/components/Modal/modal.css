@@ -142,16 +142,12 @@ div.signUpBackground {
     overflow: scroll;
   }
 
-
- 
-  
-
 .hobbyCard {
-    margin: .1rem;
+    margin: .2rem;
     display: inline-block;
     color: white;
     text-transform: uppercase;
-    font-size: 15px;
+    font-size: 8px;
     padding: 0.25rem .5rem;
     border-radius: 2rem;
     cursor: pointer;
