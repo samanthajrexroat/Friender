@@ -4,7 +4,7 @@ import "./profile.css";
 import { Link, Navigate, useParams } from "react-router-dom";
 import Search from "../../utils/search";
 import { useQuery } from "@apollo/client";
-import { QUERY_USER, QUERY_ME } from "../../utils/queries";
+import { QUERY_HOBBY_FANS } from "../../utils/queries";
 import Auth from "../../utils/auth";
 import LogIn from "../../components/Modal/LogIn";
 
