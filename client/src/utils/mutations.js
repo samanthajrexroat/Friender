@@ -46,6 +46,7 @@ export const LOGIN_USER = gql`
 `;
 
 export const ADD_HOBBY = gql`
+<<<<<<< HEAD
 	mutation addHobby($userId: ID!, $hobbyId: ID!) {
 		addHobby(userId: $userId, hobbyId: $hobbyId) {
 			_id
@@ -91,3 +92,29 @@ export const UPDATE_USER = gql`
 		}
 	}
 `;
+=======
+  mutation addHobby($userId: ID!, $hobbyId: ID! ) {
+    addHobby(userId: $userId, hobbyId: $hobbyId) {
+      _id
+      firstName
+      email
+      description
+      city
+      hobbies {
+        _id
+        hobbyName
+      }
+    }
+  }
+`
+// CHECK TO SEE IF THIS WORKS! SJR 4/21
+export const REMOVE_HOBBY = gql`
+  mutation removeHobby($userId: ID!, $hobbyId: ID! ) {
+    removeHobby(userId: $userId, hobbyId: $hobbyId) {
+      _id
+      hobbyName
+    }
+  }
+`
+
+>>>>>>> main
