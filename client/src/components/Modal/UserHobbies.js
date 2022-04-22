@@ -10,11 +10,7 @@ import SearchResults from "../../pages/Profile/SearchResults";
 const UserHobbies = () => {
 	const { loading, data } = useQuery(QUERY_ME);
 
-<<<<<<< HEAD
 	const [hobbyId, setHobbyId] = useState("");
-=======
-  const [hobbyId, setHobbyId] = useState("");
->>>>>>> main
 
 	const userId = Auth.getProfile().data._id;
 	const user = data?.me || data?.user || {};
@@ -23,7 +19,6 @@ const UserHobbies = () => {
 		return <div>Loading...</div>;
 	}
 
-<<<<<<< HEAD
 	const handleClick = (event) => {
 		const hobbyId = event.target.id;
 		setHobbyId(hobbyId);
@@ -38,35 +33,11 @@ const UserHobbies = () => {
 					</div>
 				))}
 			</h5>
-			<SearchResults globalHobbyId={hobbyId} />
+			<div>
+				<SearchResults globalHobbyId={hobbyId} />
+			</div>
 		</>
 	);
-=======
-  const handleClick = event => {
-    const hobbyId = event.target.id;
-    setHobbyId(hobbyId);
-  };
-
-  return (
-    <>
-      <h5>
-        {user.hobbies.map(hobby => (
-          <div
-            id={hobby._id}
-            value={hobby.hobbyName}
-            className="hobbyCard"
-            onClick={handleClick}
-          >
-            {hobby.hobbyName}
-          </div>
-        ))}
-      </h5>
-      <div>
-        <SearchResults globalHobbyId={hobbyId} />
-      </div>
-    </>
-  );
->>>>>>> main
 };
 
 export default UserHobbies;

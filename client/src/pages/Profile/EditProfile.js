@@ -17,10 +17,10 @@ const EditProfile = () => {
 	console.log("line 17");
 	const user = data?.me || null;
 
-	// const [updateUser, { error, data: updateddata }] = useMutation(UPDATE_USER);
-	// if (error) {
-	// 	console.log(JSON.stringify(error));
-	// }
+	const [updateUser, { error, data: updateddata }] = useMutation(UPDATE_USER);
+	if (error) {
+		console.log(JSON.stringify(error));
+	}
 	console.log("line 24");
 	const [formData, setFormData] = useState({
 		firstName: "",
