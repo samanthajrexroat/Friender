@@ -31,7 +31,14 @@ A full-stack MERN application that allows users to connect with each other by se
 ![]()
 
 ## Links
-[]()  
-[]()
+[GitHub Repository](https://github.com/samanthajrexroat/Friender)  
+[Deployed Live With Heroku]()
 
 ## License
+MIT
+
+## Contributors
+[Joseph Dugan](https://github.com/dugan-jo)<br>
+[Matthew Todor](https://github.com/Ccatalyst)<br>
+[Nick Graves](https://github.com/Thekid303)<br>
+[Samantha Rexroat](https://github.com/samanthajrexroat)

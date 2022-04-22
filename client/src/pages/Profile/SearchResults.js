@@ -1,19 +1,50 @@
 import React from "react";
 import "./profile.css";
 
-import { Link, Navigate, useParams } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 import { QUERY_HOBBY_FANS } from "../../utils/queries";
-import Auth from "../../utils/auth";
-import LogIn from "../../components/Modal/LogIn";
 
-const SearchResults = ({ UserHobbies }) => {
-  console.log(UserHobbies);
-  // const { userId } = useParams();
 
-  const { loading, data } = useQuery(QUERY_HOBBY_FANS);
 
-  return <div>hello Sam</div>;
+const SearchResults = ({ globalHobbyId }) => {
+  console.log(globalHobbyId);
+
+  const { loading, error, data } = useQuery(QUERY_HOBBY_FANS, 
+    {
+      variables: { hobbyId: globalHobbyId }
+    })
+
+  if (error) {
+    console.log(JSON.stringify(error));
+  }
+
+  const hobbyFans = data?.hobbyFans || [];
+    console.log(hobbyFans)
+
+  return (
+    <div className="profileBackground">
+    <div className="profileContainer">
+      <div>
+        {hobbyFans.map(hobbyFan => (
+             <div className="profileCard" id={hobbyFan._id}>
+             <h2>{hobbyFan.firstName}</h2>
+   
+             <div className="profile">
+               <div className="img-container">
+                 <img src={hobbyFan.photo} alt={"photo of " + hobbyFan.firstName} />
+               </div>
+             </div>
+             <h4>{hobbyFan.city}</h4>
+   
+             <h5>{hobbyFan.age}</h5>
+             <h5>{hobbyFan.description}</h5>
+             
+           </div>
+        ))}
+      </div>
+    </div>
+  </div>
+  ) 
 };
 
 

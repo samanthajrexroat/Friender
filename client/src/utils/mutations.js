@@ -60,7 +60,7 @@ export const ADD_HOBBY = gql`
     }
   }
 `
-
+// CHECK TO SEE IF THIS WORKS! SJR 4/21
 export const REMOVE_HOBBY = gql`
   mutation removeHobby($userId: ID!, $hobbyId: ID! ) {
     removeHobby(userId: $userId, hobbyId: $hobbyId) {
@@ -69,3 +69,4 @@ export const REMOVE_HOBBY = gql`
     }
   }
 `
+
