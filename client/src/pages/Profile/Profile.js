@@ -2,12 +2,12 @@ import React from "react";
 import "./profile.css";
 
 import { Link, Navigate, useParams } from "react-router-dom";
-import Search from "../../utils/search";
+// import Search from "../../utils/search";
 import { useQuery } from "@apollo/client";
 import { QUERY_USER, QUERY_ME } from "../../utils/queries";
 import Auth from "../../utils/auth";
 import LogIn from "../../components/Modal/LogIn";
-import SearchResults from "./SearchResults";
+// import SearchResults from "./SearchResults";
 import UserHobbies from "../../components/Modal/UserHobbies";
 
 // const posts = [
@@ -29,10 +29,13 @@ const Profile = () => {
   if (Auth.loggedIn() && Auth.getProfile().data._id === userId) {
     return <Navigate to="/me" />;
   }
-
+  console.log(user);
   if (loading) {
     return <div>Loading...</div>;
   }
+
+  const friends = user.friends;
+  console.log(friends);
 
   if (!user?._id) {
     return (
@@ -61,6 +64,21 @@ const Profile = () => {
 
           <h5>{user.age}</h5>
           <h5>{user.description}</h5>
+
+          <h5>
+            Friends of mine:
+            {user.friends.map(friend => (
+              <div
+                id={friend._id}
+                value={friend._id}
+                // className="hobbyCard"
+                // onClick={handleClick}
+              >
+                {friend._id}
+                {friend.firstName}
+              </div>
+            ))}
+          </h5>
         </div>
       </div>
 
