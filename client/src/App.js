@@ -54,7 +54,6 @@ function App() {
             <Route path="/EditProfile" element={<EditProfile />}></Route>
             <Route path="/AddHobbies" element={<Hobbies />}></Route>
             {/* <Route path="/UserHobbies" element={<UserHobbies />}></Route> */}
-           
           </Routes>
           <Footer />
         </Router>
