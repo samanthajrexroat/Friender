@@ -15,7 +15,7 @@ import Hobbies from "./components/Modal/Hobbies";
 import Footer from "./components/Footer/Footer";
 import Profile from "./pages/Profile/Profile";
 import EditProfile from "./pages/Profile/EditProfile";
-import UserHobbies from "./components/Modal/UserHobbies";
+// import UserHobbies from "./components/Modal/UserHobbies";
 
 // Main GraphQL endpoint
 const httpLink = createHttpLink({

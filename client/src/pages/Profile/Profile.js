@@ -8,6 +8,7 @@ import { QUERY_USER, QUERY_ME } from "../../utils/queries";
 import Auth from "../../utils/auth";
 import LogIn from "../../components/Modal/LogIn";
 import SearchResults from "./SearchResults";
+import UserHobbies from "../../components/Modal/UserHobbies";
 
 // const posts = [
 //     { id: '1', name: 'This first post is about React' },
@@ -29,6 +30,10 @@ const Profile = () => {
     return <Navigate to="/me" />;
   }
 
+  const onClick = event => {
+    console.log(event.target.value);
+  };
+
   if (loading) {
     return <div>Loading...</div>;
   }
@@ -44,43 +49,41 @@ const Profile = () => {
       </>
     );
   }
+  // const handleClick = () => {
+  //   // access to e.target here
+  //   console.log(data);
+  // };
 
   return (
     <div className="profileBackground">
       <div className="profileContainer">
-        {/* <Search /> */}
+        <div>
+          <div className="profileCard">
+            <h2>{user.firstName}</h2>
 
-        <div className="profileCard">
-          <h2>{user.firstName}</h2>
+            <div className="profile">
+              <div className="img-container">
+                <img src={user.photo} alt={"photo of " + user.firstName} />
+              </div>
+            </div>
+            <h4>{user.city}</h4>
 
-          <div className="profile">
-            <div className="img-container">
-              <img src={user.photo} alt={"photo of " + user.firstName} />
+            <h5>{user.age}</h5>
+            <h5>{user.description}</h5>
+            <UserHobbies />
+
+            <div>
+              <Link to="/AddHobbies">
+                <button className="sm-btn">Add hobbies</button>
+              </Link>
+              <Link to="/EditProfile">
+                <button className="sm-btn">edit profile</button>
+              </Link>
             </div>
           </div>
-          <h4>{user.city}</h4>
-          {/* <h5>{gender}</h5> */}
-          <h5>{user.age}</h5>
-          <h5>{user.description}</h5>
-          <div>
-            <h5 className="hobbiesContainer">
-				
-              {user.hobbies.map(hobby => (
-                <div className="hobbiesList">{hobby.hobbyName}</div>
-              ))}
-            </h5>
-          </div>
-          <div>
-            <Link to="/AddHobbies">
-              <button className="sm-btn">Add hobbies</button>
-            </Link>
-            <Link to="/EditProfile">
-              <button className="sm-btn">edit profile</button>
-            </Link>
-          </div>
         </div>
+        {/* <SearchResults /> */}
       </div>
-      <SearchResults />
     </div>
   );
 };
