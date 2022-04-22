@@ -46,26 +46,48 @@ export const LOGIN_USER = gql`
 `;
 
 export const ADD_HOBBY = gql`
-  mutation addHobby($userId: ID!, $hobbyId: ID! ) {
-    addHobby(userId: $userId, hobbyId: $hobbyId) {
-      _id
-      firstName
-      email
-      description
-      city
-      hobbies {
-        _id
-        hobbyName
-      }
-    }
-  }
-`
+	mutation addHobby($userId: ID!, $hobbyId: ID!) {
+		addHobby(userId: $userId, hobbyId: $hobbyId) {
+			_id
+			firstName
+			email
+			description
+			city
+			hobbies {
+				_id
+				hobbyName
+			}
+		}
+	}
+`;
 
 export const REMOVE_HOBBY = gql`
-  mutation removeHobby($userId: ID!, $hobbyId: ID! ) {
-    removeHobby(userId: $userId, hobbyId: $hobbyId) {
-      _id
-      hobbyName
-    }
-  }
-`
+	mutation removeHobby($userId: ID!, $hobbyId: ID!) {
+		removeHobby(userId: $userId, hobbyId: $hobbyId) {
+			_id
+			hobbyName
+		}
+	}
+`;
+
+export const UPDATE_USER = gql`
+	mutation updateUser(
+		$userId: ID!
+		$firstName: String!
+		$lastName: String!
+		$email: String!
+		$description: String!
+		$city: String!
+		$age: Int
+		$photo: String
+	) {
+		updateUser(firstName: $firstName, lastName: $lastName, email: $email, description: $description, city: $city, age: $age, photo: $photo)
+	}
+	{
+		token
+		user {
+			_id
+			email
+		}
+	}
+`;

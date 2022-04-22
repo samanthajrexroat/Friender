@@ -8,40 +8,35 @@ import Auth from "../../utils/auth";
 import SearchResults from "../../pages/Profile/SearchResults";
 
 const UserHobbies = () => {
-  const { loading, data } = useQuery(QUERY_ME);
+	const { loading, data } = useQuery(QUERY_ME);
 
-  const userId = Auth.getProfile().data._id;
-  const user = data?.me || data?.user || {};
+	const userId = Auth.getProfile().data._id;
+	const user = data?.me || data?.user || {};
 
-  console.log(user);
-  console.log(userId);
-  if (loading) {
-    return <div>Loading...</div>;
-  }
+	console.log(user);
+	console.log(userId);
+	if (loading) {
+		return <div>Loading...</div>;
+	}
 
-  const hobbyQueryId = event => {
-    // console.log(event.target.id);
-    const hobbyQueryId = event.target.id;
-    console.log(hobbyQueryId);
-  };
+	const hobbyQueryId = (event) => {
+		// console.log(event.target.id);
+		const hobbyQueryId = event.target.id;
+		console.log(hobbyQueryId);
+	};
 
-  return (
-    <>
-      <h5>
-        {user.hobbies.map(hobby => (
-          <div
-            id={hobby._id}
-            value={hobby.hobbyName}
-            className="hobbyCard"
-            onClick={hobbyQueryId}
-          >
-            {hobby.hobbyName}
-          </div>
-        ))}
-      </h5>
-      <SearchResults hobbyQueryId={hobbyQueryId}></SearchResults>
-    </>
-  );
+	return (
+		<>
+			<h5>
+				{user.hobbies.map((hobby) => (
+					<div id={hobby._id} value={hobby.hobbyName} className="hobbyCard" onClick={hobbyQueryId}>
+						{hobby.hobbyName}
+					</div>
+				))}
+			</h5>
+			<SearchResults hobbyQueryId={hobbyQueryId}></SearchResults>
+		</>
+	);
 };
 
 export default UserHobbies;
