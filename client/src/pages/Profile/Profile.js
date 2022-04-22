@@ -49,10 +49,6 @@ const Profile = () => {
       </>
     );
   }
-  // const handleClick = () => {
-  //   // access to e.target here
-  //   console.log(data);
-  // };
 
   return (
     <div className="profileBackground">
@@ -71,6 +67,7 @@ const Profile = () => {
             <h5>{user.age}</h5>
             <h5>{user.description}</h5>
             <UserHobbies />
+            {/* <SearchResults onClick={}/> */}
 
             <div>
               <Link to="/AddHobbies">

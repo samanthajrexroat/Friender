@@ -1,46 +1,19 @@
 import React from "react";
 import "./profile.css";
 
-const Profile = () => {
- 
+import { Link, Navigate, useParams } from "react-router-dom";
+import { useQuery } from "@apollo/client";
+import { QUERY_HOBBY_FANS } from "../../utils/queries";
+import Auth from "../../utils/auth";
+import LogIn from "../../components/Modal/LogIn";
 
-  return (
-    <div className="profileBackground">
-      <div className="profileContainer">
-        {/* <Search /> */}
+const SearchResults = ({ UserHobbies }) => {
+  console.log(UserHobbies);
+  // const { userId } = useParams();
 
-        <div className="profileCard">
-          <h2>{user.firstName}</h2>
+  const { loading, data } = useQuery(QUERY_HOBBY_FANS);
 
-          <div className="profile">
-            <div className="img-container">
-              <img src={user.photo} alt={"photo of " + user.firstName} />
-            </div>
-          </div>
-
-          <h4>{user.city}</h4>
-          {/* <h5>{gender}</h5> */}
-          <h5>{user.age}</h5>
-          <h5>{user.description}</h5>
-          <div>
-            <h5 className="hobbiesContainer">
-              {user.hobbies.map(hobby => (
-                <div className="hobbiesList">{hobby.hobbyName}</div>
-              ))}
-            </h5>
-          </div>
-          <div>
-            <Link to="/AddHobbies">
-              <button className="sm-btn">Add hobbies</button>
-            </Link>
-            <Link to="/EditProfile">
-              <button className="sm-btn">edit profile</button>
-            </Link>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
+  return <div>hello Sam</div>;
 };
 
-
+export default SearchResults;
