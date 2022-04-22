@@ -53,29 +53,16 @@ const SignUp = () => {
 	const handleFormSubmit = async (event) => {
 		event.preventDefault();
 
-<<<<<<< HEAD
 		try {
 			const { data } = await createUser({
 				variables: { ...formData },
 			});
-			alert(JSON.stringify(data));
+			alert("SUCCESS!!!");
 			Auth.login(data.createUser.token);
-		} catch (error) {
-			console.error(JSON.stringify(error));
+		} catch (e) {
+			console.error(JSON.stringify(e));
 		}
 	};
-=======
-    try {
-      const { data } = await createUser({
-        variables: { ...formData },
-      });
-      alert("SUCCESS!!!");
-      Auth.login(data.createUser.token);
-    } catch (e) {
-      console.error(JSON.stringify(e));
-    }
-  };
->>>>>>> 7e99334bcb12f5164742aeeb65013a94f7c81133
 
 	return (
 		<div className=" signUpBackground">
