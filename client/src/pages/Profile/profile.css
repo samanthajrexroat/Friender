@@ -31,15 +31,18 @@
   background: #cc1439;
   z-index: 1;
 }
+
 .hobbiesList {
-  text-align: center;
-  margin: 0.1rem;
-  max-width: fit-content;
-  padding: 0.3rem;
-  border-radius: 0.7rem;
-  background: linear-gradient(to top, #005c97, #363795);
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  color: #ece9e6;
+  margin: .1rem;
+  display: inline-block;
+  color: white;
+  text-transform: uppercase;
+  font-size: 8px;
+  padding: 0.25rem .5rem;
+  border-radius: 2rem;
+  cursor: pointer;
+  transition: all 400ms ease-in;
+  background: var(--color-dark);
 }
 
 .visually-hidden {
