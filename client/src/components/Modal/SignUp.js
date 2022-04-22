@@ -58,7 +58,7 @@ const SignUp = () => {
       const { data } = await createUser({
         variables: { ...formData },
       });
-      alert(JSON.stringify(data));
+      alert("SUCCESS!!!");
       Auth.login(data.createUser.token);
     } catch (e) {
       console.error(JSON.stringify(e));

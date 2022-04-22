@@ -33,8 +33,8 @@ const typeDefs = gql`
 		me: User
 		hobbies: [Hobby]!
 		hobby(hobbyId: ID!): Hobby
-		friends: [User]!
-		hobbyFans(hobbyId: ID!): [User]!
+		friends: [User]
+		hobbyFans(hobbyId: ID!): [User]
 	}
 	type Mutation {
 		# TODO:	add in picture once we know how to do so.
