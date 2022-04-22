@@ -1,6 +1,6 @@
 .profileBackground {
   min-height: 1000px;
-  /* man-height: fit-content; */
+
   background: linear-gradient(to top, #ed4264, #f8d576);
 }
 
@@ -10,10 +10,10 @@
   transform: translateX(-50%);
   top: 20vh;
   top: 175px;
-  
 }
 
 .profileCard {
+  margin:1rem;
   width: 300px;
   text-align: left;
   padding: 1rem;
@@ -21,6 +21,14 @@
   background: linear-gradient(90deg, #ece9e6, #ffffff);
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
+
+.searchContainer {
+  background-color: linear-gradient(90deg, #e77f18, #861414);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
 
 .profileImage {
   width: 250px;
