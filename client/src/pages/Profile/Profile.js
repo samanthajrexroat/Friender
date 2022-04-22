@@ -1,13 +1,10 @@
 import React from "react";
 import "./profile.css";
-
 import { Link, Navigate, useParams } from "react-router-dom";
-import Search from "../../utils/search";
 import { useQuery } from "@apollo/client";
 import { QUERY_USER, QUERY_ME } from "../../utils/queries";
 import Auth from "../../utils/auth";
 import LogIn from "../../components/Modal/LogIn";
-import SearchResults from "./SearchResults";
 import UserHobbies from "../../components/Modal/UserHobbies";
 
 // const posts = [
@@ -63,8 +60,6 @@ const Profile = () => {
             <h5>{user.age}</h5>
             <h5>{user.description}</h5>
             <UserHobbies />
-            {/* <SearchResults onClick={}/> */}
-
             <div>
               <p>Add Hobbies to Search for Friends!</p>
               <Link to="/AddHobbies">
@@ -76,7 +71,6 @@ const Profile = () => {
             </div>
           </div>
         </div>
-        {/* <SearchResults /> */}
       </div>
     </div>
   );
