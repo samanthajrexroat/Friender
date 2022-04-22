@@ -11,8 +11,8 @@ const AddFriend = (hobbyFanId) => {
 	if (error) {
 		console.log(JSON.stringify(error));
 	}
-
-	return <button className="secondary-btn">Add Friend</button>;
+    
+	return <button className="secondary-btn" onClick={}>Add Friend</button>;
 };
 
 export default AddFriend;

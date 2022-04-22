@@ -20,27 +20,22 @@ const SearchResults = ({ globalHobbyId }) => {
 	console.log(hobbyFans);
 
 	return (
-		<div className="profileBackground">
-			<div className="profileContainer">
-				<div>
-					{hobbyFans.map((hobbyFan) => (
-						<div className="profileCard" id={hobbyFan._id}>
-							<h2>{hobbyFan.firstName}</h2>
+		<div className="searchContainer">
+			{hobbyFans.map((hobbyFan) => (
+				<div className="profileCard" id={hobbyFan._id}>
+					<h2>{hobbyFan.firstName}</h2>
 
-							<div className="profile">
-								<div className="img-container">
-									<img src={hobbyFan.photo} alt={"photo of " + hobbyFan.firstName} />
-								</div>
-							</div>
-							<h4>{hobbyFan.city}</h4>
-
-							<h5>{hobbyFan.age}</h5>
-							<h5>{hobbyFan.description}</h5>
-							<AddFriend hobbyFanId={hobbyFan.id} />
+					<div className="profile">
+						<div className="img-container">
+							<img src={hobbyFan.photo} alt={"photo of " + hobbyFan.firstName} />
 						</div>
-					))}
+					</div>
+					<h4>{hobbyFan.city}</h4>
+					<h5>{hobbyFan.age}</h5>
+					<h5>{hobbyFan.description}</h5>
+					<AddFriend hobbyFanId={hobbyFan._id} />
 				</div>
-			</div>
+			))}
 		</div>
 	);
 };
