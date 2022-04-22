@@ -123,8 +123,7 @@ div.signUpBackground {
 }
 
 .userHobbiesContainer {
-    padding-top: 550px;
-    width: 100%;
+
 }
 
 
@@ -177,7 +176,6 @@ textarea{
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    top: 20vh;
     top: 175px;
     margin-left: auto;
     margin-right: auto;

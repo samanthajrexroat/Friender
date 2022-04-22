@@ -5,11 +5,8 @@
 }
 
 .profileContainer {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  top: 20vh;
-  top: 175px;
+position: relative;
+ 
 }
 
 .profileCard {
@@ -23,7 +20,8 @@
 }
 
 .searchContainer {
-  background-color: linear-gradient(90deg, #e77f18, #861414);
+  background: linear-gradient(to bottom, #efefef, #e9e9e9);
+  width: 100vw;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -41,6 +39,10 @@
   z-index: 1;
 }
 
+.friends {
+  border-top: 1px solid black;
+}
+
 .hobbiesList {
   margin: 0.1rem;
   display: inline-block;
@@ -52,6 +54,13 @@
   cursor: pointer;
   transition: all 400ms ease-in;
   background: var(--color-dark);
+}
+
+.pageFlex {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 175px;
 }
 
 .img-container {
