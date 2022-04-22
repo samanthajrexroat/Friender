@@ -47,7 +47,6 @@ const SearchResults = ({ globalHobbyId }) => {
   ) 
 };
 
-
-// hello 
+// hello
 
 export default SearchResults;
