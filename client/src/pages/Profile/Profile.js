@@ -2,19 +2,13 @@ import React from "react";
 import "./profile.css";
 
 import { Link, Navigate, useParams } from "react-router-dom";
-import Search from "../../utils/search";
+// import Search from "../../utils/search";
 import { useQuery } from "@apollo/client";
 import { QUERY_USER, QUERY_ME } from "../../utils/queries";
 import Auth from "../../utils/auth";
 import LogIn from "../../components/Modal/LogIn";
 import SearchResults from "./SearchResults";
 
-// const posts = [
-//     { id: '1', name: 'This first post is about React' },
-//     { id: '2', name: 'This next post is about Preact' },
-//     { id: '3', name: 'We have yet another React post!' },
-//     { id: '4', name: 'This is the fourth and final post' },
-// ];
 
 const Profile = () => {
   const { userId } = useParams();
@@ -51,11 +45,11 @@ const Profile = () => {
         {/* <Search /> */}
 
         <div className="profileCard">
-          <h2>{user.firstName}</h2>
+          <h2>{user.firstName }</h2>
 
           <div className="profile">
             <div className="img-container">
-              <img src={user.photo} alt={"photo of " + user.firstName} />
+              <img src={user.photo} alt={"photo of " + user.firstName } />
             </div>
           </div>
           <h4>{user.city}</h4>
