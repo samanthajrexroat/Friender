@@ -6,11 +6,11 @@ import { QUERY_HOBBY_FANS } from "../../utils/queries";
 import AddFriend from "../../components/Modal/Addfriend";
 
 const SearchResults = ({ globalHobbyId }) => {
-	console.log(globalHobbyId);
 
 	const { loading, error, data } = useQuery(QUERY_HOBBY_FANS, {
 		variables: { hobbyId: globalHobbyId },
 	});
+
 
 	if (error) {
 		console.log(JSON.stringify(error));
@@ -40,6 +40,8 @@ const SearchResults = ({ globalHobbyId }) => {
 	);
 };
 
-// hello
+// hello 
+
+// is it me you're looking for?
 
 export default SearchResults;
