@@ -121,6 +121,13 @@ div.signUpBackground {
 
 }
 
+.userHobbiesContainer {
+    padding-top: 550px;
+    width: 100%;
+}
+
+
+
 .hobbyModal {
     position: absolute;
     left: 50%;
