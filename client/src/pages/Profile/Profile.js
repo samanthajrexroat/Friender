@@ -30,10 +30,6 @@ const Profile = () => {
     return <Navigate to="/me" />;
   }
 
-  const onClick = event => {
-    console.log(event.target.value);
-  };
-
   if (loading) {
     return <div>Loading...</div>;
   }
