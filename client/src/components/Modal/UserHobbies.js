@@ -3,10 +3,11 @@ import "./modal.css";
 import { useQuery, useMutation } from "@apollo/client";
 import { QUERY_ME } from "../../utils/queries";
 import { ADD_HOBBY } from "../../utils/mutations";
+
 import Auth from "../../utils/auth";
 import SearchResults from "../../pages/Profile/SearchResults";
 
-export default function UserHobbies() {
+const UserHobbies = () => {
   const { loading, data } = useQuery(QUERY_ME);
 
   const userId = Auth.getProfile().data._id;
@@ -41,6 +42,6 @@ export default function UserHobbies() {
       <SearchResults hobbyQueryId={hobbyQueryId}></SearchResults>
     </>
   );
-}
+};
 
-// export default UserHobbies;
+export default UserHobbies;

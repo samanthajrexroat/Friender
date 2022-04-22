@@ -1,5 +1,6 @@
 .profileBackground {
   min-height: 1000px;
+  /* man-height: fit-content; */
   background: linear-gradient(to top, #ed4264, #f8d576);
 }
 
@@ -9,6 +10,7 @@
   transform: translateX(-50%);
   top: 20vh;
   top: 175px;
+  
 }
 
 .profileCard {
@@ -21,9 +23,9 @@
 }
 
 .profileImage {
-  width: 270px;
-  overflow: hidden;
+  width: 250px;
   border-radius: 1rem;
+  overflow: hidden;
 }
 .logInError {
   padding-top: 80px;

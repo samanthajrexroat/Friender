@@ -51,7 +51,7 @@ const Profile = () => {
             <h2>{user.firstName}</h2>
 
             <div className="profile">
-              <div className="img-container">
+              <div className="img-container profileImage ">
                 <img src={user.photo} alt={"photo of " + user.firstName} />
               </div>
             </div>
@@ -63,6 +63,7 @@ const Profile = () => {
             {/* <SearchResults onClick={}/> */}
 
             <div>
+              <p>Add Hobbies to Search for Friends!</p>
               <Link to="/AddHobbies">
                 <button className="sm-btn">Add hobbies</button>
               </Link>
