@@ -2,13 +2,20 @@ import React from "react";
 import "./profile.css";
 
 import { Link, Navigate, useParams } from "react-router-dom";
-// import Search from "../../utils/search";
+import Search from "../../utils/search";
 import { useQuery } from "@apollo/client";
 import { QUERY_USER, QUERY_ME } from "../../utils/queries";
 import Auth from "../../utils/auth";
 import LogIn from "../../components/Modal/LogIn";
 import SearchResults from "./SearchResults";
 import UserHobbies from "../../components/Modal/UserHobbies";
+
+// const posts = [
+//     { id: '1', name: 'This first post is about React' },
+//     { id: '2', name: 'This next post is about Preact' },
+//     { id: '3', name: 'We have yet another React post!' },
+//     { id: '4', name: 'This is the fourth and final post' },
+// ];
 
 const Profile = () => {
   const { userId } = useParams();
@@ -22,10 +29,6 @@ const Profile = () => {
   if (Auth.loggedIn() && Auth.getProfile().data._id === userId) {
     return <Navigate to="/me" />;
   }
-
-  const onClick = event => {
-    console.log(event.target.value);
-  };
 
   if (loading) {
     return <div>Loading...</div>;

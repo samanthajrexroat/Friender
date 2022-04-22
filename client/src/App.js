@@ -50,11 +50,11 @@ function App() {
             <Route path="/LogIn" element={<LogIn />}></Route>
             <Route path="/SignUp" element={<SignUp />}></Route>
             <Route path="/me" element={<Profile />}></Route>
-            <Route path="/profile:_id" element={<Profile />}></Route>
+            <Route path="/User/userId" element={<Profile />}></Route>
             <Route path="/EditProfile" element={<EditProfile />}></Route>
             <Route path="/AddHobbies" element={<Hobbies />}></Route>
             {/* <Route path="/UserHobbies" element={<UserHobbies />}></Route> */}
-            <Route path="/searchresults" element={<SearchResults />}></Route>
+           
           </Routes>
           <Footer />
         </Router>
