@@ -15,7 +15,6 @@ const UserHobbies = () => {
 
 	const userId = Auth.getProfile().data._id;
 	const user = data?.me || data?.user || {};
-
 	if (loading) {
 		return <div>Loading...</div>;
 	}
@@ -34,7 +33,7 @@ const UserHobbies = () => {
 		<>
 			<h5>
 				{user.hobbies.map((hobby) => (
-					<div id={hobby._id} value={hobby.hobbyName} className="hobbyCard" onClick={handleClick}>
+					<div key={hobby._id} id={hobby._id} value={hobby.hobbyName} className="hobbyCard" onClick={handleClick}>
 						{hobby.hobbyName}
 						<div className="closeIcon" name={hobby.hobbyName} onClick={handleRemoveHobby}>
 							{" "}

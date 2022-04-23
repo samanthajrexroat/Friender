@@ -3,7 +3,7 @@ import "./profile.css";
 import { Link, Navigate, useParams } from "react-router-dom";
 import Footer from "../../components/Footer/Footer";
 import { useQuery } from "@apollo/client";
-import { QUERY_USER, QUERY_ME } from "../../utils/queries";
+import { QUERY_USER, QUERY_ME, QUERY_HOBBIES } from "../../utils/queries";
 import Auth from "../../utils/auth";
 import LogIn from "../../components/Modal/LogIn";
 import UserHobbies from "../../components/Modal/UserHobbies";
@@ -18,8 +18,7 @@ import UserHobbies from "../../components/Modal/UserHobbies";
 
 const Profile = () => {
 	const { userId } = useParams();
-
-	const { loading, data } = useQuery(userId ? QUERY_USER : QUERY_ME, {
+	const { loading, data } = useQuery(QUERY_ME, {
 		variables: { userId: userId },
 	});
 
@@ -28,13 +27,12 @@ const Profile = () => {
 	if (Auth.loggedIn() && Auth.getProfile().data._id === userId) {
 		return <Navigate to="/me" />;
 	}
-	console.log(user);
+
 	if (loading) {
 		return <div>Loading...</div>;
 	}
 
 	const friends = user.friends;
-	console.log(friends);
 
 	if (!user?._id) {
 		return (
@@ -66,9 +64,10 @@ const Profile = () => {
 							<h5>{user.description}</h5>
 							<br />
 							<h5 className="friends">
-								<h3>Friends:</h3>
+								<p>Friends:</p>
 								{user.friends.map((friend) => (
 									<div
+										key={friend._id}
 										value={friend._id}
 										// className="hobbyCard"
 										// onClick={handleClick}
@@ -88,7 +87,7 @@ const Profile = () => {
 								<button className="sm-btn">Add hobbies</button>
 							</Link>
 							<Link to="/EditProfile">
-								<button className="sm-btn">edit profile</button>
+								<button className="sm-btn">Edit profile</button>
 							</Link>
 						</div>
 

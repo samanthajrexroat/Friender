@@ -19,14 +19,12 @@ const SearchResults = ({ globalHobbyId }) => {
 	}
 
 	const hobbyFans = data?.hobbyFans || [];
-	console.log(hobbyFans);
 
 	return (
 		<>
 			{hobbyFans.map((hobbyFan) => (
-				<div className="profileCard" id={hobbyFan._id}>
+				<div className="profileCard" key={hobbyFan._id} id={hobbyFan._id}>
 					<h2>{hobbyFan.firstName}</h2>
-
 					<div className="profile">
 						<div className="img-container">
 							<img src={hobbyFan.photo} alt={"photo of " + hobbyFan.firstName} />
