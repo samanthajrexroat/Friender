@@ -8,41 +8,38 @@ import { useState } from "react";
 import OutsideClickHandler from "react-outside-click-handler";
 
 const SearchResults = ({ globalHobbyId }) => {
-  const { loading, error, data } = useQuery(QUERY_HOBBY_FANS, {
-    variables: { hobbyId: globalHobbyId },
-  });
+	const { error, data } = useQuery(QUERY_HOBBY_FANS, {
+		variables: { hobbyId: globalHobbyId },
+	});
 
-  const [hidden, setHidden] = useState(false);
+	const [hidden, setHidden] = useState(false);
 
-  if (error) {
-    console.log(JSON.stringify(error));
-  }
+	if (error) {
+		console.log(JSON.stringify(error));
+	}
 
-  const hobbyFans = data?.hobbyFans || [];
-  console.log(hobbyFans);
+	const hobbyFans = data?.hobbyFans || [];
+	console.log(hobbyFans);
 
-  return (
-    <>
-      {hobbyFans.map(hobbyFan => (
-        <div className="profileCard" id={hobbyFan._id}>
-          <h2>{hobbyFan.firstName}</h2>
+	return (
+		<>
+			{hobbyFans.map((hobbyFan) => (
+				<div className="profileCard" id={hobbyFan._id}>
+					<h2>{hobbyFan.firstName}</h2>
 
-          <div className="profile">
-            <div className="img-container">
-              <img
-                src={hobbyFan.photo}
-                alt={"photo of " + hobbyFan.firstName}
-              />
-            </div>
-          </div>
-          <h4>{hobbyFan.city}</h4>
-          <h5>{hobbyFan.age}</h5>
-          <h5>{hobbyFan.description}</h5>
-          <AddFriend hobbyFanId={hobbyFan._id} />
-        </div>
-      ))}
-    </>
-  );
+					<div className="profile">
+						<div className="img-container">
+							<img src={hobbyFan.photo} alt={"photo of " + hobbyFan.firstName} />
+						</div>
+					</div>
+					<h4>{hobbyFan.city}</h4>
+					<h5>{hobbyFan.age}</h5>
+					<h5>{hobbyFan.description}</h5>
+					<AddFriend hobbyFanId={hobbyFan._id} />
+				</div>
+			))}
+		</>
+	);
 };
 
 // hello

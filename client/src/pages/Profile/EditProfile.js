@@ -10,7 +10,7 @@ import Auth from "../../utils/auth";
 const EditProfile = () => {
 	// const { userId } = useParams();
 	console.log("line 12");
-	const { loading, error: queryerror, data } = useQuery(QUERY_ME);
+	const { error: queryerror, data } = useQuery(QUERY_ME);
 	if (queryerror) {
 		console.log(JSON.stringify(queryerror));
 	}
@@ -83,7 +83,7 @@ const EditProfile = () => {
 			const { data } = await updateUser({
 				variables: { ...modifiableData, userId: user._id },
 			});
-			alert(JSON.stringify(data));
+
 			Auth.login(data.updateUser.token);
 		} catch (e) {
 			console.error(JSON.stringify(e));
