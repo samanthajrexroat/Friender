@@ -5,8 +5,14 @@
 }
 
 .profileContainer {
-position: relative;
+display:inline-block;
+padding-top: 175px
  
+}
+.hobbySearchResults {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .profileCard {
@@ -56,11 +62,17 @@ position: relative;
   background: var(--color-dark);
 }
 
+.fullPage {
+  display: grid;
+  grid-template-columns: 1fr;
+  /* grid-template-rows: repeat(5, 1fr); */
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+
+}
+
 .pageFlex {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  top: 175px;
+  grid-area: 1 / 1 / 3 / 2; 
 }
 
 .img-container {
