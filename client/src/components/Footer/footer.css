@@ -1,4 +1,5 @@
 footer {
+    margin-top: 3rem;
     margin-left: 4rem;
     margin-right: 4rem;
 }
@@ -27,14 +28,21 @@ h2 {
 }
 
 .footerSocial > a {
-    margin-top: 2rem;
+    
     margin: 1rem;
     gap: 1rem;
 }
 
+.footerSocialInline {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    gap: 5px;
+}
+
 @media screen and (max-width: 1024px) {
-    .commentContainer {
-        display: none;
+    .commentContainer, p {
+        font-size: 60%;
     }
 }
 

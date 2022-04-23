@@ -6,27 +6,56 @@ import { VscCode } from "react-icons/vsc";
 
 const FooterSocial = () => {
   return (
-    <div className="container footerSocial">
-      <a
-        href="https://www.linkedin.com/in/dugan-jo/"
-        target="_blank"
-        rel="noreferrer"
-      >
-        <BsLinkedin />
-      </a>
-      <a href="https://github.com/dugan-jo/" target="_blank" rel="noreferrer">
-        <BsGithub />
-      </a>
-      <a href="https://code.visualstudio.com/" target="_blank" rel="noreferrer">
-        <VscCode />
-      </a>
-      <a
-        href="mailto:joseph.michael.dugan@gmail.com"
-        target="_blank"
-        rel="noreferrer"
-      >
-        <AiOutlineMail />
-      </a>
+    <div>
+      <h3>SOCIAL</h3>
+      <div>
+        <a
+          href="https://www.linkedin.com/in/matthew-todor-a9185062/"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <p className="footerSocialInline">
+            Matthew Todor
+            <BsLinkedin />
+          </p>
+        </a>
+      </div>
+      <div>
+        <a
+          href="https://www.linkedin.com/in/nickgraves17/"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <p className="footerSocialInline">
+            Nick Graves
+            <BsLinkedin />
+          </p>
+        </a>
+      </div>
+      <div>
+        <a
+          href="https://www.linkedin.com/in/samanthajrexroat/"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <p className="footerSocialInline">
+            Sam Rexroat
+            <BsLinkedin />
+          </p>
+        </a>
+      </div>
+      <div>
+        <a
+          href="https://www.linkedin.com/in/dugan-jo/"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <p className="footerSocialInline">
+            Joseph Dugan
+            <BsLinkedin />
+          </p>
+        </a>
+      </div>
     </div>
   );
 };

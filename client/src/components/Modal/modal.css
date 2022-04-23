@@ -92,9 +92,7 @@ label {
 .inline{
     display: inline;
 }
-.tab {
-    padding-left:1rem;
-}
+
 .signUpModal {
     position: absolute;
     left: 50%;
@@ -126,6 +124,7 @@ div.signUpBackground {
     border-radius: 15px;
     padding: 1rem;
     margin: 2rem 8.5rem;
+    box-shadow: rgba(0,0,0,0.35) 0px 5px 15px;
 }
 .hobbyBtn {
     margin: .2rem;
@@ -201,7 +200,11 @@ textarea{
 .text-white {
     color: rgb(205, 204, 204);
 }
-
+.tab{
+    padding-left: 3px;
+    justify-content: center;
+    align-items: center;
+}
 .editProfileModal {
     position: absolute;
     left: 50%;

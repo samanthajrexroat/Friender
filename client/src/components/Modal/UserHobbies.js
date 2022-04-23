@@ -42,7 +42,7 @@ const UserHobbies = () => {
             >
               {hobby.hobbyName}
               <div
-                className="closeIcon"
+                className="closeIcon black"
                 name={hobby.hobbyName}
                 onClick={handleRemoveHobby}
               >

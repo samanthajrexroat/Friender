@@ -17,31 +17,24 @@ h1 {
   align-items: center;
 }
 
+.navInline {
+  align-items: center;
+}
+
 .rounded-btn {
   padding: 8px;
   border-radius: 10px;
   background: linear-gradient(60deg, #ff8102, #f28226e6);
 }
 
-.btn-grad {
-  background-image: linear-gradient(
-    to right,
-    #912f7f 0%,
-    #fc00ac 51%,
-    #d10f73 100%
-  );
-}
-.btn-grad {
-  margin: 1px;
-  padding: 9px;
-  text-align: center;
-  text-transform: uppercase;
-  transition: 0.5s;
-  background-size: 200% auto;
-  color: white;
-  /* box-shadow: 0 0 20px #eee; */
-  border-radius: 12px;
-  display: block;
+.black {
+  margin-left: 10px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-right: 1px;
+  border-radius: 5px;
+  align-content: center;
+  background: rgba(0, 0, 0, 0.335)
 }
 
 .btn-grad:hover {
