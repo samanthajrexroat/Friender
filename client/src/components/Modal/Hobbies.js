@@ -93,15 +93,15 @@ const Hobbies = () => {
                   setSearchTerm(event.target.value);
                 }}
               />
-              <Link to="/Me">
-                <button className="secondary-btn" type="submit">
-                  BACK TO PROFILE
-                </button>
-              </Link>
             </form>
             <div>
               <UserHobbies />
             </div>
+            <Link to="/Me">
+              <button className="secondary-btn" type="submit">
+                BACK TO PROFILE
+              </button>
+            </Link>
             <p>
               Dont see your hobby? <br />
               <a
@@ -109,9 +109,8 @@ const Hobbies = () => {
                 target="_blank"
                 rel="noreferrer"
               >
-                Email us
+                Email us, Let us know!
               </a>
-              ! We will add it!
             </p>
             {error && (
               <div className="col-12 my-3 bg-danger text-white p-3">

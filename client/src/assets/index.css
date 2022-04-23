@@ -111,25 +111,6 @@ a:hover {
   background: var(--color-light);
 }
 
-/* .primary-btn {background-image: linear-gradient(to right, #fc00ff 0%, #00dbde  51%, #fc00ff  100%)}
-.primary-btn {
-   margin: 10px;
-   padding: 10px;
-   text-align: center;
-   text-transform: uppercase;
-   transition: 0.5s;
-   background-size: 200% auto;
-   color: white;            
-   
-   border-radius: 20px;
-   display: block;
- }
-
- .primary-btn:hover {
-   background-position: right center; /* change the direction of the change here */
-/* color: #fff;
-   text-decoration: none;
- } */
 
 .secondary-btn {
   background: var(--color-accent);
@@ -151,6 +132,28 @@ a:hover {
   cursor: pointer;
   transition: all 400ms ease-in;
   font-size: 50%;
+}
+.buttons {
+  justify-content: space-evenly;
+  display: flex;
+  /* position: absolute; */
+  /* position: absolute; */
+  /* bottom: 0px; */
+
+}
+
+.sm-btn-secondary {
+  background: var(--color-accent-secondary);
+  color: white;
+  width: fit-content;
+  margin: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 400ms ease-in;
+  font-size: 50%;
+  
 }
 img {
   max-width: 255px;
