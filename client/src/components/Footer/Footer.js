@@ -12,7 +12,7 @@ const Footer = () => {
           {/* <div className="commentCard"> */}
           {CommentsData.map(({ id, name, comments }) => {
             return (
-              <div className="commentCard" key={id}>
+              <div className="commentCard social" key={id}>
                 <h5>{name}</h5>
                 <p>{comments}</p>
               </div>
