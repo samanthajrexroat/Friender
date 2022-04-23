@@ -55,7 +55,6 @@ function App() {
             <Route path="/AddHobbies" element={<Hobbies />}></Route>
             {/* <Route path="/UserHobbies" element={<UserHobbies />}></Route> */}
           </Routes>
-          <Footer />
         </Router>
       </div>
     </ApolloProvider>

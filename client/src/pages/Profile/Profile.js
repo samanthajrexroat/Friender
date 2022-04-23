@@ -49,53 +49,56 @@ const Profile = () => {
   }
 
   return (
-    <div className="profileBackground">
-      <div className="pageFlex">
-        <div className="profileContainer">
-          <div className="profileCard">
-            <h2>{user.firstName}</h2>
+    <div>
+      <div className="fullPage">
+        <div className="pageFlex profileBackground">
+          <div className="profileContainer">
+            <div className="profileCard">
+              <h2>{user.firstName}</h2>
 
-            <div className="profile">
-              <div className="img-container profileImage ">
-                <img src={user.photo} alt={"photo of " + user.firstName} />
-              </div>
-            </div>
-            <h4>Location: {user.city}</h4>
-
-            <h5>Age: {user.age}</h5>
-            <br />
-            <h4>About:</h4>
-            <h5>{user.description}</h5>
-            <br />
-            <h5 className="friends">
-              <h3>Friends:</h3>
-              {user.friends.map(friend => (
-                <div
-                  value={friend._id}
-                  // className="hobbyCard"
-                  // onClick={handleClick}
-                >
-                  {friend.firstName}
-                  {/* {friend.lastName} */}
+              <div className="profile">
+                <div className="img-container profileImage ">
+                  <img src={user.photo} alt={"photo of " + user.firstName} />
                 </div>
-              ))}
-            </h5>
-          </div>
-        </div>
+              </div>
+              <h4>Location: {user.city}</h4>
 
-        <div className="userHobbiesContainer">
-          <div>
-            <p>Add Hobbies to Search for Friends!</p>
-            <Link to="/AddHobbies">
-              <button className="sm-btn">Add hobbies</button>
-            </Link>
-            <Link to="/EditProfile">
-              <button className="sm-btn">edit profile</button>
-            </Link>
+              <h5>Age: {user.age}</h5>
+              <br />
+              <h4>About:</h4>
+              <h5>{user.description}</h5>
+              <br />
+              <h5 className="friends">
+                <h3>Friends:</h3>
+                {user.friends.map(friend => (
+                  <div
+                    value={friend._id}
+                    // className="hobbyCard"
+                    // onClick={handleClick}
+                  >
+                    {friend.firstName}
+                    {/* {friend.lastName} */}
+                  </div>
+                ))}
+              </h5>
+            </div>
           </div>
-          <UserHobbies />
+
+          <div className="userHobbiesContainer">
+            <div>
+              <p>Add Hobbies to Search for Friends!</p>
+              <Link to="/AddHobbies">
+                <button className="sm-btn">Add hobbies</button>
+              </Link>
+              <Link to="/EditProfile">
+                <button className="sm-btn">edit profile</button>
+              </Link>
+            </div>
+
+            <UserHobbies />
+          </div>
         </div>
-        {/* <Footer /> */}
+        <Footer />
       </div>
     </div>
   );

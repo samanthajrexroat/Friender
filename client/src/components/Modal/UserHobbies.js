@@ -43,7 +43,7 @@ const UserHobbies = () => {
 					</div>
 				))}
 			</h5>
-			<div>
+			<div className="hobbySearchResults">
 				<SearchResults globalHobbyId={hobbyId} />
 			</div>
 		</>
