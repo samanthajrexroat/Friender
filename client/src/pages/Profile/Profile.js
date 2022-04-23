@@ -7,7 +7,7 @@ import { QUERY_USER, QUERY_ME } from "../../utils/queries";
 import Auth from "../../utils/auth";
 import LogIn from "../../components/Modal/LogIn";
 import UserHobbies from "../../components/Modal/UserHobbies";
-import { createRoutesFromChildren } from "react-router-dom";
+// import { createRoutesFromChildren } from "react-router-dom";
 
 // const posts = [
 //     { id: '1', name: 'This first post is about React' },
@@ -17,91 +17,88 @@ import { createRoutesFromChildren } from "react-router-dom";
 // ];
 
 const Profile = () => {
-  const { userId } = useParams();
+	const { userId } = useParams();
 
-  const { loading, data } = useQuery(userId ? QUERY_USER : QUERY_ME, {
-    variables: { userId: userId },
-  });
+	const { loading, data } = useQuery(userId ? QUERY_USER : QUERY_ME, {
+		variables: { userId: userId },
+	});
 
-  const user = data?.me || data?.user || {};
+	const user = data?.me || data?.user || {};
 
-  if (Auth.loggedIn() && Auth.getProfile().data._id === userId) {
-    return <Navigate to="/me" />;
-  }
-  console.log(user);
-  if (loading) {
-    return <div>Loading...</div>;
-  }
+	if (Auth.loggedIn() && Auth.getProfile().data._id === userId) {
+		return <Navigate to="/me" />;
+	}
+	console.log(user);
+	if (loading) {
+		return <div>Loading...</div>;
+	}
 
-  const friends = user.friends;
-  console.log(friends);
+	const friends = user.friends;
+	console.log(friends);
 
-  if (!user?._id) {
-    return (
-      <>
-        <h4 className="logInError ">
-          You need to be logged in to see this. Use the navigation links above
-          to sign up or log in!
-        </h4>
-        <LogIn />
-      </>
-    );
-  }
+	if (!user?._id) {
+		return (
+			<>
+				<h4 className="logInError ">You need to be logged in to see this. Use the navigation links above to sign up or log in!</h4>
+				<LogIn />
+			</>
+		);
+	}
 
-  return (
-    <div>
-      <div className="fullPage">
-        <div className="pageFlex profileBackground">
-          <div className="profileContainer">
-            <div className="profileCard">
-              <h2>{user.firstName}</h2>
+	return (
+		<div>
+			<div className="fullPage">
+				<div className="pageFlex profileBackground">
+					<div className="profileContainer">
+						<div className="profileCard">
+							<h2>{user.firstName}</h2>
 
-              <div className="profile">
-                <div className="img-container profileImage ">
-                  <img src={user.photo} alt={"photo of " + user.firstName} />
-                </div>
-              </div>
-              <h4>Location: {user.city}</h4>
+							<div className="profile">
+								<div className="img-container profileImage ">
+									<img src={user.photo} alt={"photo of " + user.firstName} />
+								</div>
+							</div>
+							<h4>Location: {user.city}</h4>
 
-              <h5>Age: {user.age}</h5>
-              <br />
-              <h4>About:</h4>
-              <h5>{user.description}</h5>
-              <br />
-              <h5 className="friends">
-                <h3>Friends:</h3>
-                {user.friends.map(friend => (
-                  <div
-                    value={friend._id}
-                    // className="hobbyCard"
-                    // onClick={handleClick}
-                  >
-                    {friend.firstName}
-                    {/* {friend.lastName} */}
-                  </div>
-                ))}
-              </h5>
-            </div>
-          </div>
+							<h5>Age: {user.age}</h5>
+							<br />
+							<h4>About:</h4>
+							<h5>{user.description}</h5>
+							<br />
+							<h5 className="friends">
+								<h3>Friends:</h3>
+								{user.friends.map((friend) => (
+									<div
+										value={friend._id}
+										// className="hobbyCard"
+										// onClick={handleClick}
+									>
+										{friend.firstName}
+										{/* {friend.lastName} */}
+									</div>
+								))}
+							</h5>
+						</div>
+					</div>
 
-          <div className="userHobbiesContainer">
-            <div>
-              <p>Add Hobbies to Search for Friends!</p>
-              <Link to="/AddHobbies">
-                <button className="sm-btn">Add hobbies</button>
-              </Link>
-              <Link to="/EditProfile">
-                <button className="sm-btn">edit profile</button>
-              </Link>
-            </div>
+					<div className="userHobbiesContainer">
+						<div>
+							<p>Add Hobbies to Search for Friends!</p>
+							<Link to="/AddHobbies">
+								<button className="sm-btn">Add hobbies</button>
+							</Link>
+							<Link to="/EditProfile">
+								<button className="sm-btn">edit profile</button>
+							</Link>
+						</div>
 
-            <UserHobbies />
-          </div>
-        </div>
-        <Footer />
-      </div>
-    </div>
-  );
+						<UserHobbies />
+					</div>
+				</div>
+				<Footer />
+			</div>
+		</div>
+	);
 };
 
 export default Profile;

@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import "./modal.css";
-import { useQuery, useMutation, selectHttpOptionsAndBodyInternal } from "@apollo/client";
+import { useQuery, selectHttpOptionsAndBodyInternal } from "@apollo/client";
 import { QUERY_ME } from "../../utils/queries";
 import { ADD_HOBBY, REMOVE_HOBBY } from "../../utils/mutations";
-import { Link } from "react-router-dom";
+
 import Auth from "../../utils/auth";
 import SearchResults from "../../pages/Profile/SearchResults";
 import OutsideClickHandler from "react-outside-click-handler";
