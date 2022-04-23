@@ -15,7 +15,6 @@ const UserHobbies = () => {
 
   const userId = Auth.getProfile().data._id;
   const user = data?.me || data?.user || {};
-
   if (loading) {
     return <div>Loading...</div>;
   }

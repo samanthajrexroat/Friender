@@ -73,7 +73,7 @@ const resolvers = {
 		addHobby: async (parent, { userId, hobbyId }, context) => {
 			try {
 				if (context.user) {
-					return User.findOneAndUpdate({ _id: userId }, { $push: { hobbies: hobbyId } }, { new: true }).populate("hobbies");
+					return User.findOneAndUpdate({ _id: userId }, { $addToSet: { hobbies: hobbyId } }, { new: true }).populate("hobbies");
 					// console.log(hobbyId, userId);
 					// return updatedUser;
 				}
@@ -85,10 +85,12 @@ const resolvers = {
 		},
 		addFriend: async (parent, { userId, friendId }, context) => {
 			try {
-				if (userId) {
+				if (context.user) {
 					// const friend = User.fin({ _id: friendId });
 					// console.log(friend.schema.tree);
-					return User.findOneAndUpdate({ _id: userId }, { $addToSet: { friends: friendId } }, { new: true }).populate("friends");
+					return User.findOneAndUpdate({ _id: userId }, { $addToSet: { friends: friendId } }, { new: true })
+						.populate("friends")
+						.populate("hobbies");
 				}
 			} catch (error) {
 				throw error;
