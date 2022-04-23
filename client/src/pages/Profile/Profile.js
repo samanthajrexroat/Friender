@@ -1,14 +1,13 @@
 import React from "react";
 import "./profile.css";
-
 import { Link, Navigate, useParams } from "react-router-dom";
-import Search from "../../utils/search";
+import Footer from "../../components/Footer/Footer";
 import { useQuery } from "@apollo/client";
 import { QUERY_USER, QUERY_ME } from "../../utils/queries";
 import Auth from "../../utils/auth";
 import LogIn from "../../components/Modal/LogIn";
-import SearchResults from "./SearchResults";
 import UserHobbies from "../../components/Modal/UserHobbies";
+import { createRoutesFromChildren } from "react-router-dom";
 
 // const posts = [
 //     { id: '1', name: 'This first post is about React' },
@@ -29,10 +28,13 @@ const Profile = () => {
   if (Auth.loggedIn() && Auth.getProfile().data._id === userId) {
     return <Navigate to="/me" />;
   }
-
+  console.log(user);
   if (loading) {
     return <div>Loading...</div>;
   }
+
+  const friends = user.friends;
+  console.log(friends);
 
   if (!user?._id) {
     return (
@@ -48,33 +50,52 @@ const Profile = () => {
 
   return (
     <div className="profileBackground">
-      <div className="profileContainer">
-        <div className="profileCard">
-          <h2>{user.firstName}</h2>
+      <div className="pageFlex">
+        <div className="profileContainer">
+          <div className="profileCard">
+            <h2>{user.firstName}</h2>
 
-          <div className="profile">
-            <div className="img-container profileImage ">
-              <img src={user.photo} alt={"photo of " + user.firstName} />
+            <div className="profile">
+              <div className="img-container profileImage ">
+                <img src={user.photo} alt={"photo of " + user.firstName} />
+              </div>
             </div>
+            <h4>Location: {user.city}</h4>
+
+            <h5>Age: {user.age}</h5>
+            <br />
+            <h4>About:</h4>
+            <h5>{user.description}</h5>
+            <br />
+            <h5 className="friends">
+              <h3>Friends:</h3>
+              {user.friends.map(friend => (
+                <div
+                  value={friend._id}
+                  // className="hobbyCard"
+                  // onClick={handleClick}
+                >
+                  {friend.firstName}
+                  {/* {friend.lastName} */}
+                </div>
+              ))}
+            </h5>
           </div>
-          <h4>{user.city}</h4>
-
-          <h5>{user.age}</h5>
-          <h5>{user.description}</h5>
         </div>
-      </div>
 
-      <div className="userHobbiesContainer">
-        <div>
-          <p>Add Hobbies to Search for Friends!</p>
-          <Link to="/AddHobbies">
-            <button className="sm-btn">Add hobbies</button>
-          </Link>
-          <Link to="/EditProfile">
-            <button className="sm-btn">edit profile</button>
-          </Link>
+        <div className="userHobbiesContainer">
+          <div>
+            <p>Add Hobbies to Search for Friends!</p>
+            <Link to="/AddHobbies">
+              <button className="sm-btn">Add hobbies</button>
+            </Link>
+            <Link to="/EditProfile">
+              <button className="sm-btn">edit profile</button>
+            </Link>
+          </div>
+          <UserHobbies />
         </div>
-        <UserHobbies />
+        {/* <Footer /> */}
       </div>
     </div>
   );

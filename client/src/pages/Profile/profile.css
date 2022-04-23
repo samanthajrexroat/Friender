@@ -5,11 +5,8 @@
 }
 
 .profileContainer {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  top: 20vh;
-  top: 175px;
+position: relative;
+ 
 }
 
 .profileCard {
@@ -23,12 +20,12 @@
 }
 
 .searchContainer {
-  background-color: linear-gradient(90deg, #e77f18, #861414);
+  background: linear-gradient(to bottom, #efefef, #e9e9e9);
+  width: 100vw;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
-
 
 .profileImage {
   width: 250px;
@@ -42,29 +39,28 @@
   z-index: 1;
 }
 
+.friends {
+  border-top: 1px solid black;
+}
+
 .hobbiesList {
-  margin: .1rem;
+  margin: 0.1rem;
   display: inline-block;
   color: white;
   text-transform: uppercase;
   font-size: 8px;
-  padding: 0.25rem .5rem;
+  padding: 0.25rem 0.5rem;
   border-radius: 2rem;
   cursor: pointer;
   transition: all 400ms ease-in;
   background: var(--color-dark);
 }
 
-.visually-hidden {
-  clip: rect(0 0 0 0);
-  clip-path: inset(50%);
-  height: 1px;
-  /* overflow: hidden; */
+.pageFlex {
   position: absolute;
-  white-space: nowrap;
-  width: 15rem;
-  margin: 1rem;
-  color: var(--color-bg);
+  left: 50%;
+  transform: translateX(-50%);
+  top: 175px;
 }
 
 .img-container {

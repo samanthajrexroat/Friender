@@ -18,7 +18,7 @@ const resolvers = {
 		},
 		me: async (parent, args, context) => {
 			if (context.user) {
-				return User.findOne({ _id: context.user._id }).populate("hobbies");
+				return User.findOne({ _id: context.user._id }).populate("hobbies").populate("friends");
 			}
 			throw new AuthenticationError("You need to be logged in!");
 		},
@@ -130,7 +130,16 @@ const resolvers = {
 				if (userId) {
 					const user = await User.findByIdAndUpdate(
 						{ _id: userId },
-						{ $set: { firstName: firstName, lastName: lastName, email: email, city: city, age: age, description: description } },
+						{
+							$set: {
+								firstName: firstName,
+								lastName: lastName,
+								email: email,
+								city: city,
+								age: age,
+								description: description,
+							},
+						},
 						{ new: true }
 					);
 					const token = await signToken(user);

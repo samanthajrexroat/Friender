@@ -28,7 +28,7 @@ const EditProfile = () => {
 		email: "",
 		description: "",
 		city: "",
-		age: "",
+		age: !null,
 		photo: "",
 	});
 	const [modifiableData, setModifiableData] = useState({
@@ -37,7 +37,7 @@ const EditProfile = () => {
 		email: "",
 		description: "",
 		city: "",
-		age: "",
+		age: !null,
 		photo: "",
 	});
 	useEffect(() => {
@@ -63,9 +63,9 @@ const EditProfile = () => {
 		}
 	}, []);
 
-	// if (error) {
-	// 	console.log(JSON.stringify(error));
-	// }
+	if (error) {
+		console.log(JSON.stringify(error));
+	}
 
 	const handleChange = (e) => {
 		console.log("e", e);
@@ -77,39 +77,18 @@ const EditProfile = () => {
 
 	const handleFormSubmit = async (event) => {
 		event.preventDefault();
-		console.log(user.id);
+		console.log(user._id);
 		try {
 			console.log("hello there");
-			// const { data } = await updateUser({
-			// 	variables: { ...formData, userId: user.id },
-			// });
-			// alert(JSON.stringify(data));
-			// Auth.login(data.createUser.token);
+			const { data } = await updateUser({
+				variables: { ...modifiableData, userId: user._id },
+			});
+
+			Auth.login(data.updateUser.token);
 		} catch (e) {
 			console.error(JSON.stringify(e));
 		}
 	};
-	// const editFormHandler = async function(event) {
-	//   event.preventDefault();
-
-	//   const title = document.querySelector('input[name="post-title"]').value;
-	//   const body = document.querySelector('textarea[name="post-body"]').value;
-	//   // const date = document.querySelector('textarea[name="post-body"]').value);
-
-	//   await fetch(`/api/post/${postId}`, {
-	//     method: 'PUT',
-	//     body: JSON.stringify({
-	//       title,
-	//       body,
-	//       // date,
-	//     }),
-	//     headers: {
-	//       'Content-Type': 'application/json'
-	//     }
-	//   });
-
-	//   document.location.replace('/dashboard');
-	// };
 
 	return (
 		<div className="profileBackground">
@@ -214,25 +193,17 @@ const EditProfile = () => {
 							/>
 							<label>
 								Upload a Photo
-								<input
-									className="rounded-input"
-									type="url"
-									name="photo"
-									id="photo"
-									onChange={handleChange}
-									value={modifiableData.photo}
-									required={true}
-								/>
+								<input className="rounded-input" type="url" name="photo" id="photo" onChange={handleChange} value={modifiableData.photo} />
 								<div className="photo-container">
 									<img src={modifiableData.photo} alt="profile pic" />
 								</div>
 							</label>
 						</div>
+						<button className="secondary-btn" type="submit">
+							Edit Profile
+						</button>
 					</form>
 				</div>
-				<Link to="/me">
-					<button className="secondary-btn">Edit Profile</button>
-				</Link>
 			</div>
 		</div>
 	);

@@ -60,12 +60,43 @@ export const ADD_HOBBY = gql`
 		}
 	}
 `;
+export const ADD_FRIEND = gql`
+	mutation addFriend($userId: ID!, $friendId: ID!) {
+		addFriend(userId: $userId, friendId: $friendId) {
+			_id
+			firstName
+			email
+			description
+			city
+			hobbies {
+				_id
+				hobbyName
+			}
+			friends {
+				_id
+				firstName
+			}
+		}
+	}
+`;
 // CHECK TO SEE IF THIS WORKS! SJR 4/21
 export const REMOVE_HOBBY = gql`
 	mutation removeHobby($userId: ID!, $hobbyId: ID!) {
 		removeHobby(userId: $userId, hobbyId: $hobbyId) {
 			_id
 			hobbyName
+		}
+	}
+`;
+
+export const UPDATE_USER = gql`
+	mutation updateUser($userId: ID!, $firstName: String!, $lastName: String!, $email: String!, $city: String!, $age: Int, $description: String!) {
+		updateUser(userId: $userId, firstName: $firstName, lastName: $lastName, email: $email, city: $city, age: $age, description: $description) {
+			token
+			user {
+				_id
+				email
+			}
 		}
 	}
 `;

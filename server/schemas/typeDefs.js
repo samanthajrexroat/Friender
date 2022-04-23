@@ -1,40 +1,40 @@
 const { gql } = require("apollo-server-express");
 
 const typeDefs = gql`
-	type User {
-		_id: ID
-		firstName: String
-		lastName: String
-		email: String
-		description: String
-		city: String
-		# gender: String
-		age: Int
-		password: String
-		photo: String
-		friends: [User]!
-		hobbies: [Hobby]!
-	}
-	type Hobby {
-		_id: ID
-		hobbyName: String
-		hobbyAbout: String
-		hobbyFan: [User]
-	}
+  type User {
+    _id: ID
+    firstName: String
+    lastName: String
+    email: String
+    description: String
+    city: String
+    # gender: String
+    age: Int
+    password: String
+    photo: String
+    friends: [User]
+    hobbies: [Hobby]!
+  }
+  type Hobby {
+    _id: ID
+    hobbyName: String
+    hobbyAbout: String
+    hobbyFan: [User]
+  }
 
-	type Auth {
-		token: ID!
-		user: User
-	}
+  type Auth {
+    token: ID!
+    user: User
+  }
 
 	type Query {
 		users: [User]!
 		user(userId: ID!): User
 		me: User
-		hobbies: [Hobby]!
+		hobbies: [Hobby]
 		hobby(hobbyId: ID!): Hobby
-		friends: [User]!
-		hobbyFans(hobbyId: ID!): [User]!
+		friends: [User]
+		hobbyFans(hobbyId: ID!): [User]
 	}
 	type Mutation {
 		# TODO:	add in picture once we know how to do so.
