@@ -16,7 +16,7 @@
   --color-bg-secondary: #12232e;
   --color-tx-primary: #32404b;
   --color-tx-secondary: #b3bdc3;
-  --color-light: #9fcce2;
+  --color-light: #dc4e4e;
   --color-dark: #11232e;
   --color-accent: linear-gradient(to right, #eb3349, #f45c43);
   --color-accent-secondary: linear-gradient(90deg, #fc466b 0%, #fd5c63 100%);
@@ -111,7 +111,9 @@ a:hover {
   background: var(--color-light);
 }
 
-
+.blackText {
+  color: rgb(0, 0, 0)
+}
 .secondary-btn {
   background: var(--color-accent);
   color: var(--color-dark);
@@ -185,17 +187,15 @@ img {
   .container {
     width: var(--container-width-md);
   }
-}
-.background {
-  height: 80vh;
-}
-Footer {
-  margin-top: 100px;
+  .background {
+    height: 700px;
+  }
 }
 
 section {
   margin-top: 6rem;
 }
+
 
 /* ********************
 *                     *
@@ -206,10 +206,21 @@ section {
   .container {
     width: var(--container-width-sm);
   }
-  Footer {
-    margin-top: 30px;
+
+  .background {
+    height: 600px;
   }
 
+  .footerText {
+    font-size: 50%;
+  }
+  h3 {
+    margin: 1rem;
+    font-size: 30%;
+  }
+  .social {
+    font-size: 60%;
+  }
 }
 
 section > h2 {

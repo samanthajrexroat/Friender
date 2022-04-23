@@ -23,7 +23,7 @@ const Footer = () => {
       </div>
       <hr />
       <div className="social">
-        <p>
+        <p className="footerText">
           People, listen up: If you’re looking for friends, want to start a
           band, or just keep it casual with group hikes, you need to be on
           Friender. With over 6 billon people in the world, it’s the place to be
@@ -89,7 +89,6 @@ const Footer = () => {
             </a>
           </div>
           <div>
-            <h3>SOCIAL</h3>
             <FooterSocial />
           </div>
         </div>
