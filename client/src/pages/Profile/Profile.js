@@ -2,12 +2,12 @@ import React from "react";
 import "./profile.css";
 import { Link, Navigate, useParams } from "react-router-dom";
 import Footer from "../../components/Footer/Footer";
-import { useQuery } from "@apollo/client";
+import { useQuery, useMutation } from "@apollo/client";
 import { QUERY_USER, QUERY_ME, QUERY_HOBBIES } from "../../utils/queries";
 import Auth from "../../utils/auth";
 import LogIn from "../../components/Modal/LogIn";
 import UserHobbies from "../../components/Modal/UserHobbies";
-import { DELETE_FRIEND } from "../../utils/mutations";
+import { REMOVE_FRIEND } from "../../utils/mutations";
 // import { createRoutesFromChildren } from "react-router-dom";
 
 // const posts = [
@@ -33,7 +33,14 @@ const Profile = () => {
     return <div>Loading...</div>;
   }
 
-  const friends = user.friends;
+  const [removeFriend, { error }] = useMutation(REMOVE_FRIEND);
+  const user_ID = user._id;
+  
+  const handleDelete = async (friend) => {
+    try {
+      const { data } = await removeFriend
+    }
+  }
 
   if (!user?._id) {
     return (
@@ -80,7 +87,10 @@ const Profile = () => {
                       {friend.firstName}
                       <div className="friendsList">
                         <div className="sm-btn-message">send message</div>
-                        <div onClick="handleDelete" className="sm-btn-delete">
+                        <div 
+                          id={friend._id}
+                          key={friend._id}
+                          onClick="handleDelete" className="sm-btn-delete">
                           Delete {friend.firstName}
                         </div>
                       </div>
