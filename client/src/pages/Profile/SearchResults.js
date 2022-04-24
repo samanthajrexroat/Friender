@@ -5,7 +5,7 @@ import { useQuery, useMutation } from "@apollo/client";
 import { QUERY_HOBBY_FANS } from "../../utils/queries";
 import AddFriend from "../../components/Modal/Addfriend";
 import { useState } from "react";
-import OutsideClickHandler from "react-outside-click-handler";
+
 
 const SearchResults = ({ globalHobbyId }) => {
 	const { error, data } = useQuery(QUERY_HOBBY_FANS, {
