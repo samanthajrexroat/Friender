@@ -6,7 +6,7 @@ import { ADD_HOBBY, REMOVE_HOBBY } from "../../utils/mutations";
 
 import Auth from "../../utils/auth";
 import SearchResults from "../../pages/Profile/SearchResults";
-import OutsideClickHandler from "react-outside-click-handler";
+
 
 const UserHobbies = () => {
 	const { loading, data } = useQuery(QUERY_ME);
