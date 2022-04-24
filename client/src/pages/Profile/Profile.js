@@ -3,7 +3,7 @@ import "./profile.css";
 import { Link, Navigate, useParams } from "react-router-dom";
 import Footer from "../../components/Footer/Footer";
 import { useMutation, useQuery } from "@apollo/client";
-import { QUERY_USER, QUERY_ME, QUERY_HOBBIES } from "../../utils/queries";
+import { QUERY_ME } from "../../utils/queries";
 import Auth from "../../utils/auth";
 import LogIn from "../../components/Modal/LogIn";
 import UserHobbies from "../../components/Modal/UserHobbies";
@@ -15,7 +15,7 @@ const Profile = () => {
 	const { loading, data } = useQuery(QUERY_ME, {
 		variables: { userId: userId },
 	});
-	const [removeFriend, { friendData }] = useMutation(REMOVE_FRIEND);
+	const [removeFriend] = useMutation(REMOVE_FRIEND);
 
 	const user = data?.me || data?.user || {};
 
@@ -26,7 +26,6 @@ const Profile = () => {
 	if (loading) {
 		return <div>Loading...</div>;
 	}
-	const friends = user.friends;
 	const user_ID = user._id;
 	const handleDelete = async (friend) => {
 		try {
