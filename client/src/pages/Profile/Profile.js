@@ -30,9 +30,12 @@ const Profile = () => {
 	const user_ID = user._id;
 	const handleDelete = async (friend) => {
 		try {
-			const { data } = await removeFriend({
-				variables: { userId: user_ID, friendId: friend },
-			});
+			const { data } = await removeFriend(
+				{
+					variables: { userId: user_ID, friendId: friend },
+				},
+				window.location.reload(false)
+			);
 		} catch (error) {
 			console.log(JSON.stringify(error));
 			throw error;
