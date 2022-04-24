@@ -50,6 +50,12 @@ h2 {
     .commentContainer {
         display: none;
     }
+    .footerText {
+        display: none;
+    }
+    .hide {
+        display: none;
+    }
 }
 
 .social {
@@ -68,3 +74,4 @@ h2 {
     align-items: flex-start;
     justify-content: space-evenly;
 }
+
