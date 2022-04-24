@@ -7,6 +7,7 @@ import { QUERY_USER, QUERY_ME, QUERY_HOBBIES } from "../../utils/queries";
 import Auth from "../../utils/auth";
 import LogIn from "../../components/Modal/LogIn";
 import UserHobbies from "../../components/Modal/UserHobbies";
+import { DELETE_FRIEND } from "../../utils/mutations";
 // import { createRoutesFromChildren } from "react-router-dom";
 
 // const posts = [
@@ -75,7 +76,15 @@ const Profile = () => {
                     // className="hobbyCard"
                     // onClick={handleClick}
                   >
-                    {friend.firstName}
+                    <div className="friendList">
+                      {friend.firstName}
+                      <div className="friendsList">
+                        <div className="sm-btn-message">send message</div>
+                        <div onClick="handleDelete" className="sm-btn-delete">
+                          Delete {friend.firstName}
+                        </div>
+                      </div>
+                    </div>
                     {/* {friend.lastName} */}
                   </div>
                 ))}
