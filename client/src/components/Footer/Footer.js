@@ -6,7 +6,7 @@ import CommentsData from "./commentsData";
 
 const Footer = () => {
   return (
-    <footer>
+    <footer className="footerBackground">
       <div className="footerContainer">
         <div className="commentContainer">
           {/* <div className="commentCard"> */}
@@ -45,14 +45,14 @@ const Footer = () => {
         </p>
         <br />
         <div className="footerInline">
-          <div>
+          <div className="hide">
             <h3>LEGAL</h3>
             <p>Privacy</p>
             <p>Terms</p>
             <p>Cookie Policy</p>
             <p>Intellectual Property</p>
           </div>
-          <div>
+          <div className="hide">
             <h3>CAREERS</h3>
             <p>Careers Portal</p>
             <p>Tech Blog</p>
