@@ -22,16 +22,16 @@ const AddFriend = hobbyFanId => {
   };
 
   return (
-    <div className="buttons">
+    <div className="friendList">
       <div
-        className="sm-btn-secondary"
+        // className="sm-btn-secondary"
         onClick={() => {
           handleClick(hobbyFanId);
         }}
       >
-        Add Friend
+        <div className="sm-btn-delete">Add Friend</div>
       </div>
-      <div className="sm-btn-secondary">Message</div>
+      <div className="sm-btn-message">Send Message</div>
     </div>
   );
 };

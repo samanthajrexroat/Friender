@@ -124,6 +124,39 @@ a:hover {
   cursor: pointer;
   transition: all 400ms ease-in;
 }
+
+.friendList{
+  justify-content: space-between;
+  display: flex;
+  /* justify-content: space-between; */
+}
+
+.sm-btn-delete {
+  background: var(--color-accent-secondary);
+  color: white;
+  margin: 3px;
+  padding: 0.2rem 0.5rem;
+  border-radius: 2rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 400ms ease-in;
+  font-size: 50%;
+  width: fit-content;
+}
+
+.sm-btn-message {
+  background: rgb(66, 196, 192);
+  color: white;
+  margin: 3px;
+  padding: 0.2rem 0.5rem;
+  border-radius: 2rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 400ms ease-in;
+  font-size: 50%;
+  width: fit-content;
+}
+
 .sm-btn {
   background: var(--color-accent-secondary);
   color: white;
@@ -135,14 +168,11 @@ a:hover {
   transition: all 400ms ease-in;
   font-size: 50%;
 }
-.buttons {
+
+/* .buttons {
   justify-content: space-evenly;
   display: flex;
-  /* position: absolute; */
-  /* position: absolute; */
-  /* bottom: 0px; */
-
-}
+} */
 
 .sm-btn-secondary {
   background: var(--color-accent-secondary);

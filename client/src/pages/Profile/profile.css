@@ -15,6 +15,8 @@ padding-top: 175px
   justify-content: center;
 }
 
+
+
 .profileCard {
   margin:1rem;
   width: 300px;
@@ -38,6 +40,7 @@ padding-top: 175px
   border-radius: 1rem;
   overflow: hidden;
 }
+
 .logInError {
   padding-top: 80px;
   /* margin-top: 100px; */
