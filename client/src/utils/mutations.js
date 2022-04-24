@@ -88,6 +88,14 @@ export const REMOVE_HOBBY = gql`
 		}
 	}
 `;
+export const REMOVE_FRIEND = gql`
+	mutation removefriend($userId: ID!, $friendId: ID!) {
+		removeFriend(userId: $userId, friendId: $friendId) {
+			_id
+			firstName
+		}
+	}
+`;
 
 export const UPDATE_USER = gql`
 	mutation updateUser($userId: ID!, $firstName: String!, $lastName: String!, $email: String!, $city: String!, $age: Int, $description: String!) {
