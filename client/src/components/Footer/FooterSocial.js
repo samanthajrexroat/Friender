@@ -1,8 +1,5 @@
 import React from "react";
 import { BsLinkedin } from "react-icons/bs";
-import { BsGithub } from "react-icons/bs";
-import { AiOutlineMail } from "react-icons/ai";
-import { VscCode } from "react-icons/vsc";
 
 const FooterSocial = () => {
   return (
