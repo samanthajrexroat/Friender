@@ -1,11 +1,1 @@
-/*              /index.html 200
-/               /Login
-/               /SignUp
-/Login          /me
-/SignUp         /me
-/me             /AddHobbies
-/AddHobbies     /me
-/me             /EditProfile
-/EditProfile    /me
-/me             /
-
+/*  /index.html 200
