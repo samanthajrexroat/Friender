@@ -9,6 +9,7 @@ const AddFriend = hobbyFanId => {
     console.log(JSON.stringify(error));
   }
   const userId = Auth.getProfile().data._id;
+  console.log(userId);
   const handleClick = async hobbyFanId => {
     try {
       const { data } = await addFriend({

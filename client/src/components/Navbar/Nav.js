@@ -20,7 +20,7 @@ const Nav = () => {
     <nav className="navInline">
       <div className="logoContainer">
         <h1>
-          <TiThMenuOutline /> Friender®{" "}
+          <TiThMenuOutline /> Frendr®{" "}
         </h1>
 
         {/* <div className="inline">
