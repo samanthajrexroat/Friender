@@ -12,6 +12,7 @@ import Nav from "./components/Navbar/Nav";
 import LogIn from "./components/Modal/LogIn";
 import SignUp from "./components/Modal/SignUp";
 import Hobbies from "./components/Modal/Hobbies";
+
 import Profile from "./pages/Profile/Profile";
 import EditProfile from "./pages/Profile/EditProfile";
 

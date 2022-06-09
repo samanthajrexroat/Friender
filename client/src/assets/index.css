@@ -45,7 +45,7 @@ body {
   /* height: 90vh; */
   background: rgb(34, 193, 195);
   background: linear-gradient(
-      0deg,
+    to bottom,
       rgba(34, 193, 195, 1) 0%,
       rgba(253, 187, 45, 1) 100%
     ),
@@ -97,18 +97,19 @@ a:hover {
 
 .primary-btn {
   background: var(--color-accent-secondary);
+  background: #ec008c;
   color: white;
   margin: 1rem;
   padding: 0.5rem 1rem;
   border-radius: 2rem;
   text-transform: uppercase;
   cursor: pointer;
-  transition: all 400ms ease-in;
+  /* transition: 400ms ease-in-out; */
   font-size: 100%;
 }
 .primary-btn:hover {
-  color: var(--color-dark);
-  background: var(--color-light);
+  color: white;
+  background: linear-gradient(170deg, #ec008c, #fc6767);
 }
 
 .blackText {
@@ -158,7 +159,23 @@ a:hover {
 }
 
 .sm-btn {
-  background: var(--color-accent-secondary);
+  background: linear-gradient(170deg, #136a8a, #265578);
+  color: white;
+  margin: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 400ms ease-in;
+  font-size: 50%;
+}
+.sm-btn:hover {
+  color: white;
+  background: linear-gradient(60deg, #136a8a, #267871);
+}
+
+.sm-btn-black {
+  background: var(--color-bg-secondary);
   color: white;
   margin: 1rem;
   padding: 0.5rem 1rem;

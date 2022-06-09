@@ -3,10 +3,12 @@ nav {
   display: flex;
   /* justify-content: space-between; */
   position: fixed;
-  left: 50%;
-  transform: translateX(-50%);
-  background: linear-gradient(to bottom, #ece9e6, #ffffff00);
+
+  /* background:   linear-gradient(to top, #ffafbd, #ffc3a0); */
+  /* border-bottom: 5px solid black; */
+  background: linear-gradient(to bottom, #c6ea24, #99f2c8);
   z-index: 999;
+
 }
 h1 {
   font-size: 2.5rem;
