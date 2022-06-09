@@ -26,7 +26,14 @@
   --container-width-sm: 90%;
 
   --transition: all 400ms ease;
+
+ 
 }
+
+
+
+
+
 
 html,
 body {
@@ -93,6 +100,24 @@ a {
 
 a:hover {
   color: var(--color-light);
+}
+
+.btn-primary-solid {
+  background: var(--color-accent-secondary);
+  background: #ec008c;
+  color: white;
+  margin: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  /* transition: 400ms ease-in-out; */
+  font-size: 100%;
+}
+
+.btn-primary-solid:hover {
+  color: white;
+  background: linear-gradient(170deg, #ec008c, #fc6767);
 }
 
 .primary-btn {
