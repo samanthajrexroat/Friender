@@ -1,23 +1,23 @@
 .profileBackground {
   min-height: 1000px;
-
   background: linear-gradient(to top, #edbc42, #ef76f8);
 }
 
 .profileContainer {
 display:inline-block;
 padding-top: 175px
- 
 }
+
 .hobbySearchResults {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
 
-
-
 .profileCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   margin:1rem;
   width: 300px;
   text-align: left;
@@ -43,14 +43,51 @@ padding-top: 175px
 
 .logInError {
   padding-top: 80px;
-  /* margin-top: 100px; */
   background: #cc1439;
   z-index: 1;
 }
 
 .friends {
-  border-top: 1px solid black;
+ overflow:scroll;
+ max-height: 250px;
 }
+
+.friend {
+  background: linear-gradient(0deg, rgba(226, 190, 223, 0.542) 0%, rgba(187, 217, 193, 0.429) 100%);
+  border-radius: 30px;
+  /* border: 2px solid black; */
+  padding: 10px;
+  padding-left: 20px;
+  margin: 10px;
+  /* box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; */
+}
+
+.friendProfile {
+  display: flex;
+  justify-content: space-between;
+}
+
+.friendImage {
+  width: 60px;
+  height: 60px;
+  border: 1px solid black;
+  border-radius: 7px
+}
+
+.friendList{
+  justify-content: space-between;
+  display: flex;
+}
+
+.friendsList {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+ .friendsList > div, button {
+   margin: 2px;
+ }
 
 .hobbiesList {
   margin: 0.1rem;
@@ -68,10 +105,8 @@ padding-top: 175px
 .fullPage {
   display: grid;
   grid-template-columns: 1fr;
-  /* grid-template-rows: repeat(5, 1fr); */
   grid-column-gap: 0px;
   grid-row-gap: 0px;
-
 }
 
 .pageFlex {
@@ -79,15 +114,10 @@ padding-top: 175px
 }
 
 .img-container {
-  /* height: 50vh;
-  width: 50vh; */
-  border: 20px;
+  border: 1px solid rgb(155, 152, 152);
   overflow: hidden;
   margin: 10px;
   max-width: 260px;
   max-height: 195px;
 }
-/* 
-.img-container img {
-  width: 100%;
-} */
+
