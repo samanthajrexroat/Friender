@@ -1,76 +1,9 @@
-// import React, { PrimaryBtn } from "react";
-// import "./nav.css";
-// import { TiThMenuOutline } from "react-icons/ti";
-// import { Link, useNavigate } from "react-router-dom";
-// // import PrimaryBtn from "../PrimaryBtn";
-
-// import Auth from "../../utils/auth";
-
-// const Nav = PrimaryBtn => {
-//   // const authToken = true;
-//   const logout = event => {
-//     event.preventDefault();
-//     console.log("cookie here!!!");
-//     Auth.logout();
-//     console.log("cookie gone!!!");
-//   };
-
-//   let navigate = useNavigate();
-
-//   return (
-//     <>
-//       {PrimaryBtn}
-//       <nav className="navInline">
-//         <div className="logoContainer">
-//           <h1>
-//             <TiThMenuOutline /> Frendr®{" "}
-//           </h1>
-//         </div>
-//         <div className="inline">
-//           {Auth.loggedIn() ? (
-//             <>
-//               <Link className="primary-btn me" to="/me">
-//                 View Profile
-//               </Link>
-
-//               <Link to="/">
-//                 <button
-//                   className="primary-btn logout"
-//                   onClick={() => {
-//                     Auth.logout();
-//                     navigate("/", { replace: true });
-//                   }}
-//                 >
-//                   Logout
-//                 </button>
-//               </Link>
-//             </>
-//           ) : (
-//             <>
-//               <Link className="primary-btn" to="/LogIn">
-//                 LogIn
-//               </Link>
-//               <Link className="primary-btn none" to="/SignUp">
-//                 Signup
-//               </Link>
-//             </>
-//           )}
-//         </div>
-//       </nav>
-//     </>
-//   );
-// };
-
-// export default Nav;
-
-// ONLY EDIT BELOW THIS LINE
-
-import React, { useState } from "react";
+import React from "react";
 import "./nav.css";
 import { TiThMenuOutline } from "react-icons/ti";
 import { Link, useNavigate } from "react-router-dom";
 import { Button } from "../Button";
-
+import { SearchBar } from "../../components/SearchBar";
 import Auth from "../../utils/auth";
 
 const Nav = () => {
@@ -94,29 +27,34 @@ const Nav = () => {
       <div className="inline">
         {Auth.loggedIn() ? (
           <>
-            <Link className="primary-btn me" to="/me">
-              View Profile
+            <Link to="/me">
+              <Button value="View Profile" type="button" />
             </Link>
 
             <Link to="/">
               <Button
+                value="Logout"
                 onClick={() => {
                   Auth.logout();
                   navigate("/", { replace: true });
                 }}
                 type="button"
-              >
-                Logout
-              </Button>
+              />
             </Link>
+            <SearchBar
+              value="value"
+              placeholder="Search Friends or Hobbies..."
+              type="input"
+            />
           </>
         ) : (
           <>
-            <Link className="primary-btn" to="/LogIn">
-              LogIn
+            <Link to="/LogIn">
+              <Button value="LogIn" type="button" />
             </Link>
-            <Link className="primary-btn none" to="/SignUp">
-              Signup
+
+            <Link to="/SignUp">
+              <Button value="Signup" type="button" />
             </Link>
           </>
         )}

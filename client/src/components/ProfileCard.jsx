@@ -1,0 +1,75 @@
+import * as React from "react";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import UserHobbies from "./Modal/UserHobbies";
+import { QUERY_ME } from "../utils/queries";
+import { Link, Navigate, useParams } from "react-router-dom";
+import { useMutation, useQuery } from "@apollo/client";
+import { REMOVE_FRIEND } from "../utils/mutations";
+import LogIn from "../components/Modal/LogIn";
+import Auth from "../utils/auth";
+import { styled } from "@mui/system";
+
+const MyComponent = styled("div")({
+  color: "darkslategray",
+  backgroundColor: "aliceblue",
+  padding: 8,
+  borderRadius: 4,
+});
+
+export const ProfileCard = () => {
+  const { userId } = useParams();
+  const { loading, data } = useQuery(QUERY_ME, {
+    variables: { userId: userId },
+  });
+  const [removeFriend] = useMutation(REMOVE_FRIEND);
+
+  const user = data?.me || data?.user || {};
+
+  if (Auth.loggedIn() && Auth.getProfile().data._id === userId) {
+    return <Navigate to="/me" />;
+  }
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+  const user_ID = user._id;
+  const handleDelete = async friend => {
+    try {
+      const { data } = await removeFriend(
+        {
+          variables: { userId: user_ID, friendId: friend },
+        },
+        window.location.reload(false)
+      );
+    } catch (error) {
+      console.log(JSON.stringify(error));
+      throw error;
+    }
+  };
+
+  if (!user?._id) {
+    return (
+      <>
+        <h4 className="logInError ">
+          You need to be logged in to see this. Use the navigation links above
+          to sign up or log in!
+        </h4>
+        <LogIn />
+      </>
+    );
+  }
+  return (
+    <MyComponent>
+      <card className="profileCard">
+        {user.firstName} {user.lastName} <br />
+        <div className="img-container">
+          {user.photo} <br />
+        </div>
+        {user.city} <br />
+        {user.age}
+        <CardContent>New Profile Card</CardContent>
+      </card>
+    </MyComponent>
+  );
+};

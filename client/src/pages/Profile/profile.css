@@ -14,18 +14,7 @@ padding-top: 175px
   justify-content: center;
 }
 
-.profileCard {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  margin:1rem;
-  width: 300px;
-  text-align: left;
-  padding: 1rem;
-  border-radius: 1rem;
-  background: linear-gradient(90deg, #ece9e6, #ffffff);
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-}
+
 
 .searchContainer {
   background: linear-gradient(to bottom, #efefef, #e9e9e9);
