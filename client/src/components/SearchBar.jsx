@@ -16,3 +16,5 @@ export const SearchBar = (placeholder, onChange, value, type) => {
     </div>
   );
 };
+
+export default SearchBar;

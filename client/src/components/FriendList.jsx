@@ -1,25 +1,14 @@
-import * as React from "react";
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
-import UserHobbies from "./Modal/UserHobbies";
-import { QUERY_ME } from "../utils/queries";
+import React from "react";
 import { Link, Navigate, useParams } from "react-router-dom";
 import { useMutation, useQuery } from "@apollo/client";
-import { REMOVE_FRIEND } from "../utils/mutations";
-import LogIn from "../components/Modal/LogIn";
+import { QUERY_ME } from "../utils/queries";
 import Auth from "../utils/auth";
-import { styled } from "@mui/system";
+import LogIn from "../components/Modal/LogIn";
+import { REMOVE_FRIEND } from "../utils/mutations";
 import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
 
-const MyComponent = styled("div")({
-  color: "darkslategray",
-  backgroundColor: "aliceblue",
-  padding: 8,
-  borderRadius: 4,
-});
-
-export const ProfileCard = () => {
+const FriendList = () => {
   const { userId } = useParams();
   const { loading, data } = useQuery(QUERY_ME, {
     variables: { userId: userId },
@@ -64,28 +53,37 @@ export const ProfileCard = () => {
   return (
     <Grid container>
       <Grid item sm={12} md={4} lg={3}>
-        <Paper
-          style={{
-            borderRadius: "12px",
-            background: "linear-gradient(to right, #ece9e6, #ffffff)",
-          }}
-          elevation="10"
-          rounded={true}
-        >
-          <card>
-            <h2>
-              {user.firstName} {user.lastName}
-            </h2>
-            <br />
-            <div className="img-container">
-              <img src={user.photo} alt={"photo of " + user.firstName} /> <br />
+        {" "}
+        <h5 className="friends">
+          <p className="blackText">Friends:</p>
+          {user.friends.map(friend => (
+            <div
+              key={friend._id}
+              value={friend._id}
+              // className="hobbyCard"
+              // onClick={handleClick}
+            >
+              <div className="friendList">
+                {friend.firstName}
+                <div className="friendsList">
+                  <div className="sm-btn-message">send message</div>
+                  <button
+                    key={friend._id}
+                    id={friend._id}
+                    onClick={() => handleDelete(friend._id)}
+                    className="sm-btn-delete"
+                  >
+                    Delete {friend.firstName}
+                  </button>
+                </div>
+              </div>
+              {/* {friend.lastName} */}
             </div>
-            {user.city} <br />
-            {user.age} <br />
-            {user.description}
-          </card>
-        </Paper>
+          ))}
+        </h5>
       </Grid>
     </Grid>
   );
 };
+
+export default FriendList;

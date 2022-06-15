@@ -4,7 +4,8 @@
 }
 
 .profileContainer {
-display:inline-block;
+display: flex;
+flex-wrap: wrap;
 padding-top: 175px
 }
 

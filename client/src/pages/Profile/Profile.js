@@ -9,6 +9,8 @@ import LogIn from "../../components/Modal/LogIn";
 import UserHobbies from "../../components/Modal/UserHobbies";
 import { REMOVE_FRIEND } from "../../utils/mutations";
 import { ProfileCard } from "../../components/ProfileCard";
+import FriendList from "../../components/FriendList";
+import SearchBar from "../../components/SearchBar";
 
 // import { createRoutesFromChildren } from "react-router-dom";
 
@@ -60,33 +62,8 @@ const Profile = () => {
       <div className="pageFlex profileBackground">
         <div className="profileContainer">
           <ProfileCard />
-          <h5 className="friends">
-            <p className="blackText">Friends:</p>
-            {user.friends.map(friend => (
-              <div
-                key={friend._id}
-                value={friend._id}
-                // className="hobbyCard"
-                // onClick={handleClick}
-              >
-                <div className="friendList">
-                  {friend.firstName}
-                  <div className="friendsList">
-                    <div className="sm-btn-message">send message</div>
-                    <button
-                      key={friend._id}
-                      id={friend._id}
-                      onClick={() => handleDelete(friend._id)}
-                      className="sm-btn-delete"
-                    >
-                      Delete {friend.firstName}
-                    </button>
-                  </div>
-                </div>
-                {/* {friend.lastName} */}
-              </div>
-            ))}
-          </h5>
+          <SearchBar placeholder="Search Friends or Hobbies..." />
+          <FriendList />
         </div>
 
         <div className="userHobbiesContainer">
