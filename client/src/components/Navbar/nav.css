@@ -10,6 +10,8 @@ nav {
   z-index: 999;
 
 }
+
+
 h1 {
   font-size: 2.5rem;
 }
@@ -17,7 +19,9 @@ h1 {
   display: flex;
   justify-content: left;
   align-items: center;
+  font-size: 0.6rem;
 }
+
 
 .navInline {
   align-items: center;

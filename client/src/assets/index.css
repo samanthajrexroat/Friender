@@ -115,7 +115,7 @@ a:hover {
   background: var(--color-accent-secondary);
   background: #ec008c;
   color: white;
-  margin: 1rem;
+  margin: 0.5rem;
   padding: 0.5rem 1rem;
   border-radius: 2rem;
   text-transform: uppercase;
@@ -217,8 +217,6 @@ a:hover {
   font-size: 50%;
 }
 
-
-
 .sm-btn-secondary {
   background: var(--color-accent-secondary);
   color: white;
@@ -235,6 +233,13 @@ a:hover {
 img {
   max-width: 255px;
   
+}
+
+.profileCard {
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  display: inline;
 }
 
 .homepageGrid {
@@ -255,12 +260,15 @@ img {
 
 .searchBar {
   display: flex;
+  padding: 0px 5px 0px 5px;
   align-items: center;
   background: #ec008c;
-  margin: 1rem;
-  padding: 0.5rem 1rem;
+  margin: .5rem;
   border-radius: 2rem;
+  color: white;
 }
+
+
 
 
 /* *********************

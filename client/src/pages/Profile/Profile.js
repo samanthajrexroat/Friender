@@ -57,71 +57,53 @@ const Profile = () => {
 
   return (
     <div>
-      <div className="fullPage">
-        <div className="pageFlex profileBackground">
-          <div className="profileContainer">
-            <ProfileCard />
-            <div className="profileCard">
-              <h2>{user.firstName}</h2>
-
-              <div className="profile">
-                <div className="img-container profileImage ">
-                  <img src={user.photo} alt={"photo of " + user.firstName} />
-                </div>
-              </div>
-              <h4>Location: {user.city}</h4>
-
-              <h5>Age: {user.age}</h5>
-              <br />
-              <h4>About:</h4>
-              <h5>{user.description}</h5>
-              <br />
-              <h5 className="friends">
-                <p className="blackText">Friends:</p>
-                {user.friends.map(friend => (
-                  <div
-                    key={friend._id}
-                    value={friend._id}
-                    // className="hobbyCard"
-                    // onClick={handleClick}
-                  >
-                    <div className="friendList">
-                      {friend.firstName}
-                      <div className="friendsList">
-                        <div className="sm-btn-message">send message</div>
-                        <button
-                          key={friend._id}
-                          id={friend._id}
-                          onClick={() => handleDelete(friend._id)}
-                          className="sm-btn-delete"
-                        >
-                          Delete {friend.firstName}
-                        </button>
-                      </div>
-                    </div>
-                    {/* {friend.lastName} */}
+      <div className="pageFlex profileBackground">
+        <div className="profileContainer">
+          <ProfileCard />
+          <h5 className="friends">
+            <p className="blackText">Friends:</p>
+            {user.friends.map(friend => (
+              <div
+                key={friend._id}
+                value={friend._id}
+                // className="hobbyCard"
+                // onClick={handleClick}
+              >
+                <div className="friendList">
+                  {friend.firstName}
+                  <div className="friendsList">
+                    <div className="sm-btn-message">send message</div>
+                    <button
+                      key={friend._id}
+                      id={friend._id}
+                      onClick={() => handleDelete(friend._id)}
+                      className="sm-btn-delete"
+                    >
+                      Delete {friend.firstName}
+                    </button>
                   </div>
-                ))}
-              </h5>
-            </div>
-          </div>
-
-          <div className="userHobbiesContainer">
-            <div>
-              <p className="blackText">Add Hobbies to Search for Friends!</p>
-              <Link to="/AddHobbies">
-                <button className="sm-btn">Add hobbies</button>
-              </Link>
-              <Link to="/EditProfile">
-                <button className="sm-btn">Edit profile</button>
-              </Link>
-            </div>
-
-            <UserHobbies />
-          </div>
+                </div>
+                {/* {friend.lastName} */}
+              </div>
+            ))}
+          </h5>
         </div>
-        <Footer />
+
+        <div className="userHobbiesContainer">
+          <div>
+            <p className="blackText">Add Hobbies to Search for Friends!</p>
+            <Link to="/AddHobbies">
+              <button className="sm-btn">Add hobbies</button>
+            </Link>
+            <Link to="/EditProfile">
+              <button className="sm-btn">Edit profile</button>
+            </Link>
+          </div>
+
+          <UserHobbies />
+        </div>
       </div>
+      <Footer />
     </div>
   );
 };

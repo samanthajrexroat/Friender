@@ -9,6 +9,8 @@ import { REMOVE_FRIEND } from "../utils/mutations";
 import LogIn from "../components/Modal/LogIn";
 import Auth from "../utils/auth";
 import { styled } from "@mui/system";
+import Grid from "@mui/material/Grid";
+import Paper from "@mui/material/Paper";
 
 const MyComponent = styled("div")({
   color: "darkslategray",
@@ -60,16 +62,26 @@ export const ProfileCard = () => {
     );
   }
   return (
-    <MyComponent>
-      <card className="profileCard">
-        {user.firstName} {user.lastName} <br />
-        <div className="img-container">
-          {user.photo} <br />
-        </div>
-        {user.city} <br />
-        {user.age}
-        <CardContent>New Profile Card</CardContent>
-      </card>
-    </MyComponent>
+    <Grid container>
+      <Grid item sm={12} md={4} lg={4}>
+        <Paper>
+          <MyComponent>
+            <card className="profileCard">
+              <h2>
+                {user.firstName} {user.lastName}
+              </h2>
+              <br />
+              <div className="img-container">
+                <img src={user.photo} alt={"photo of " + user.firstName} />{" "}
+                <br />
+              </div>
+              {user.city} <br />
+              {user.age} <br />
+              {user.description}
+            </card>
+          </MyComponent>
+        </Paper>
+      </Grid>
+    </Grid>
   );
 };

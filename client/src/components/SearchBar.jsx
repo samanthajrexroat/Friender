@@ -6,12 +6,12 @@ export const SearchBar = (placeholder, onChange, value, type) => {
   return (
     <div className="searchBar">
       <SearchOutlinedIcon />
-
       <Input
-        placeholder={placeholder}
         onChange={onChange}
         value={value}
         type={type}
+        placeholder={placeholder}
+        disableUnderline="true"
       />
     </div>
   );
