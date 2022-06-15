@@ -235,12 +235,7 @@ img {
   
 }
 
-.profileCard {
-  justify-content: center;
-  align-items: center;
-  margin-top: 10px;
-  display: inline;
-}
+
 
 .homepageGrid {
   display: grid;
