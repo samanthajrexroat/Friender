@@ -8,6 +8,8 @@ import Auth from "../../utils/auth";
 import LogIn from "../../components/Modal/LogIn";
 import UserHobbies from "../../components/Modal/UserHobbies";
 import { REMOVE_FRIEND } from "../../utils/mutations";
+import { ProfileCard } from "../../components/ProfileCard";
+
 // import { createRoutesFromChildren } from "react-router-dom";
 
 const Profile = () => {
@@ -58,6 +60,7 @@ const Profile = () => {
       <div className="fullPage">
         <div className="pageFlex profileBackground">
           <div className="profileContainer">
+            <ProfileCard />
             <div className="profileCard">
               <h2>{user.firstName}</h2>
 
