@@ -6,40 +6,30 @@
 .profileContainer {
 display: flex;
 flex-wrap: wrap;
-padding-top: 175px
+padding-top: 110px;
+justify-content: space-between;
+width: 100%;
 }
 
-.hobbySearchResults {
+Card {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-
-
-.searchContainer {
-  background: linear-gradient(to bottom, #efefef, #e9e9e9);
-  width: 100vw;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.profileImage {
-  width: 250px;
-  border-radius: 1rem;
-  overflow: hidden;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 10px;
 }
 
 .logInError {
-  padding-top: 80px;
+  padding-top: 100px;
   background: #cc1439;
   z-index: 1;
 }
 
 .friends {
+  display: flex;
+  flex-direction: column;
  overflow:scroll;
- max-height: 250px;
+ max-height: fit-content;
+ padding: 10px;
 }
 
 .friend {

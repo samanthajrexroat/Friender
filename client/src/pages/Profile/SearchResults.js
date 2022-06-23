@@ -5,6 +5,7 @@ import { useQuery, useMutation } from "@apollo/client";
 import { QUERY_HOBBY_FANS } from "../../utils/queries";
 import AddFriend from "../../components/Modal/Addfriend";
 import { useState } from "react";
+import Grid from "@mui/material/Grid";
 
 const SearchResults = ({ globalHobbyId }) => {
   const { error, data } = useQuery(QUERY_HOBBY_FANS, {
@@ -21,7 +22,7 @@ const SearchResults = ({ globalHobbyId }) => {
   console.log(hobbyFans);
 
   return (
-    <>
+    <Grid item>
       {hobbyFans.map(hobbyFan => (
         <div className="profileCard" key={hobbyFan._id} id={hobbyFan._id}>
           <h2>{hobbyFan.firstName}</h2>
@@ -39,7 +40,7 @@ const SearchResults = ({ globalHobbyId }) => {
           <AddFriend hobbyFanId={hobbyFan._id} />
         </div>
       ))}
-    </>
+    </Grid>
   );
 };
 

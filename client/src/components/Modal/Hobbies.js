@@ -33,6 +33,11 @@ const Hobbies = () => {
     }
   };
 
+  const hobbyValue = val =>
+    searchTerm === ""
+      ? val.hobbyName
+      : val.hobbyName.toLowerCase().includes(searchTerm);
+
   return (
     <div className="profileBackground">
       <div className="hobbyModal">
@@ -48,33 +53,21 @@ const Hobbies = () => {
               <div> Loading...</div>
             ) : (
               <h5 className="hobbiesContainer">
-                {hobbies
-                  .filter(val => {
-                    if (searchTerm === "") {
-                      return val;
-                    } else if (
-                      val.hobbyName
-                        .toLowerCase()
-                        .includes(searchTerm.toLowerCase())
-                    ) {
-                      return val;
-                    }
-                  })
-                  .map(({ _id, hobbyName }) => {
-                    return (
-                      <div
-                        className="hobbyCard"
-                        key={_id}
-                        value={_id}
-                        name={hobbyName}
-                        onClick={() => {
-                          handleClick(_id);
-                        }}
-                      >
-                        {hobbyName}
-                      </div>
-                    );
-                  })}
+                {hobbies.filter(hobbyValue).map(({ _id, hobbyName }) => {
+                  return (
+                    <div
+                      className="hobbyCard"
+                      key={_id}
+                      value={_id}
+                      name={hobbyName}
+                      onClick={() => {
+                        handleClick(_id);
+                      }}
+                    >
+                      {hobbyName}
+                    </div>
+                  );
+                })}
               </h5>
             )}
             <form className="logInForm">
