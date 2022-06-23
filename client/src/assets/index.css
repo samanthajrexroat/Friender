@@ -20,13 +20,22 @@
   --color-dark: #11232e;
   --color-accent: linear-gradient(to right, #eb3349, #f45c43);
   --color-accent-secondary: linear-gradient(90deg, #fc466b 0%, #fd5c63 100%);
+  --color-btn-primary: linear-gradient(90deg, #fc466b 0%, #fd5c63 100%);
+  --color-btn-primary-hover: linear-gradient(90deg, #fc466b 0%, #fd5c63 100%);
 
   --container-width-lg: 75%;
   --container-width-md: 82%;
   --container-width-sm: 90%;
 
   --transition: all 400ms ease;
+
+ 
 }
+
+
+
+
+
 
 html,
 body {
@@ -77,9 +86,15 @@ section {
   margin-top: 6rem;
 }
 
-.blur {
-  filter: blur(1px);
-  -webkit-filter: blur(1px);
+
+/* **************************
+*                           *
+*    TEXT COLOR AND SIZE    *
+*                           *
+************************** */
+
+.blackText {
+  color: rgb(0, 0, 0)
 }
 
 /* ************************
@@ -87,6 +102,7 @@ section {
 *    BUTTONS AND LINKS    *
 *                         *
 ************************ */
+
 a {
   transition: var(--transition);
 }
@@ -95,8 +111,26 @@ a:hover {
   color: var(--color-light);
 }
 
-.primary-btn {
+.btn-primary-solid {
   background: var(--color-accent-secondary);
+  background: #ec008c;
+  color: white;
+  margin: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  /* transition: 400ms ease-in-out; */
+  font-size: 100%;
+}
+
+.btn-primary-solid:hover {
+  color: white;
+  background: linear-gradient(170deg, #ec008c, #fc6767);
+}
+
+.primary-btn {
+  background: var(--color-btn-primary);
   background: #ec008c;
   color: white;
   margin: 1rem;
@@ -109,12 +143,9 @@ a:hover {
 }
 .primary-btn:hover {
   color: white;
-  background: linear-gradient(170deg, #ec008c, #fc6767);
+  background: var(--color-btn-primary-hover)
 }
 
-.blackText {
-  color: rgb(0, 0, 0)
-}
 .secondary-btn {
   background: var(--color-accent);
   color: var(--color-dark);
@@ -186,11 +217,6 @@ a:hover {
   font-size: 50%;
 }
 
-/* .buttons {
-  justify-content: space-evenly;
-  display: flex;
-} */
-
 .sm-btn-secondary {
   background: var(--color-accent-secondary);
   color: white;
@@ -209,6 +235,8 @@ img {
   
 }
 
+
+
 .homepageGrid {
   display: grid;
   grid-template-columns: 1fr;
@@ -224,6 +252,21 @@ img {
 }
 .HPdiv1 { grid-area: 1 / 1 / 2 / 2; }
 .HPdiv2 { grid-area: 2 / 1 / 3 / 2; }
+
+.searchBar {
+  display: flex;
+  padding: 0px 5px 0px 5px;
+  align-items: center;
+  background: #ec008c;
+  margin: .5rem;
+  border-radius: 2rem;
+  color: white;
+  max-height: 30px;
+  width: fit-content;
+}
+
+
+
 
 /* *********************
 *                      *
