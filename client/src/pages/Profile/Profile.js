@@ -11,6 +11,7 @@ import { REMOVE_FRIEND } from "../../utils/mutations";
 import { ProfileCard } from "../../components/ProfileCard";
 import FriendList from "../../components/FriendList";
 import SearchBar from "../../components/SearchBar";
+import Grid from "@mui/material/Grid";
 
 // import { createRoutesFromChildren } from "react-router-dom";
 
@@ -59,12 +60,14 @@ const Profile = () => {
 
   return (
     <div>
-      <div className="pageFlex profileBackground">
-        <div className="profileContainer">
+      <div className="pageFlex profileBackground profileContainer">
+        <Grid container>
           <ProfileCard />
           <SearchBar placeholder="Search Friends or Hobbies..." />
-          <FriendList />
-        </div>
+          <Grid item>
+            <FriendList />
+          </Grid>
+        </Grid>
 
         <div className="userHobbiesContainer">
           <div>

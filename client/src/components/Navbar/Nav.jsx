@@ -43,7 +43,6 @@ const Nav = () => {
                   type="button"
                 />
               </Link>
-              <SearchBar placeholder="Search Friends or Hobbies..." />
             </>
           ) : (
             <>

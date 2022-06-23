@@ -62,30 +62,36 @@ export const ProfileCard = () => {
     );
   }
   return (
-    <Grid container>
-      <Grid item sm={12} md={4} lg={3}>
-        <Paper
-          style={{
-            borderRadius: "12px",
-            background: "linear-gradient(to right, #ece9e6, #ffffff)",
-          }}
-          elevation="10"
-          rounded={true}
-        >
-          <card>
-            <h2>
-              {user.firstName} {user.lastName}
-            </h2>
-            <br />
-            <div className="img-container">
-              <img src={user.photo} alt={"photo of " + user.firstName} /> <br />
-            </div>
-            {user.city} <br />
-            {user.age} <br />
-            {user.description}
-          </card>
-        </Paper>
-      </Grid>
+    <Grid item sm={12} md={4} lg={3}>
+      <Paper
+        style={{
+          borderRadius: "12px",
+          background: "linear-gradient(to right, #ece9e6, #ffffff)",
+        }}
+        elevation="10"
+        rounded={true}
+      >
+        <card>
+          <h2>
+            {user.firstName} {user.lastName}
+          </h2>
+          <br />
+          <div className="img-container">
+            <img src={user.photo} alt={"photo of " + user.firstName} /> <br />
+          </div>
+          <h3>Location: {user.city}</h3>
+          <h4>Age: {user.age}</h4>
+          <br />
+          <h4 style={{ borderBottom: "1px solid" }}>
+            About:
+            <br /> {user.description}
+          </h4>
+          <br />
+
+          <h4>Friends: Number</h4>
+          <h4>Hobbies: Number</h4>
+        </card>
+      </Paper>
     </Grid>
   );
 };

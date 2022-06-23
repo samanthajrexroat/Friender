@@ -261,6 +261,8 @@ img {
   margin: .5rem;
   border-radius: 2rem;
   color: white;
+  max-height: 30px;
+  width: fit-content;
 }
 
 
