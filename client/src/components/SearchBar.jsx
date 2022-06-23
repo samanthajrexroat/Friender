@@ -1,19 +1,51 @@
 import React from "react";
-import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
+import "../assets/index.css";
+
 import Input from "@mui/material/Input";
+import Grid from "@mui/material/Grid";
+import Paper from "@mui/material/Paper";
+
+import AddPhotoAlternateIcon from "@mui/icons-material/AddPhotoAlternate";
+import OndemandVideoIcon from "@mui/icons-material/OndemandVideo";
+import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 
 export const SearchBar = (placeholder, onChange, value, type) => {
   return (
-    <div className="searchBar">
-      <SearchOutlinedIcon />
-      <Input
-        onChange={onChange}
-        value={value}
-        type={type}
-        placeholder={placeholder}
-        disableUnderline="true"
-      />
-    </div>
+    <Grid sm={12} md={4} lg={6}>
+      <Grid item ClassName="searchBarContainer">
+        <Paper
+          elevation={3}
+          style={{
+            margin: "10px",
+            borderRadius: "12px",
+            background: "linear-gradient(to right, #ece9e6, #ffffff)",
+            justifyContent: "space-evenly",
+            padding: "10px",
+          }}
+        >
+          <div className="searchBar">
+            <Input
+              onChange={onChange}
+              value={value}
+              type={type}
+              placeholder="Write A Post"
+              disableUnderline="true"
+            />
+          </div>
+          <div className="searchIcons">
+            <div>
+              <AddPhotoAlternateIcon /> Photo
+            </div>
+            <div>
+              <OndemandVideoIcon /> Video
+            </div>
+            <div>
+              <CalendarMonthIcon /> Event
+            </div>
+          </div>
+        </Paper>
+      </Grid>
+    </Grid>
   );
 };
 
