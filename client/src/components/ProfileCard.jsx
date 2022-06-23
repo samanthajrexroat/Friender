@@ -28,6 +28,9 @@ export const ProfileCard = () => {
 
   const user = data?.me || data?.user || {};
 
+  const errorMessage =
+    "You need to be logged in to see this. Use the navigation links above to sign up or log in!";
+
   if (Auth.loggedIn() && Auth.getProfile().data._id === userId) {
     return <Navigate to="/me" />;
   }
@@ -56,19 +59,21 @@ export const ProfileCard = () => {
         <h4 className="logInError ">
           You need to be logged in to see this. Use the navigation links above
           to sign up or log in!
+          {errorMessage}
         </h4>
         <LogIn />
       </>
     );
   }
   return (
-    <Grid item sm={12} md={4} lg={3}>
+    <Grid item sm={12} md={4} lg={3} ClassName="profileCard">
       <Paper
+        elevation={3}
         style={{
+          margin: "10px",
           borderRadius: "12px",
           background: "linear-gradient(to right, #ece9e6, #ffffff)",
         }}
-        elevation="10"
         rounded={true}
       >
         <card>

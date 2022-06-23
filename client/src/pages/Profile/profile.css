@@ -4,11 +4,10 @@
 }
 
 .profileContainer {
-display: flex;
 flex-wrap: wrap;
 padding-top: 110px;
 justify-content: space-between;
-width: 100%;
+width:100vw;  
 }
 
 Card {
