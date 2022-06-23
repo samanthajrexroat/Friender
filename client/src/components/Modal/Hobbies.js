@@ -55,17 +55,19 @@ const Hobbies = () => {
               <h5 className="hobbiesContainer">
                 {hobbies.filter(hobbyValue).map(({ _id, hobbyName }) => {
                   return (
-                    <div
-                      className="hobbyCard"
-                      key={_id}
-                      value={_id}
-                      name={hobbyName}
-                      onClick={() => {
-                        handleClick(_id);
-                      }}
-                    >
-                      {hobbyName}
-                    </div>
+                    <>
+                      <div
+                        className="hobbyCard"
+                        key={_id}
+                        value={_id}
+                        name={hobbyName}
+                        onClick={() => {
+                          handleClick(_id);
+                        }}
+                      >
+                        {hobbyName}
+                      </div>
+                    </>
                   );
                 })}
               </h5>

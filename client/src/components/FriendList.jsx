@@ -51,38 +51,38 @@ const FriendList = () => {
     );
   }
   return (
-    <Grid item>
-      <Paper>
+    <Grid>
+      <Paper
+        elevation={3}
+        style={{
+          margin: "10px",
+          borderRadius: "12px",
+          background: "linear-gradient(to right, #ece9e6, #ffffff)",
+        }}
+      >
         <card>
-          <div className="friends">
-            <h5 className="friends">
-              <p className="blackText">Friends:</p>
-              {user.friends.map(friend => (
-                <div
-                  key={friend._id}
-                  value={friend._id}
-                  // className="hobbyCard"
-                  // onClick={handleClick}
-                >
-                  <div className="friendList">
-                    {friend.firstName}
-                    <div className="friendsList">
-                      <div className="sm-btn-message">send message</div>
-                      <button
-                        key={friend._id}
-                        id={friend._id}
-                        onClick={() => handleDelete(friend._id)}
-                        className="sm-btn-delete"
-                      >
-                        Delete {friend.firstName}
-                      </button>
-                    </div>
+          <h5 className="friends">
+            <p className="blackText">Friends:</p>
+            {user.friends.map(friend => (
+              <div key={friend._id} value={friend._id}>
+                <div className="friendList">
+                  {friend.firstName}
+                  <div className="friendsList">
+                    <div className="sm-btn-message">send message</div>
+                    <button
+                      key={friend._id}
+                      id={friend._id}
+                      onClick={() => handleDelete(friend._id)}
+                      className="sm-btn-delete"
+                    >
+                      Delete {friend.firstName}
+                    </button>
                   </div>
-                  {/* {friend.lastName} */}
                 </div>
-              ))}
-            </h5>
-          </div>
+                {/* {friend.lastName} */}
+              </div>
+            ))}
+          </h5>
         </card>
       </Paper>
     </Grid>
