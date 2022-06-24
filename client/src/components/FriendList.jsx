@@ -7,6 +7,7 @@ import LogIn from "../components/Modal/LogIn";
 import { REMOVE_FRIEND } from "../utils/mutations";
 import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
+import Card from "@mui/material/Card";
 
 const FriendList = () => {
   const { userId } = useParams();
@@ -60,7 +61,7 @@ const FriendList = () => {
           background: "linear-gradient(to right, #ece9e6, #ffffff)",
         }}
       >
-        <card>
+        <Card>
           <h5 className="friends">
             <p className="blackText">Friends:</p>
             {user.friends.map(friend => (
@@ -83,7 +84,7 @@ const FriendList = () => {
               </div>
             ))}
           </h5>
-        </card>
+        </Card>
       </Paper>
     </Grid>
   );

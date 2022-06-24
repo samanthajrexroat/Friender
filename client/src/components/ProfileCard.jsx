@@ -64,7 +64,7 @@ export const ProfileCard = () => {
 		);
 	}
 	return (
-		<Grid item sm={12} md={4} lg={3} ClassName="profileCard">
+		<Grid item sm={12} md={4} lg={3} className="profileCard">
 			<Paper
 				elevation={3}
 				style={{
@@ -72,15 +72,16 @@ export const ProfileCard = () => {
 					borderRadius: "12px",
 					background: "linear-gradient(to right, #ece9e6, #ffffff)",
 				}}
-				rounded={true}
+				// This is throwing an error? Not sure MJT
+				rounded="true"
 			>
-				<card>
+				<Card>
 					<h2>
 						{user.firstName} {user.lastName}
 					</h2>
 					<br />
 					<div className="img-container">
-						<img src={user.photo} alt={"photo of " + user.firstName} /> <br />
+						<img src={user.photo} alt={"photo of " + user.firstName} id="profile-image" /> <br />
 					</div>
 					<h3>Location: {user.city}</h3>
 					<h4>Age: {user.age}</h4>
@@ -93,7 +94,10 @@ export const ProfileCard = () => {
 
 					<h4>Friends: {user.friends.length}</h4>
 					<h4>Hobbies: {user.hobbies.length}</h4>
-				</card>
+					<Link to="/EditProfile">
+						<button className="sm-btn">Edit profile</button>
+					</Link>
+				</Card>
 			</Paper>
 		</Grid>
 	);

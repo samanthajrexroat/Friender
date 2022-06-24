@@ -75,9 +75,7 @@ const Profile = () => {
             <Link to="/AddHobbies">
               <button className="sm-btn">Add hobbies</button>
             </Link>
-            <Link to="/EditProfile">
-              <button className="sm-btn">Edit profile</button>
-            </Link>
+            
           </div>
 
           <UserHobbies />

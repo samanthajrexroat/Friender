@@ -12,7 +12,7 @@ import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 export const SearchBar = (placeholder, onChange, value, type) => {
   return (
     <Grid sm={12} md={4} lg={6}>
-      <Grid item ClassName="searchBarContainer">
+      <Grid item className="searchBarContainer">
         <Paper
           elevation={3}
           style={{
@@ -29,7 +29,7 @@ export const SearchBar = (placeholder, onChange, value, type) => {
               value={value}
               type={type}
               placeholder="Write A Post"
-              disableUnderline="true"
+              disableUnderline={true}
             />
           </div>
           <div className="searchIcons">
