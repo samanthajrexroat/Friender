@@ -72,7 +72,6 @@ export const ProfileCard = () => {
 					borderRadius: "12px",
 					background: "linear-gradient(to right, #ece9e6, #ffffff)",
 				}}
-				// This is throwing an error? Not sure MJT
 				rounded="true"
 			>
 				<Card>

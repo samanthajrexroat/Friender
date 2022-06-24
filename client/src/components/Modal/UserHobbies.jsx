@@ -9,31 +9,31 @@ import SearchResults from "../../pages/Profile/SearchResults";
 import { Link, Navigate, useParams } from "react-router-dom";
 
 const UserHobbies = () => {
-  const { loading, data } = useQuery(QUERY_ME);
+	const { loading, data } = useQuery(QUERY_ME);
 
-  const [hobbyId, setHobbyId, updateList] = useState("");
+	const [hobbyId, setHobbyId, updateList] = useState("");
 
-  const userId = Auth.getProfile().data._id;
-  const user = data?.me || data?.user || {};
-  if (loading) {
-    return <div>Loading...</div>;
-  }
+	const userId = Auth.getProfile().data._id;
+	const user = data?.me || data?.user || {};
+	if (loading) {
+		return <div>Loading...</div>;
+	}
 
-  const handleClick = event => {
-    const hobbyId = event.target.id;
-    setHobbyId(hobbyId);
-  };
+	const handleClick = (event) => {
+		const hobbyId = event.target.id;
+		setHobbyId(hobbyId);
+	};
 
-  const handleRemoveHobby = e => {
-    const name = e.target.getAttribute("name");
-    updateList(hobbyId.filter(hobby => hobby._id !== name));
-  };
+	const handleRemoveHobby = (e) => {
+		const name = e.target.getAttribute("name");
+		updateList(hobbyId.filter((hobby) => hobby._id !== name));
+	};
 
-  return (
+	return (
 		<>
 			<Grid container sm={12} md={4} lg={3} className="userHobbies">
-        <p className="blackText">Add Hobbies to Search for Friends!</p>
-        <br/>
+				<h4 className="blackText">Add Hobbies to Search for Friends!</h4>
+				<br />
 				<Link to="/AddHobbies">
 					<button className="sm-btn">Add hobbies</button>
 				</Link>
