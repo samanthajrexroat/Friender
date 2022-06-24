@@ -6,6 +6,7 @@ import { QUERY_HOBBY_FANS } from "../../utils/queries";
 import AddFriend from "../../components/Modal/Addfriend";
 import { useState } from "react";
 import Grid from "@mui/material/Grid";
+import Paper from "@mui/material/Paper";
 
 const SearchResults = ({ globalHobbyId }) => {
   const { error, data } = useQuery(QUERY_HOBBY_FANS, {
@@ -22,9 +23,19 @@ const SearchResults = ({ globalHobbyId }) => {
   console.log(hobbyFans);
 
   return (
-    <Grid item>
+    <Grid container>
+    
       {hobbyFans.map(hobbyFan => (
-        <div className="profileCard" key={hobbyFan._id} id={hobbyFan._id}>
+            <Paper item 
+            elevation={3}
+            style={{
+              margin: "10px",
+              borderRadius: "12px",
+              background: "linear-gradient(to right, #ece9e6, #ffffff)",
+            }}
+            rounded={true}
+          >
+        <div ClassName="profileCard" key={hobbyFan._id} id={hobbyFan._id}>
           <h2>{hobbyFan.firstName}</h2>
           <div className="profile">
             <div className="img-container">
@@ -39,6 +50,7 @@ const SearchResults = ({ globalHobbyId }) => {
           <h5>{hobbyFan.description}</h5>
           <AddFriend hobbyFanId={hobbyFan._id} />
         </div>
+        </Paper>
       ))}
     </Grid>
   );
