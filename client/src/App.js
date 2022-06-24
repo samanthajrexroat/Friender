@@ -10,7 +10,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import Nav from "./components/Navbar/Nav";
 import LogIn from "./components/Modal/LogIn";
-import SignUp from "./components/Modal/SignUp";
+import Signup from "./components/Modal/SignUp";
 import Hobbies from "./components/Modal/Hobbies";
 
 import Profile from "./pages/Profile/Profile";
@@ -46,7 +46,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />}></Route>
             <Route path="/LogIn" element={<LogIn />}></Route>
-            <Route path="/SignUp" element={<SignUp />}></Route>
+            <Route path="/SignUp" element={<Signup />}></Route>
             <Route path="/me" element={<Profile />}></Route>
             {/* <Route path="/User/userId" element={<Profile />}></Route> */}
             <Route path="/EditProfile" element={<EditProfile />}></Route>

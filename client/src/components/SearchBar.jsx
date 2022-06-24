@@ -28,7 +28,7 @@ export const SearchBar = (placeholder, onChange, value, type) => {
               onChange={onChange}
               value={value}
               type={type}
-              placeholder="Write A Post"
+              placeholder="  Write A Post"
               disableUnderline={true}
             />
           </div>

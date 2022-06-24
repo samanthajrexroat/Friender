@@ -3,9 +3,10 @@ import "./modal.css";
 import { useQuery, selectHttpOptionsAndBodyInternal } from "@apollo/client";
 import { QUERY_ME } from "../../utils/queries";
 import { ADD_HOBBY, REMOVE_HOBBY } from "../../utils/mutations";
-
+import Grid from "@mui/material/Grid";
 import Auth from "../../utils/auth";
 import SearchResults from "../../pages/Profile/SearchResults";
+import { Link, Navigate, useParams } from "react-router-dom";
 
 const UserHobbies = () => {
   const { loading, data } = useQuery(QUERY_ME);
@@ -29,37 +30,31 @@ const UserHobbies = () => {
   };
 
   return (
-    <>
-      <h5 className="userHobbies">
-        <div className="inline">
-          {user.hobbies.map(hobby => (
-            <div
-              id={hobby._id}
-              key={hobby._id}
-              value={hobby.hobbyName}
-              className="hobbyBtn"
-              onClick={handleClick}
-            >
-              {hobby.hobbyName}
-              <div
-                key={hobby._id}
-                className="closeIcon black"
-                name={hobby.hobbyName}
-                onClick={handleRemoveHobby}
-              >
-                <div key={hobby._id} className="tab">
-                  {" "}
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </h5>
-      <div className="hobbySearchResults">
-        <SearchResults globalHobbyId={hobbyId} />
-      </div>
-    </>
-  );
+		<>
+			<Grid container sm={12} md={4} lg={3} className="userHobbies">
+        <p className="blackText">Add Hobbies to Search for Friends!</p>
+        <br/>
+				<Link to="/AddHobbies">
+					<button className="sm-btn">Add hobbies</button>
+				</Link>
+				<div className="inline">
+					{user.hobbies.map((hobby) => (
+						<div id={hobby._id} key={hobby._id} value={hobby.hobbyName} className="hobbyBtn" onClick={handleClick}>
+							{hobby.hobbyName}
+							<div key={hobby._id} className="closeIcon black" name={hobby.hobbyName} onClick={handleRemoveHobby}>
+								<div key={hobby._id} className="tab">
+									{" "}
+								</div>
+							</div>
+						</div>
+					))}
+				</div>
+			</Grid>
+			<div className="hobbySearchResults">
+				<SearchResults globalHobbyId={hobbyId} />
+			</div>
+		</>
+	);
 };
 
 export default UserHobbies;
