@@ -65,29 +65,17 @@ const Profile = () => {
         <Grid container className="profileStretch">
           <ProfileCard />
           <SearchBar placeholder="Search Friends or Hobbies..." />
-          <Grid item sm={12} md={4} lg={3}>
+          {/* <Grid item sm={12} md={4} lg={3}> */}
             <FriendList />
-          </Grid>
+          
         </Grid>
 
         <div className="userHobbiesContainer">
-          <Paper
-            elevation={5}
-            style={{
-              padding: "10px",
-              margin: "10px",
-              borderRadius: "12px",
-              background: "linear-gradient(to right, #ece9e6, #ffffff)",
-            }}
-            rounded="true"
-          >
             <p className="blackText">Add Hobbies to Search for Friends!</p>
             <Link to="/AddHobbies">
               <button className="sm-btn">Add hobbies</button>
             </Link>
             <UserHobbies />
-
-          </Paper>
         </div>
       </div>
       <Footer />
