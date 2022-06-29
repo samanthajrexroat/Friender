@@ -52,7 +52,7 @@ const FriendList = () => {
     );
   }
   return (
-    <Grid >
+    <Grid>
       <Paper
         elevation={3}
         style={{
@@ -61,7 +61,7 @@ const FriendList = () => {
           background: "linear-gradient(to right, #ece9e6, #ffffff)",
         }}
       >
-        <Card>
+        <div>
           <h5 className="friends">
             <p className="blackText">Friends:</p>
             {user.friends.map(friend => (
@@ -80,11 +80,10 @@ const FriendList = () => {
                     </button>
                   </div>
                 </div>
-                
               </div>
             ))}
           </h5>
-        </Card>
+        </div>
       </Paper>
     </Grid>
   );

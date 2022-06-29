@@ -16,7 +16,6 @@ export const SearchBar = (placeholder, onChange, value, type) => {
         <Paper
           elevation={3}
           style={{
-            margin: "10px",
             borderRadius: "10px",
             background: "linear-gradient(to right, #ece9e6, #ffffff)",
             justifyContent: "space-evenly",
