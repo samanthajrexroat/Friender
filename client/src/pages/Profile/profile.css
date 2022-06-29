@@ -3,6 +3,9 @@
 	background: linear-gradient(to top, #edbc42, #ef76f8);
 }
 
+.profileStretch {
+	justify-content: space-between;
+}
 .profileContainer {
 	flex-wrap: wrap;
 	padding-top: 110px;
