@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./modal.css";
 import { useQuery, useMutation } from "@apollo/client";
 import { QUERY_HOBBIES } from "../../utils/queries";
+import { QUERY_ME } from "../../utils/queries";
 import { ADD_HOBBY } from "../../utils/mutations";
 import { Link } from "react-router-dom";
 import Auth from "../../utils/auth";

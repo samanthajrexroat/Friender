@@ -12,6 +12,7 @@ import { ProfileCard } from "../../components/ProfileCard";
 import FriendList from "../../components/FriendList";
 import SearchBar from "../../components/SearchBar";
 import Grid from "@mui/material/Grid";
+import Paper from "@mui/material/Paper";
 
 // import { createRoutesFromChildren } from "react-router-dom";
 
@@ -61,7 +62,7 @@ const Profile = () => {
   return (
     <div>
       <div className="pageFlex profileBackground profileContainer">
-        <Grid container>
+        <Grid container className="profileStretch">
           <ProfileCard />
           <SearchBar placeholder="Search Friends or Hobbies..." />
           <Grid item sm={12} md={4} lg={3}>
@@ -70,15 +71,23 @@ const Profile = () => {
         </Grid>
 
         <div className="userHobbiesContainer">
-          {/* <div>
+          <Paper
+            elevation={5}
+            style={{
+              padding: "10px",
+              margin: "10px",
+              borderRadius: "12px",
+              background: "linear-gradient(to right, #ece9e6, #ffffff)",
+            }}
+            rounded="true"
+          >
             <p className="blackText">Add Hobbies to Search for Friends!</p>
             <Link to="/AddHobbies">
               <button className="sm-btn">Add hobbies</button>
             </Link>
-            
-          </div> */}
 
-          <UserHobbies />
+            <UserHobbies />
+          </Paper>
         </div>
       </div>
       <Footer />
