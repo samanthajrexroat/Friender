@@ -115,8 +115,8 @@ button {
 	display: flex;
 	align-items: center;
 	overflow: hidden;
-	margin: 2rem;
-
+	margin: 1rem;
+	padding: 1rem;
 	border: none;
 	max-width: 25rem;
 	max-height: 25rem;
@@ -125,8 +125,8 @@ button {
 #profile-image{
 	display: flex;
 	justify-content: center;
-	margin: 2rem;
-	padding: 2rem;
+	margin: 1rem;
+	padding: 1rem;
 	border: none;
 	
 }

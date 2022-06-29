@@ -85,7 +85,7 @@ const FriendList = () => {
           </h5>
         </div>
       </Paper>
-    </Grid>
+   </Grid>
   );
 };
 
