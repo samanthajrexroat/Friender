@@ -9,6 +9,7 @@
 .profileContainer {
 	flex-wrap: wrap;
 	padding-top: 110px;
+	padding-bottom: 20px;
 	justify-content: space-between;
 	width: 100vw;
 }
