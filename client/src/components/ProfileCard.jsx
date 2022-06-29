@@ -76,16 +76,17 @@ export const ProfileCard = () => {
 			>
 				<Card>
 					<h2>
-						{user.firstName} {user.lastName}
+						{user.firstName}
 					</h2>
+          <h2>{user.lastName}</h2>
 					<br />
 					<div className="img-container">
-						<img src={user.photo} alt={"photo of " + user.firstName} id="profile-image" /> <br />
+						<img src={user.photo} alt={"photo of " + user.firstName} id="profile-image" /> 
 					</div>
 					<h3>Location: {user.city}</h3>
 					<h4>Age: {user.age}</h4>
 					<br />
-					<h4 style={{ borderBottom: "1px solid" }}>
+					<h4>
 						About:
 						<br /> {user.description}
 					</h4>
