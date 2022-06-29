@@ -49,7 +49,7 @@ Card {
 .friendImage {
 	width: 60px;
 	height: 60px;
-	border: 1px solid black;
+	/* border: 1px solid black; */
 	border-radius: 7px;
 }
 
@@ -94,7 +94,7 @@ button {
 }
 
 .img-container {
-	border: 1px solid rgb(155, 152, 152);
+	/* border: 1px solid rgb(155, 152, 152); */
 	overflow: hidden;
 	margin: auto;
 	max-width: 80%;
