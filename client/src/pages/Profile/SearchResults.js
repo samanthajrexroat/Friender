@@ -23,30 +23,29 @@ const SearchResults = ({ globalHobbyId }) => {
   // console.log(hobbyFans);
 
   return (
-    <Grid container>
-    
+    <Grid container justifyContent="center">
       {hobbyFans.map(hobbyFan => (
-            <Paper item 
-            elevation={3}
-            style={{
-              margin: "10px",
-              padding: "1rem",
-              borderRadius: "12px",
-              background: "linear-gradient(to right, #ece9e6, #ffffff)",
-              width:"450px",
-              }
-            }
-            rounded={true}
-          >
-        <div ClassName="profileCard" key={hobbyFan._id} id={hobbyFan._id}>
-          <h2>{hobbyFan.firstName}</h2>
-          <div className="profile">
-            <div className="img-container">
-              <img
-                src={hobbyFan.photo}
-                alt={"photo of " + hobbyFan.firstName}
-              />
-            </div>
+        <Paper
+          item
+          elevation={3}
+          style={{
+            margin: "10px",
+            padding: "1rem",
+            borderRadius: "12px",
+            background: "linear-gradient(to right, #ece9e6, #ffffff)",
+            width: "450px",
+          }}
+          rounded={true}
+        >
+          <div ClassName="profileCard" key={hobbyFan._id} id={hobbyFan._id}>
+            <h2>{hobbyFan.firstName}</h2>
+            <div className="profile">
+              <div className="img-container">
+                <img
+                  src={hobbyFan.photo}
+                  alt={"photo of " + hobbyFan.firstName}
+                />
+              </div>
             </div>
             <div className="hobbyFanDesc">
               <h4>{hobbyFan.city}</h4>
@@ -54,13 +53,11 @@ const SearchResults = ({ globalHobbyId }) => {
               <h5>{hobbyFan.description}</h5>
               <AddFriend hobbyFanId={hobbyFan._id} />
             </div>
-        </div>
+          </div>
         </Paper>
       ))}
     </Grid>
   );
 };
-
-
 
 export default SearchResults;
