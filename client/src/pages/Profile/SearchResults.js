@@ -20,7 +20,7 @@ const SearchResults = ({ globalHobbyId }) => {
   }
 
   const hobbyFans = data?.hobbyFans || [];
-  console.log(hobbyFans);
+  // console.log(hobbyFans);
 
   return (
     <Grid container>

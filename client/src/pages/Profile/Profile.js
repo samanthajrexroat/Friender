@@ -70,15 +70,13 @@ const Profile = () => {
         </Grid>
 
         <div className="userHobbiesContainer">
-          <div>
+          {/* <div>
             <p className="blackText">Add Hobbies to Search for Friends!</p>
             <Link to="/AddHobbies">
               <button className="sm-btn">Add hobbies</button>
             </Link>
-            <Link to="/EditProfile">
-              <button className="sm-btn">Edit profile</button>
-            </Link>
-          </div>
+            
+          </div> */}
 
           <UserHobbies />
         </div>

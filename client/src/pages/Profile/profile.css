@@ -94,9 +94,17 @@ button {
 }
 
 .img-container {
-	/* border: 1px solid rgb(155, 152, 152); */
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
 	overflow: hidden;
-	margin: auto;
-	max-width: 80%;
-	max-height: 195px;
+	max-width: 70%;
+	max-height: width;
+}
+#profile-image{
+	display: block;
+	overflow: hidden;
+	margin-left: auto;
+	margin-right: auto;
+
 }
