@@ -71,7 +71,7 @@ export const ProfileCard = () => {
 					margin: "10px",
 					borderRadius: "12px",
 					background: "linear-gradient(to right, #ece9e6, #ffffff)",
-					wordWrap: "break-word",
+					
 				}}
 				rounded="true"
 			>
