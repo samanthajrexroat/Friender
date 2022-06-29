@@ -125,9 +125,9 @@ justify-content: space-around;
 }
 
 #profile-image{
-	display: flex;
+	/* display: flex;
 	justify-content: center;
-	margin: 1rem;
+	margin: 1rem; */
 	padding: 1rem;
 	border: none;
 	
