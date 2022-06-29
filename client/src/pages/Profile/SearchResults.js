@@ -32,7 +32,8 @@ const SearchResults = ({ globalHobbyId }) => {
               margin: "10px",
               padding: "1rem",
               borderRadius: "12px",
-              background: "linear-gradient(to right, #ece9e6, #ffffff)",        
+              background: "linear-gradient(to right, #ece9e6, #ffffff)",
+              width:"450px",
               }
             }
             rounded={true}
@@ -60,8 +61,6 @@ const SearchResults = ({ globalHobbyId }) => {
   );
 };
 
-// hello
 
-// is it me you're looking for?
 
 export default SearchResults;
