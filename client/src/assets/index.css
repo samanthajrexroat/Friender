@@ -226,6 +226,15 @@ img {
 	grid-template-rows: repeat(2, 1fr);
 }
 
+.div8 {
+	padding: 10px;
+	display: flex;
+	flex-direction: row;
+}
+.photo-container {
+	max-width: 100px;
+}
+
 .home {
 	position: absolute;
 	left: 50%;
