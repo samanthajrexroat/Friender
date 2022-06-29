@@ -39,7 +39,6 @@ const UserHobbies = () => {
             padding: "10px",
             margin: "10px",
             borderRadius: "12px",
-            background: "linear-gradient(62deg, #EE50FD 0%, #F7CE68 100%)",
           }}
           rounded="true"
         >
