@@ -26,11 +26,12 @@ A full-stack MERN application that allows users to connect with each other by se
 * JSON Web Tokens
 
 ## Screenshots
-![Landing](./client//src/assets/images/screenshots/friender-ss-landing.png)
-![Signup](./client/src/assets/images/screenshots/friender-ss-signup.png)
-![Profile](./client/src/assets/images/screenshots/friender-ss-profile.png)
-![Add Hobbies](./client/src/assets/images/screenshots/friender-ss-addhobbies.png)
-![Search Results](./client/src/assets/images/screenshots/friender-ss-searchresults.png)
+![Landing](./client//src/assets/images/screenshots/landingpage.png)
+![Signup](./client/src/assets/images/screenshots/signup.png)
+![Signin](./client/src/assets/images/screenshots/signin.png)
+![Profile](./client/src/assets/images/screenshots/profilepage.png)
+![Add Hobbies](./client/src/assets/images/screenshots/hobbiespage.png)
+![Search Results](./client/src/assets/images/screenshots/searchfriends.png)
 
 ## Links
 [GitHub Repository](https://github.com/samanthajrexroat/Friender)  
