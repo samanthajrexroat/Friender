@@ -88,7 +88,9 @@ button {
 	transition: all 400ms ease-in;
 	background: var(--color-dark);
 }
-
+.hobbyFanDesc{
+justify-content: space-around;
+}
 .fullPage {
 	display: grid;
 	grid-template-columns: 1fr;

@@ -33,7 +33,9 @@ const SearchResults = ({ globalHobbyId }) => {
               padding: "1rem",
               borderRadius: "12px",
               background: "linear-gradient(to right, #ece9e6, #ffffff)",
-            }}
+              width:"450px",
+              }
+            }
             rounded={true}
           >
         <div ClassName="profileCard" key={hobbyFan._id} id={hobbyFan._id}>
@@ -45,11 +47,13 @@ const SearchResults = ({ globalHobbyId }) => {
                 alt={"photo of " + hobbyFan.firstName}
               />
             </div>
-          </div>
-          <h4>{hobbyFan.city}</h4>
-          <h5>{hobbyFan.age}</h5>
-          <h5>{hobbyFan.description}</h5>
-          <AddFriend hobbyFanId={hobbyFan._id} />
+            </div>
+            <div className="hobbyFanDesc">
+              <h4>{hobbyFan.city}</h4>
+              <h5>{hobbyFan.age}</h5>
+              <h5>{hobbyFan.description}</h5>
+              <AddFriend hobbyFanId={hobbyFan._id} />
+            </div>
         </div>
         </Paper>
       ))}
@@ -57,8 +61,6 @@ const SearchResults = ({ globalHobbyId }) => {
   );
 };
 
-// hello
 
-// is it me you're looking for?
 
 export default SearchResults;
