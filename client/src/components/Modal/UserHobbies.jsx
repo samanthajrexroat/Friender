@@ -42,29 +42,32 @@ const UserHobbies = () => {
           }}
           rounded="true"
         >
-          <div className="inline">
-            {user.hobbies.map(hobby => (
-              <div
-                id={hobby._id}
-                key={hobby._id}
-                value={hobby.hobbyName}
-                className="hobbyBtn"
-                onClick={handleClick}
-              >
-                {hobby.hobbyName}
+          <h5 className="userHobbies">
+            <div className="inline">
+              {user.hobbies.map(hobby => (
                 <div
+                  id={hobby._id}
                   key={hobby._id}
-                  className="closeIcon black"
-                  name={hobby.hobbyName}
-                  onClick={handleRemoveHobby}
+                  value={hobby.hobbyName}
+                  className="hobbyBtn"
+                  onClick={handleClick}
                 >
-                  <div key={hobby._id} className="tab">
-                    {" "}
+                  {hobby.hobbyName}
+                  <div
+                    key={hobby._id}
+                    className="closeIcon black"
+                    name={hobby.hobbyName}
+                    onClick={handleRemoveHobby}
+                  >
+                    <div key={hobby._id} className="tab">
+                      {" "}
+                      {/* ⓧ */}
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          </h5>
         </Paper>
       </Grid>
       <div className="hobbySearchResults">
