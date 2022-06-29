@@ -87,7 +87,9 @@ button {
 	transition: all 400ms ease-in;
 	background: var(--color-dark);
 }
-
+.hobbyFanDesc{
+justify-content: space-around;
+}
 .fullPage {
 	display: grid;
 	grid-template-columns: 1fr;
@@ -114,8 +116,8 @@ button {
 	display: flex;
 	align-items: center;
 	overflow: hidden;
-	margin: 2rem;
-
+	margin: 1rem;
+	padding: 1rem;
 	border: none;
 	max-width: 25rem;
 	max-height: 25rem;
@@ -124,8 +126,8 @@ button {
 #profile-image{
 	display: flex;
 	justify-content: center;
-	margin: 2rem;
-	padding: 2rem;
+	margin: 1rem;
+	padding: 1rem;
 	border: none;
 	
 }

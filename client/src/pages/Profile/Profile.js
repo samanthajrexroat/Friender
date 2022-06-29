@@ -85,8 +85,8 @@ const Profile = () => {
             <Link to="/AddHobbies">
               <button className="sm-btn">Add hobbies</button>
             </Link>
-
             <UserHobbies />
+
           </Paper>
         </div>
       </div>
