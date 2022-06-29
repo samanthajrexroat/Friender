@@ -45,11 +45,13 @@ const SearchResults = ({ globalHobbyId }) => {
                 alt={"photo of " + hobbyFan.firstName}
               />
             </div>
-          </div>
-          <h4>{hobbyFan.city}</h4>
-          <h5>{hobbyFan.age}</h5>
-          <h5>{hobbyFan.description}</h5>
-          <AddFriend hobbyFanId={hobbyFan._id} />
+            </div>
+            <div className="hobbyFanDesc">
+              <h4>{hobbyFan.city}</h4>
+              <h5>{hobbyFan.age}</h5>
+              <h5>{hobbyFan.description}</h5>
+              <AddFriend hobbyFanId={hobbyFan._id} />
+            </div>
         </div>
         </Paper>
       ))}
