@@ -64,7 +64,7 @@ const Profile = () => {
         <Grid container>
           <ProfileCard />
           <SearchBar placeholder="Search Friends or Hobbies..." />
-          <Grid item>
+          <Grid item sm={12} md={4} lg={3}>
             <FriendList />
           </Grid>
         </Grid>

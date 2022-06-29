@@ -52,7 +52,7 @@ const FriendList = () => {
     );
   }
   return (
-    <Grid>
+    <Grid >
       <Paper
         elevation={3}
         style={{
@@ -80,7 +80,7 @@ const FriendList = () => {
                     </button>
                   </div>
                 </div>
-                {/* {friend.lastName} */}
+                
               </div>
             ))}
           </h5>
