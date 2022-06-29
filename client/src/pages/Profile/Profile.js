@@ -61,12 +61,14 @@ const Profile = () => {
   return (
     <div>
       <div className="pageFlex profileBackground profileContainer">
-        <Grid container>
-          <ProfileCard />
+        <Grid container >
+          
+            <ProfileCard />
+          
           <SearchBar placeholder="Search Friends or Hobbies..." />
-          <Grid item sm={12} md={4} lg={3}>
+          {/* <Grid item sm={12} md={4} lg={3}> */}
             <FriendList />
-          </Grid>
+          
         </Grid>
 
         <div className="userHobbiesContainer">

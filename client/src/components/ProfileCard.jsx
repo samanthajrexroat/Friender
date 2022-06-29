@@ -64,7 +64,7 @@ export const ProfileCard = () => {
 		);
 	}
 	return (
-		<Grid item sm={12} md={4} lg={3} className="profileCard">
+		<Grid item sm={12} md={4} lg={3} className="profileCard" justifyContent="flex-start">
 			<Paper
 				elevation={3}
 				style={{

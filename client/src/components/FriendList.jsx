@@ -52,7 +52,7 @@ const FriendList = () => {
     );
   }
   return (
-    <Grid >
+    <Grid item sm={12} md={4} lg={3} justifyContent="flex-end">
       <Paper
         elevation={3}
         style={{
@@ -86,7 +86,7 @@ const FriendList = () => {
           </h5>
         </Card>
       </Paper>
-    </Grid>
+   </Grid>
   );
 };
 
