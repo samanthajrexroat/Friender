@@ -11,7 +11,7 @@ const LogIn = props => {
   const [login, { error, data }] = useMutation(LOGIN_USER);
 
   if (error) {
-    console.log(JSON.stringify(error));
+    console.log(error);
   }
 
   const handleChange = event => {
