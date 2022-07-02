@@ -22,7 +22,7 @@ const SignUp = () => {
 	const [createUser, { error, data }] = useMutation(CREATE_USER);
 
 	if (error) {
-		console.log(JSON.stringify(error));
+		console.log(error);
 	}
 
 	const handleChange = (e) => {
