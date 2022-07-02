@@ -14,19 +14,10 @@ const EditProfile = () => {
 	}
 	const user = data?.me || null;
 
-	const [updateUser, { error, data: updateddata }] = useMutation(UPDATE_USER);
+	const [updateUser, { error }] = useMutation(UPDATE_USER);
 	if (error) {
 		console.log(JSON.stringify(error));
 	}
-	const [formData, setFormData] = useState({
-		firstName: "",
-		lastName: "",
-		email: "",
-		description: "",
-		city: "",
-		age: !null,
-		photo: "",
-	});
 	const [modifiableData, setModifiableData] = useState({
 		firstName: "",
 		lastName: "",
@@ -36,17 +27,8 @@ const EditProfile = () => {
 		age: !null,
 		photo: "",
 	});
-	useEffect(() => {
+	useEffect((user) => {
 		if (user) {
-			setFormData({
-				firstName: user.firstName,
-				lastName: user.lastName,
-				email: user.email,
-				description: user.description,
-				city: user.city,
-				age: user.age,
-				photo: user.photo,
-			});
 			setModifiableData({
 				firstName: user.firstName,
 				lastName: user.lastName,

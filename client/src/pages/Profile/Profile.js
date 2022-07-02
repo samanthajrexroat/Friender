@@ -2,26 +2,22 @@ import React from "react";
 import "./profile.css";
 import { Link, Navigate, useParams } from "react-router-dom";
 import Footer from "../../components/Footer/Footer";
-import { useMutation, useQuery } from "@apollo/client";
+import { useQuery } from "@apollo/client";
 import { QUERY_ME } from "../../utils/queries";
 import Auth from "../../utils/auth";
 import LogIn from "../../components/Modal/LogIn";
 import UserHobbies from "../../components/Modal/UserHobbies";
-import { REMOVE_FRIEND } from "../../utils/mutations";
 import { ProfileCard } from "../../components/ProfileCard";
 import FriendList from "../../components/FriendList";
 import SearchBar from "../../components/SearchBar";
 import Grid from "@mui/material/Grid";
-import Paper from "@mui/material/Paper";
 
-// import { createRoutesFromChildren } from "react-router-dom";
 
 const Profile = () => {
   const { userId } = useParams();
   const { loading, data } = useQuery(QUERY_ME, {
     variables: { userId: userId },
   });
-  const [removeFriend] = useMutation(REMOVE_FRIEND);
 
   const user = data?.me || data?.user || {};
 
@@ -32,21 +28,7 @@ const Profile = () => {
   if (loading) {
     return <div>Loading...</div>;
   }
-  const user_ID = user._id;
-  const handleDelete = async friend => {
-    try {
-      const { data } = await removeFriend(
-        {
-          variables: { userId: user_ID, friendId: friend },
-        },
-        window.location.reload(false)
-      );
-    } catch (error) {
-      console.log(JSON.stringify(error));
-      throw error;
-    }
-  };
-
+  
   if (!user?._id) {
     return (
       <>
@@ -65,7 +47,6 @@ const Profile = () => {
         <Grid container className="profileStretch">
           <ProfileCard />
           <SearchBar placeholder="Search Friends or Hobbies..." />
-          {/* <Grid item sm={12} md={4} lg={3}> */}
             <FriendList />
           
         </Grid>
