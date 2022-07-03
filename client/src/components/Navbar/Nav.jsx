@@ -22,7 +22,7 @@ const Nav = () => {
       <nav className="navInline">
         <div className="logoContainer">
           <h1>
-            <TiThMenuOutline /> Frendr{" "}
+            <TiThMenuOutline /> Frender{" "}
           </h1>
         </div>
         <div className="inline">

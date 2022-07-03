@@ -1,9 +1,9 @@
 import * as React from "react";
 import { QUERY_ME } from "../utils/queries";
-import { Link, Navigate, useParams } from "react-router-dom";
+import { Link,  useParams } from "react-router-dom";
 import {  useQuery } from "@apollo/client";
 import LogIn from "../components/Modal/LogIn";
-import Auth from "../utils/auth";
+// import Auth from "../utils/auth";
 import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
 

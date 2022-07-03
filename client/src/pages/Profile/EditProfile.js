@@ -19,13 +19,13 @@ const EditProfile = () => {
 		console.log(JSON.stringify(error));
 	}
 	const [modifiableData, setModifiableData] = useState({
-		firstName: "",
-		lastName: "",
-		email: "",
-		description: "",
-		city: "",
-		age: !null,
-		photo: "",
+		firstName: user.firstName,
+		lastName: user.lastName,
+		email: user.email,
+		description: user.description,
+		city: user.city,
+		age: user.age,
+		photo: user.photo,
 	});
 	useEffect((user) => {
 		if (user) {
@@ -45,7 +45,7 @@ const EditProfile = () => {
 		console.log(JSON.stringify(error));
 	}
 
-	const handleChange = (e) => {
+	const handleChange = e => {
 		const value = e.target.type === "checkbox" ? e.target.checked : e.target.value;
 		const name = e.target.name;
 		setModifiableData({ ...modifiableData, [name]: value });
