@@ -6,13 +6,11 @@ import {
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-
 import Home from "./pages/Home";
 import Nav from "./components/Navbar/Nav";
 import LogIn from "./components/Modal/LogIn";
 import Signup from "./components/Modal/Signup";
 import Hobbies from "./components/Modal/Hobbies";
-
 import Profile from "./pages/Profile/Profile";
 import EditProfile from "./pages/Profile/EditProfile";
 
