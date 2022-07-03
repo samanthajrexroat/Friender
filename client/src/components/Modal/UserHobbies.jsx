@@ -3,7 +3,6 @@ import "./modal.css";
 import { useQuery } from "@apollo/client";
 import { QUERY_ME } from "../../utils/queries";
 import Grid from "@mui/material/Grid";
-
 import SearchResults from "../../pages/Profile/SearchResults";
 import Paper from "@mui/material/Paper";
 

@@ -1,10 +1,9 @@
 import React from "react";
 import "./profile.css";
-import { Link, Navigate, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Footer from "../../components/Footer/Footer";
 import { useQuery } from "@apollo/client";
 import { QUERY_ME } from "../../utils/queries";
-import Auth from "../../utils/auth";
 import LogIn from "../../components/Modal/LogIn";
 import UserHobbies from "../../components/Modal/UserHobbies";
 import { ProfileCard } from "../../components/ProfileCard";
@@ -20,10 +19,6 @@ const Profile = () => {
   });
 
   const user = data?.me || data?.user || {};
-
-  // if (Auth.loggedIn() && Auth.getProfile().data._id === userId) {
-  //   return <Navigate to="/me" />;
-  // }
 
   if (loading) {
     return <div>Loading...</div>;
