@@ -7,7 +7,7 @@ import Auth from "../../utils/auth";
 import Grid from "@mui/material/Grid";
 
 const Nav = () => {
-  //This is currently not used in the return. Instead, when the button to logout is clicked, it goes straight to the Auth.logout() method, which handles deleting the cookie and redirecting back tothe homepage.
+  //This is currently not used in the return. Instead, when the button to logout is clicked, it goes straight to the Auth.logout() method, which handles deleting the cookie and redirecting back to the homepage.
       // const logout = event => {
       //   event.preventDefault();
       //   console.log("cookie here!!!");
@@ -37,8 +37,7 @@ const Nav = () => {
                   value="Logout"
                   onClick={() => {
                     Auth.logout();
-                    navigate("/", { replace: true });
-                  }}
+                    }}
                   type="button"
                 />
               </Link>

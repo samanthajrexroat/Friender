@@ -21,9 +21,9 @@ const Profile = () => {
 
   const user = data?.me || data?.user || {};
 
-  if (Auth.loggedIn() && Auth.getProfile().data._id === userId) {
-    return <Navigate to="/me" />;
-  }
+  // if (Auth.loggedIn() && Auth.getProfile().data._id === userId) {
+  //   return <Navigate to="/me" />;
+  // }
 
   if (loading) {
     return <div>Loading...</div>;

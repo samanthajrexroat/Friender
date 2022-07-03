@@ -1,8 +1,7 @@
 import React from "react";
-import { Navigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useMutation, useQuery } from "@apollo/client";
 import { QUERY_ME } from "../utils/queries";
-import Auth from "../utils/auth";
 import LogIn from "../components/Modal/LogIn";
 import { REMOVE_FRIEND } from "../utils/mutations";
 import Grid from "@mui/material/Grid";
@@ -17,9 +16,7 @@ const FriendList = () => {
 
   const user = data?.me || data?.user || {};
 
-  if (Auth.loggedIn() && Auth.getProfile().data._id === userId) {
-    return <Navigate to="/me" />;
-  }
+  
 
   if (loading) {
     return <div>Loading...</div>;
