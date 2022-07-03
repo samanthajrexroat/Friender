@@ -47,11 +47,9 @@ function App() {
             <Route path="/" element={<Home />}></Route>
             <Route path="/LogIn" element={<LogIn />}></Route>
             <Route path="/SignUp" element={<Signup />}></Route>
-            <Route path="/me" element={<Profile />}></Route>
-            {/* <Route path="/User/userId" element={<Profile />}></Route> */}
+            <Route path="/me" element={<Profile />}></Route>            
             <Route path="/EditProfile" element={<EditProfile />}></Route>
             <Route path="/AddHobbies" element={<Hobbies />}></Route>
-            {/* <Route path="/UserHobbies" element={<UserHobbies />}></Route> */}
           </Routes>
         </Router>
       </div>

@@ -47,8 +47,7 @@ const Profile = () => {
         <Grid container className="profileStretch">
           <ProfileCard />
           <SearchBar placeholder="Search Friends or Hobbies..." />
-            <FriendList />
-          
+            <FriendList /> 
         </Grid>
 
         <div className="userHobbiesContainer">

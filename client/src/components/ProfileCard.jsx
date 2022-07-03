@@ -18,9 +18,9 @@ export const ProfileCard = () => {
   const errorMessage =
     "You need to be logged in to see this. Use the navigation links above to sign up or log in!";
 
-  if (Auth.loggedIn() && Auth.getProfile().data._id === userId) {
-    return <Navigate to="/me" />;
-  }
+  // if (Auth.loggedIn() && Auth.getProfile().data._id === userId) {
+  //   return <Navigate to="/me" />;
+  // }
 
   if (loading) {
     return <div>Loading...</div>;
