@@ -31,8 +31,8 @@ const FriendList = () => {
         {
           variables: { userId: user_ID, friendId: friend },
         },
+        );
         window.location.reload(false)
-      );
     } catch (error) {
       console.log(JSON.stringify(error));
       throw error;
