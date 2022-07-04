@@ -15,7 +15,7 @@ const Nav = () => {
       //   console.log("cookie gone!!!");
       // };
 
-  let navigate = useNavigate();
+  
 
   return (
     <Grid container>
