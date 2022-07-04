@@ -22,8 +22,6 @@ const SignUp = () => {
 	const [createUser, { error, data }] = useMutation(CREATE_USER);
 
 	if (error) {
-		console.table(error);
-		console.log(error);
 		console.log(JSON.stringify(error));
 		console.error(JSON.stringify(error));
 	}
@@ -55,10 +53,10 @@ const SignUp = () => {
 			const { data } = await createUser({
 				variables: { ...formData },
 			});
-
 			Auth.login(data.createUser.token);
 		} catch (e) {
-			console.error(e);
+			console.error(JSON.stringify(e));
+			console.log(JSON.stringify(e));
 		}
 	};
 

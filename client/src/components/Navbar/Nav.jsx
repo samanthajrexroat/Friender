@@ -1,7 +1,7 @@
 import React from "react";
 import "./nav.css";
 import { TiThMenuOutline } from "react-icons/ti";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Button } from "../Button";
 import Auth from "../../utils/auth";
 import Grid from "@mui/material/Grid";

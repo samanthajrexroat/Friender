@@ -16,7 +16,7 @@ import EditProfile from "./pages/Profile/EditProfile";
 
 // Main GraphQL endpoint
 const httpLink = createHttpLink({
-  uri: "/graphql",
+  uri: "/graphql/",
 });
 
 const authLink = setContext((_, { headers }) => {
@@ -34,9 +34,6 @@ const client = new ApolloClient({
   link: authLink.concat(httpLink),
   cache: new InMemoryCache(),
 });
-
-
-
 
 
 function App() {
