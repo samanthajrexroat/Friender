@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 require("dotenv").config();
-mongoose.connect(process.env.DB_URL, {
+mongoose.connect('mongodb://localhost:27017/friender', {
 	useNewUrlParser: true,
 	useUnifiedTopology: true,
 });
