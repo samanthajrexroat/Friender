@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 require("dotenv").config();
-mongoose.connect('mongodb://localhost:27017', {
+mongoose.connect("mongodb+srv://root:root@cluster0.o20dk.mongodb.net/friender_DB?retryWrites=true&w=majority", {
 	useNewUrlParser: true,
 	useUnifiedTopology: true,
 });
