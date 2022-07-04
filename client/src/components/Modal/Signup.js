@@ -1,7 +1,7 @@
 import React from "react";
 import "./modal.css";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { useMutation } from "@apollo/client";
 import { CREATE_USER } from "../../utils/mutations";
 import Auth from "../../utils/auth";
@@ -22,7 +22,6 @@ const SignUp = () => {
 	const [createUser, { error, data }] = useMutation(CREATE_USER);
 
 	if (error) {
-		console.log(JSON.stringify(error));
 		console.error(JSON.stringify(error));
 	}
 
@@ -54,9 +53,11 @@ const SignUp = () => {
 				variables: { ...formData },
 			});
 			Auth.login(data.createUser.token);
+			if (Auth.loggedIn()) {
+			  return <Navigate to="/me" />;
+			}
 		} catch (e) {
 			console.error(JSON.stringify(e));
-			console.log(JSON.stringify(e));
 		}
 	};
 
@@ -83,7 +84,7 @@ const SignUp = () => {
 										id="firstName"
 										name="firstName"
 										placeholder="First Name"
-										required={true}
+										required="true"
 										value={formData.firstName}
 										onChange={handleChange}
 									/>
@@ -96,7 +97,7 @@ const SignUp = () => {
 										id="lastName"
 										name="lastName"
 										placeholder="Last Name"
-										required={true}
+										required="true"
 										value={formData.lastName}
 										onChange={handleChange}
 									/>
@@ -110,7 +111,7 @@ const SignUp = () => {
 										id="email"
 										name="email"
 										placeholder="E-Mail"
-										required={true}
+										required="true"
 										value={formData.email}
 										onChange={handleChange}
 									/>
@@ -123,7 +124,7 @@ const SignUp = () => {
 										id="city"
 										name="city"
 										placeholder="City"
-										required={true}
+										required="true"
 										value={formData.city}
 										onChange={handleChange}
 									/>
@@ -136,7 +137,7 @@ const SignUp = () => {
 										id="age"
 										name="age"
 										placeholder="Age"
-										required={true}
+										required="true"
 										value={formData.age}
 										onChange={handleChange}
 									/>
@@ -163,7 +164,7 @@ const SignUp = () => {
 										id="description"
 										name="description"
 										placeholder="Tell us about yourself!"
-										required={true}
+										required="true"
 										value={formData.description}
 										onChange={handleChange}
 									/>
@@ -177,7 +178,7 @@ const SignUp = () => {
 										id="password"
 										name="password"
 										placeholder="password"
-										required={true}
+										required="true"
 										value={formData.password}
 										onChange={handleChange}
 									/>
