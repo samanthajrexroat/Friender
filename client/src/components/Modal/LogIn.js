@@ -35,7 +35,7 @@ const LogIn = props => {
       // alert(JSON.stringify(data))
     } catch (e) {
       // alert("No user found with that information!");
-      console.error(JSON.stringify(e));
+      console.error(e);
     }
 
     setFormState({
