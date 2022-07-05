@@ -11,7 +11,7 @@ const LogIn = props => {
   const [login, { error, data }] = useMutation(LOGIN_USER);
 
   if (error) {
-    console.log(JSON.stringify(error));
+    console.log(error);
   }
 
   const handleChange = event => {
@@ -30,11 +30,14 @@ const LogIn = props => {
       const { data } = await login({
         variables: { ...formState },
       });
-      console.log(Auth.login);
+      
       Auth.login(data.login.token);
       // alert(JSON.stringify(data))
     } catch (e) {
       // alert("No user found with that information!");
+      console.table(e);
+      console.log(e);
+      console.log(JSON.stringify(e));
       console.error(JSON.stringify(e));
     }
 

@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import "./modal.css";
 import { useQuery, useMutation } from "@apollo/client";
 import { QUERY_HOBBIES } from "../../utils/queries";
-import { QUERY_ME } from "../../utils/queries";
 import { ADD_HOBBY } from "../../utils/mutations";
 import { Link } from "react-router-dom";
 import Auth from "../../utils/auth";
@@ -16,8 +15,7 @@ const Hobbies = () => {
   const [searchTerm, setSearchTerm] = useState("");
 
   const userId = Auth.getProfile().data._id;
-  const user = data?.me || data?.user || {};
-
+  
   const [addHobby, { error }] = useMutation(ADD_HOBBY);
 
   if (error) {
@@ -26,7 +24,7 @@ const Hobbies = () => {
 
   const handleClick = async hobbyId => {
     try {
-      const { data } = await addHobby({
+      await addHobby({
         variables: { userId, hobbyId },
       });
     } catch (error) {

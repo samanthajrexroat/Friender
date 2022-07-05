@@ -1,21 +1,17 @@
 import React, { useState } from "react";
 import "./modal.css";
-import { useQuery, selectHttpOptionsAndBodyInternal } from "@apollo/client";
+import { useQuery } from "@apollo/client";
 import { QUERY_ME } from "../../utils/queries";
-import { ADD_HOBBY, REMOVE_HOBBY } from "../../utils/mutations";
 import Grid from "@mui/material/Grid";
-import Auth from "../../utils/auth";
 import SearchResults from "../../pages/Profile/SearchResults";
-import { Link, Navigate, useParams } from "react-router-dom";
 import Paper from "@mui/material/Paper";
 
 const UserHobbies = () => {
   const { loading, data } = useQuery(QUERY_ME);
 
-  const [hobbyId, setHobbyId, updateList, setButtonDisplay] = useState("");
+  const [hobbyId, setHobbyId, updateList] = useState("");
 
-  const userId = Auth.getProfile().data._id;
-  const user = data?.me || data?.user || {};
+    const user = data?.me || data?.user || {};
   if (loading) {
     return <div>Loading...</div>;
   }

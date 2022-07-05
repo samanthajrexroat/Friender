@@ -1,10 +1,9 @@
 import React from "react";
 import "./profile.css";
-import { Link } from "react-router-dom";
-import { useQuery, useMutation } from "@apollo/client";
+import { useQuery} from "@apollo/client";
 import { QUERY_HOBBY_FANS } from "../../utils/queries";
 import AddFriend from "../../components/Modal/Addfriend";
-import { useState } from "react";
+
 import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
 
@@ -13,14 +12,13 @@ const SearchResults = ({ globalHobbyId }) => {
     variables: { hobbyId: globalHobbyId },
   });
 
-  const [hidden, setHidden] = useState(false);
+  
 
   if (error) {
     console.log(JSON.stringify(error));
   }
 
   const hobbyFans = data?.hobbyFans || [];
-  // console.log(hobbyFans);
 
   return (
     <Grid container justifyContent="center">
