@@ -15,8 +15,8 @@ import Profile from "./pages/Profile/Profile";
 import EditProfile from "./pages/Profile/EditProfile";
 
 // Main GraphQL endpoint
-const httpLink = createHttpLink({
-  uri: "/graphql/",
+let httpLink = createHttpLink({
+  uri: "/graphql",
 });
 
 const authLink = setContext((_, { headers }) => {

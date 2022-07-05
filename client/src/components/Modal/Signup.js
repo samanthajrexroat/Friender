@@ -2,7 +2,7 @@ import React from "react";
 import "./modal.css";
 import { useState } from "react";
 import { Link, Navigate } from "react-router-dom";
-import { useMutation } from "@apollo/client";
+import { useLazyQuery, useMutation } from "@apollo/client";
 import { CREATE_USER } from "../../utils/mutations";
 import Auth from "../../utils/auth";
 
@@ -53,9 +53,9 @@ const SignUp = () => {
 				variables: { ...formData },
 			});
 			Auth.login(data.createUser.token);
-			if (Auth.loggedIn()) {
-			  return <Navigate to="/me" />;
-			}
+			// if (Auth.loggedIn()) {
+			//   return <Navigate to="/me" />;
+			// }
 		} catch (e) {
 			console.error(JSON.stringify(e));
 		}

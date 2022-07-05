@@ -1,7 +1,7 @@
 import React from "react";
 import "./modal.css";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link , Navigate} from "react-router-dom";
 import { useMutation } from "@apollo/client";
 import { LOGIN_USER } from "../../utils/mutations";
 import Auth from "../../utils/auth";
@@ -32,6 +32,7 @@ const LogIn = props => {
       });
       
       Auth.login(data.login.token);
+      
       // alert(JSON.stringify(data))
     } catch (e) {
       // alert("No user found with that information!");
@@ -55,9 +56,7 @@ const LogIn = props => {
         </Link>
         <h2>Log In</h2>
         {data ? (
-          <p>
-            Success! You may now head <Link to="/me">to your profile.</Link>
-          </p>
+          <Navigate to="/me" />
         ) : (
           <form className="logInForm" onSubmit={handleFormSubmit}>
             <input
