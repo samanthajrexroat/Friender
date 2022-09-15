@@ -20,7 +20,6 @@
 	"author": "",
 	"license": "ISC",
 	"devDependencies": {
-		"concurrently": "^5.1.0",
-		"netlify-cli": "^10.1.0"
+		"concurrently": "^5.1.0"
 	}
 }
