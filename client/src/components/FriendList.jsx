@@ -1,13 +1,11 @@
 import React from "react";
-import { Link, Navigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useMutation, useQuery } from "@apollo/client";
 import { QUERY_ME } from "../utils/queries";
-import Auth from "../utils/auth";
 import LogIn from "../components/Modal/LogIn";
 import { REMOVE_FRIEND } from "../utils/mutations";
 import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
-import Card from "@mui/material/Card";
 
 const FriendList = () => {
   const { userId } = useParams();
@@ -18,9 +16,7 @@ const FriendList = () => {
 
   const user = data?.me || data?.user || {};
 
-  if (Auth.loggedIn() && Auth.getProfile().data._id === userId) {
-    return <Navigate to="/me" />;
-  }
+  
 
   if (loading) {
     return <div>Loading...</div>;
@@ -28,12 +24,10 @@ const FriendList = () => {
   const user_ID = user._id;
   const handleDelete = async friend => {
     try {
-      const { data } = await removeFriend(
-        {
+       await removeFriend({
           variables: { userId: user_ID, friendId: friend },
-        },
+        });
         window.location.reload(false)
-      );
     } catch (error) {
       console.log(JSON.stringify(error));
       throw error;

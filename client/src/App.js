@@ -6,19 +6,17 @@ import {
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-
 import Home from "./pages/Home";
 import Nav from "./components/Navbar/Nav";
 import LogIn from "./components/Modal/LogIn";
-import Signup from "./components/Modal/SignUp";
+import Signup from "./components/Modal/Signup";
 import Hobbies from "./components/Modal/Hobbies";
-
 import Profile from "./pages/Profile/Profile";
 import EditProfile from "./pages/Profile/EditProfile";
 
 // Main GraphQL endpoint
 const httpLink = createHttpLink({
-  uri: "/graphql",
+  uri: "/graphql/",
 });
 
 const authLink = setContext((_, { headers }) => {
@@ -37,6 +35,7 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
+
 function App() {
   return (
     <ApolloProvider client={client}>
@@ -47,11 +46,9 @@ function App() {
             <Route path="/" element={<Home />}></Route>
             <Route path="/LogIn" element={<LogIn />}></Route>
             <Route path="/SignUp" element={<Signup />}></Route>
-            <Route path="/me" element={<Profile />}></Route>
-            {/* <Route path="/User/userId" element={<Profile />}></Route> */}
+            <Route path="/me" element={<Profile />}></Route>            
             <Route path="/EditProfile" element={<EditProfile />}></Route>
             <Route path="/AddHobbies" element={<Hobbies />}></Route>
-            {/* <Route path="/UserHobbies" element={<UserHobbies />}></Route> */}
           </Routes>
         </Router>
       </div>

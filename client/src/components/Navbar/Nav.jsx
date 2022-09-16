@@ -1,29 +1,26 @@
 import React from "react";
 import "./nav.css";
 import { TiThMenuOutline } from "react-icons/ti";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { Button } from "../Button";
-import { SearchBar } from "../../components/SearchBar";
 import Auth from "../../utils/auth";
 import Grid from "@mui/material/Grid";
 
 const Nav = () => {
-	// const authToken = true;
-	const logout = (event) => {
-		event.preventDefault();
-		console.log("cookie here!!!");
-		Auth.logout();
-		console.log("cookie gone!!!");
-	};
-
-	let navigate = useNavigate();
+	//This is currently not used in the return. Instead, when the button to logout is clicked, it goes straight to the Auth.logout() method, which handles deleting the cookie and redirecting back to the homepage.
+	// const logout = event => {
+	//   event.preventDefault();
+	//   console.log("cookie here!!!");
+	//   Auth.logout();
+	//   console.log("cookie gone!!!");
+	// };
 
 	return (
 		<Grid container>
 			<nav className="navInline">
 				<div className="logoContainer">
 					<h1>
-						<TiThMenuOutline /> Friender{" "}
+						<TiThMenuOutline /> Frender{" "}
 					</h1>
 				</div>
 				<div className="inline">
@@ -38,7 +35,6 @@ const Nav = () => {
 									value="Logout"
 									onClick={() => {
 										Auth.logout();
-										navigate("/", { replace: true });
 									}}
 									type="button"
 								/>

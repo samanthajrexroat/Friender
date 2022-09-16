@@ -3,16 +3,14 @@ import "./modal.css";
 import { useQuery } from "@apollo/client";
 import { QUERY_ME } from "../../utils/queries";
 import Grid from "@mui/material/Grid";
-import Auth from "../../utils/auth";
 import SearchResults from "../../pages/Profile/SearchResults";
 import Paper from "@mui/material/Paper";
 
 const UserHobbies = () => {
 	const { loading, data } = useQuery(QUERY_ME);
 
-	const [hobbyId, setHobbyId, updateList, setButtonDisplay] = useState("");
+	const [hobbyId, setHobbyId, updateList] = useState("");
 
-	const userId = Auth.getProfile().data._id;
 	const user = data?.me || data?.user || {};
 	if (loading) {
 		return <div>Loading...</div>;

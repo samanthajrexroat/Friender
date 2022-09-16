@@ -4,7 +4,7 @@ import { ADD_FRIEND } from "../../utils/mutations";
 import Auth from "../../utils/auth";
 
 const AddFriend = hobbyFanId => {
-  const [addFriend, { loading, error, data }] = useMutation(ADD_FRIEND);
+  const [addFriend, { error }] = useMutation(ADD_FRIEND);
   if (error) {
     console.log(JSON.stringify(error));
   }
@@ -12,7 +12,7 @@ const AddFriend = hobbyFanId => {
   console.log(userId);
   const handleClick = async hobbyFanId => {
     try {
-      const { data } = await addFriend({
+      await addFriend({
         variables: { userId: userId, friendId: hobbyFanId.hobbyFanId },
       });
     } catch (error) {
@@ -23,7 +23,6 @@ const AddFriend = hobbyFanId => {
   return (
     <div className="friendList">
       <div
-        // className="sm-btn-secondary"
         onClick={() => {
           handleClick(hobbyFanId);
         }}

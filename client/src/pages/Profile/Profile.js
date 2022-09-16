@@ -1,13 +1,11 @@
 import React from "react";
 import "./profile.css";
-import { Link, Navigate, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Footer from "../../components/Footer/Footer";
-import { useMutation, useQuery } from "@apollo/client";
+import { useQuery } from "@apollo/client";
 import { QUERY_ME } from "../../utils/queries";
-import Auth from "../../utils/auth";
 import LogIn from "../../components/Modal/LogIn";
 import UserHobbies from "../../components/Modal/UserHobbies";
-import { REMOVE_FRIEND } from "../../utils/mutations";
 import { ProfileCard } from "../../components/ProfileCard";
 import FriendList from "../../components/FriendList";
 import SearchBar from "../../components/SearchBar";
@@ -18,31 +16,12 @@ const Profile = () => {
 	const { loading, data } = useQuery(QUERY_ME, {
 		variables: { userId: userId },
 	});
-	const [removeFriend] = useMutation(REMOVE_FRIEND);
 
 	const user = data?.me || data?.user || {};
-
-	if (Auth.loggedIn() && Auth.getProfile().data._id === userId) {
-		return <Navigate to="/me" />;
-	}
 
 	if (loading) {
 		return <div>Loading...</div>;
 	}
-	const user_ID = user._id;
-	const handleDelete = async (friend) => {
-		try {
-			const { data } = await removeFriend(
-				{
-					variables: { userId: user_ID, friendId: friend },
-				},
-				window.location.reload(false)
-			);
-		} catch (error) {
-			console.log(JSON.stringify(error));
-			throw error;
-		}
-	};
 
 	if (!user?._id) {
 		return (

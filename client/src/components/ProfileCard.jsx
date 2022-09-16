@@ -1,11 +1,9 @@
 import * as React from "react";
 import { QUERY_ME } from "../utils/queries";
-import { Link, Navigate, useParams } from "react-router-dom";
-import { useMutation, useQuery } from "@apollo/client";
-import { REMOVE_FRIEND } from "../utils/mutations";
+import { Link, useParams } from "react-router-dom";
+import { useQuery } from "@apollo/client";
 import LogIn from "../components/Modal/LogIn";
-import Auth from "../utils/auth";
-import { styled } from "@mui/system";
+// import Auth from "../utils/auth";
 import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
 
@@ -14,33 +12,18 @@ export const ProfileCard = () => {
 	const { loading, data } = useQuery(QUERY_ME, {
 		variables: { userId: userId },
 	});
-	const [removeFriend] = useMutation(REMOVE_FRIEND);
 
 	const user = data?.me || data?.user || {};
 
 	const errorMessage = "You need to be logged in to see this. Use the navigation links above to sign up or log in!";
 
-	if (Auth.loggedIn() && Auth.getProfile().data._id === userId) {
-		return <Navigate to="/me" />;
-	}
+	// if (Auth.loggedIn() && Auth.getProfile().data._id === userId) {
+	//   return <Navigate to="/me" />;
+	// }
 
 	if (loading) {
 		return <div>Loading...</div>;
 	}
-	const user_ID = user._id;
-	const handleDelete = async (friend) => {
-		try {
-			const { data } = await removeFriend(
-				{
-					variables: { userId: user_ID, friendId: friend },
-				},
-				window.location.reload(false)
-			);
-		} catch (error) {
-			console.log(JSON.stringify(error));
-			throw error;
-		}
-	};
 
 	if (!user?._id) {
 		return (
