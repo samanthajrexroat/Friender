@@ -53,9 +53,9 @@ const SignUp = () => {
 				variables: { ...formData },
 			});
 			Auth.login(data.createUser.token);
-			// if (Auth.loggedIn()) {
-			//   return <Navigate to="/me" />;
-			// }
+			if (Auth.loggedIn()) {
+				return <Navigate to="/me" />;
+			}
 		} catch (e) {
 			console.error(JSON.stringify(e));
 		}
