@@ -221,11 +221,11 @@ const SignUp = () => {
 								/>
 								<div className="div10 photo-container rounded-input">{formData.photo && <img src={formData.photo} alt="profile pic preview" />}</div>
 							</div>
-							{/* <Link to="/Profile"> */}
-							<button className="primary-btn" type="submit">
-								Submit
-							</button>
-							{/* </Link> */}
+							<Link to="/me">
+								<button className="primary-btn" type="submit">
+									Submit
+								</button>
+							</Link>
 						</form>
 					)}
 

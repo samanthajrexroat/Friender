@@ -32,15 +32,8 @@ const LogIn = (props) => {
 			});
 
 			Auth.login(data.login.token);
-			window.location.assign("/me");
-
-			// alert(JSON.stringify(data))
 		} catch (e) {
-			// alert("No user found with that information!");
-			console.table(e);
 			console.log(e);
-			console.log(JSON.stringify(e));
-			console.error(JSON.stringify(e));
 		}
 
 		setFormState({
