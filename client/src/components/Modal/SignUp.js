@@ -47,20 +47,16 @@ const SignUp = () => {
 
 	const handleFormSubmit = async (event) => {
 		event.preventDefault();
-
 		try {
 			const { data } = await createUser({
 				variables: { ...formData },
 			});
 			Auth.login(data.createUser.token);
-			if (Auth.loggedIn()) {
-				return <Navigate to="/me" />;
-			}
+			window.location.assign("/me");
 		} catch (e) {
 			console.error(JSON.stringify(e));
 		}
 	};
-
 	return (
 		<div className=" signUpBackground">
 			<div className="signUpContainer signUpModal">
