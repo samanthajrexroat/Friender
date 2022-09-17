@@ -20,7 +20,9 @@ const Nav = () => {
 			<nav className="navInline">
 				<div className="logoContainer">
 					<h1>
-						<TiThMenuOutline /> Frender{" "}
+						<Link to="/">
+							<TiThMenuOutline /> Friender{" "}
+						</Link>
 					</h1>
 				</div>
 				<div className="inline">

@@ -52,7 +52,6 @@ const SignUp = () => {
 				variables: { ...formData },
 			});
 			Auth.login(data.createUser.token);
-			window.location.assign("/me");
 		} catch (e) {
 			console.error(JSON.stringify(e));
 		}
