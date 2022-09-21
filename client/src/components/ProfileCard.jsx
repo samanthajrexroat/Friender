@@ -3,7 +3,7 @@ import { QUERY_ME } from "../utils/queries";
 import { Link, useParams } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 import LogIn from "../components/Modal/LogIn";
-// import Auth from "../utils/auth";
+import defaultPicture from "../assets/images/defaultPicture.png";
 import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
 
@@ -16,10 +16,6 @@ export const ProfileCard = () => {
 	const user = data?.me || data?.user || {};
 
 	const errorMessage = "You need to be logged in to see this. Use the navigation links above to sign up or log in!";
-
-	// if (Auth.loggedIn() && Auth.getProfile().data._id === userId) {
-	//   return <Navigate to="/me" />;
-	// }
 
 	if (loading) {
 		return <div>Loading...</div>;
@@ -52,7 +48,7 @@ export const ProfileCard = () => {
 					<h2>{user.lastName}</h2>
 					<br />
 					<div className="img-container">
-						<img src={user.photo} alt={"photo of " + user.firstName} id="profile-image" />
+						<img src={user.photo || defaultPicture} alt={"photo of " + user.firstName} id="profile-image" />
 					</div>
 					<h3>Location: {user.city}</h3>
 					<h4>Age: {user.age}</h4>

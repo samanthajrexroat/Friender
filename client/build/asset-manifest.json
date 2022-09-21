@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/static/css/main.c0c2b1b4.css",
+    "main.js": "/static/js/main.e33f8924.js",
+    "static/media/good-friends.jpg": "/static/media/good-friends.c61bf0046247a2488898.jpg",
+    "index.html": "/index.html",
+    "main.c0c2b1b4.css.map": "/static/css/main.c0c2b1b4.css.map",
+    "main.e33f8924.js.map": "/static/js/main.e33f8924.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c0c2b1b4.css",
+    "static/js/main.e33f8924.js"
+  ]
+}
