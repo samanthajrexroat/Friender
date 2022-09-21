@@ -65,9 +65,7 @@ const SignUp = () => {
 				<h2>Sign Up</h2>
 				<div className="formWrapper">
 					{data ? (
-						<p>
-							Success! You may head <Link to="/profile">to your profile!</Link>
-						</p>
+						<Navigate to="/me" />
 					) : (
 						<form className="signUpForm" onSubmit={handleFormSubmit}>
 							<div className="block">
@@ -210,14 +208,7 @@ const SignUp = () => {
 								<label className="div9 rounded-input" htmlFor="url">
 									Profile Photo
 								</label>
-								<input
-									type="url"
-									name="photo"
-									id="photo"
-									onChange={handleChange}
-									// required={true}
-									value={formData.photo}
-								/>
+								<input type="url" name="photo" id="photo" onChange={handleChange} value={formData.photo} />
 								<div className="div10 photo-container rounded-input">{formData.photo && <img src={formData.photo} alt="profile pic preview" />}</div>
 							</div>
 							{/* <Link to="/me"> */}
