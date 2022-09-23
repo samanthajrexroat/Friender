@@ -6,9 +6,6 @@ import { REMOVE_FRIEND } from "../../utils/mutations";
 const RemoveFriend = (userId, { friend }) => {
 	const [removeFriend, { error }] = useMutation(REMOVE_FRIEND);
 
-	// const friendId = friend._id
-	// console.log(friend)
-
 	const handleDelete = async ({ userId, friendId }) => {
 		try {
 			const { data } = await removeFriend({
@@ -22,6 +19,7 @@ const RemoveFriend = (userId, { friend }) => {
 	return (
 		<div id={friend._id} key={friend._id} onClick={() => handleDelete(friend)} className="sm-btn-delete">
 			Delete {friend.firstName}
+			{friend.lastName}
 		</div>
 	);
 };

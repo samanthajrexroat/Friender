@@ -2,7 +2,7 @@ import React from "react";
 import "./modal.css";
 import { useState } from "react";
 import { Link, Navigate } from "react-router-dom";
-import { useMutation } from "@apollo/client";
+import { useLazyQuery, useMutation } from "@apollo/client";
 import { CREATE_USER } from "../../utils/mutations";
 import Auth from "../../utils/auth";
 
@@ -47,20 +47,15 @@ const Signup = () => {
 
 	const handleFormSubmit = async (event) => {
 		event.preventDefault();
-
 		try {
 			const { data } = await createUser({
 				variables: { ...formData },
 			});
 			Auth.login(data.createUser.token);
-			if (Auth.loggedIn()) {
-				return <Navigate to="/me" />;
-			}
 		} catch (e) {
 			console.error(JSON.stringify(e));
 		}
 	};
-
 	return (
 		<div className=" signUpBackground">
 			<div className="signUpContainer signUpModal">
@@ -70,9 +65,7 @@ const Signup = () => {
 				<h2>Sign Up</h2>
 				<div className="formWrapper">
 					{data ? (
-						<p>
-							Success! You may head <Link to="/profile">to your profile!</Link>
-						</p>
+						<Navigate to="/me" />
 					) : (
 						<form className="signUpForm" onSubmit={handleFormSubmit}>
 							<div className="block">
@@ -215,17 +208,10 @@ const Signup = () => {
 								<label className="div9 rounded-input" htmlFor="url">
 									Profile Photo
 								</label>
-								<input
-									type="url"
-									name="photo"
-									id="photo"
-									onChange={handleChange}
-									// required={true}
-									value={formData.photo}
-								/>
+								<input type="url" name="photo" id="photo" onChange={handleChange} value={formData.photo} />
 								<div className="div10 photo-container rounded-input">{formData.photo && <img src={formData.photo} alt="profile pic preview" />}</div>
 							</div>
-							{/* <Link to="/Profile"> */}
+							{/* <Link to="/me"> */}
 							<button className="primary-btn" type="submit">
 								Submit
 							</button>
