@@ -6,7 +6,7 @@ import { useLazyQuery, useMutation } from "@apollo/client";
 import { CREATE_USER } from "../../utils/mutations";
 import Auth from "../../utils/auth";
 
-const SignUp = () => {
+const Signup = () => {
 	const [formData, setFormData] = useState({
 		firstName: "",
 		lastName: "",
@@ -233,4 +233,4 @@ const SignUp = () => {
 	);
 };
 
-export default SignUp;
+export default Signup;
