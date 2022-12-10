@@ -74,8 +74,6 @@ const resolvers = {
 			try {
 				if (context.user) {
 					return User.findOneAndUpdate({ _id: userId }, { $addToSet: { hobbies: hobbyId } }, { new: true }).populate("hobbies");
-					// console.log(hobbyId, userId);
-					// return updatedUser;
 				}
 			} catch (error) {
 				throw error;
@@ -103,7 +101,7 @@ const resolvers = {
 						_id: userId,
 					});
 
-					return "User succesfully deleted";
+					return "User successfully deleted";
 				}
 			} catch (error) {
 				throw error;
